@@ -3,6 +3,7 @@ body {
   margin: 0;
   color: $dark;
   background-color: $light;
+  font-family: 'Roboto', sans-serif !important;
   ::selection {
     color: $light;
     background: $dark;
@@ -62,7 +63,7 @@ header {
                   font-size: 22px;
                 }
                 &:first-child {
-                  font-weight: 550;
+                  font-weight: 500;
                   font-size: 15px;
                   position: absolute;
                   top: 0;
@@ -140,7 +141,7 @@ header {
       }
     }
     .header-bar-right {
-      padding-right: 0px !important;
+      padding-right: 0px ;
       .languages-bar {
         z-index: 20;
         height: 100%;
@@ -148,7 +149,7 @@ header {
           cursor: pointer;
           color: $light;
           font-size: 16px;
-          font-weight: 550;
+          font-weight: 500;
           padding-right: 15px;
           padding-left: 15px;
           height: 100%;
@@ -173,9 +174,8 @@ header {
           }
           .nav-link-6 {
             height: 100%;
-            text-transform: uppercase;
             font-size: 14px;
-            font-weight: 550;
+            font-weight: 500;
             padding-right: 15px;
             padding-left: 15px;
             line-height: 50px;
@@ -201,9 +201,8 @@ header {
           }
           .nav-link-2 {
             height: 100%;
-            text-transform: uppercase;
             font-size: 14px;
-            font-weight: 550;
+            font-weight: 500;
             padding-right: 15px;
             padding-left: 15px;
             line-height: 56px;
@@ -252,7 +251,7 @@ header {
     .page-name {
       color: $light;
       font-size: 24px;
-      font-weight: 550;
+      font-weight: 500;
       font-style: italic;
       padding-right: 50px;
       transition: ease 0.3s;
@@ -282,13 +281,13 @@ header {
         // height: max-content;
         .nav-link {
           font-size: 20px;
-          font-weight: 550;
+          font-weight: 500;
           font-style: italic;
           position: relative;
           cursor: pointer;
           color: $light;
           z-index: 10000;
-          font-weight: 550;
+          font-weight: 500;
           line-height: 20px;
           height: 100%;
           border-left: 1px solid $light;
@@ -377,26 +376,29 @@ header {
     }
   }
   .header-content {
-    padding-top: 150px;
+    padding-top: 110px;
     .col-6 {
       z-index: 15;
       .header-filter {
-        width: 460px;
+        background-color: rgba(180, 180, 180, 0.3);
+        width: 430px;
+        border-radius: 15px;
+        text-align: center;
         form {
           background-color: rgba(180, 180, 180, 0.3);
           display: flex;
           flex-direction: column;
           justify-content: center;
-          width: 100%;
-          padding: 10px 30px;
+          margin: 10px 30px;
+          padding: 0px 10px;
+          font-weight: 500;
           border-radius: 15px;
-          font-weight: 550;
-          .label {
-            width: 140px !important;
+          .label{
+            text-align: left;
           }
           .anns-head {
             color: $dark;
-            background-color: $light;
+
             height: 36px;
             margin-top: 10px;
             h3 {
@@ -404,30 +406,20 @@ header {
             }
           }
           .select-category {
-            display: flex;
-            height: 36px;
-            margin: 10px 0px;
             .label {
-              font-weight: 550;
-              font-size: 14px;
-              height: 100%;
-              background-color: lightgray;
+              font-weight: 500;
+              font-size: 16px;
               color: $dark;
-              text-align: center;
               line-height: 36px;
               padding: 0px 20px;
-              border-right: 1px solid $dark;
             }
             select {
-              background-color: lightgray;
-              width: calc(100% - 140px) !important;
               border-radius: 0px;
               box-shadow: none;
-              padding: 0px 10px;
-              @media only screen and (max-width: 350px) {
-                width: calc(100% - 103px) !important;
-              }
+              padding: 0px 20px;
               option {
+                border-bottom-right-radius: 7px;
+                border-bottom-left-radius: 7px;
                 &:hover {
                   background-color: $hover;
                 }
@@ -438,23 +430,18 @@ header {
             }
           }
           .input-div {
-            display: flex;
-            height: 36px;
             margin-bottom: 10px;
             .label {
-              font-weight: 550;
-              font-size: 14px;
+              font-weight: 500;
+              font-size: 16px;
               height: 100%;
-              background-color: lightgray;
               color: $dark;
-              text-align: center;
               line-height: 36px;
-              border-right: 1px solid $dark;
+              padding: 0px 20px;
             }
             .form-group {
-              width: calc(100% - 140px) !important;
               input {
-                background-color: lightgray;
+                padding: 0px 20px;
                 width: 100% !important;
                 height: 36px;
                 border-radius: 0px;
@@ -467,21 +454,6 @@ header {
                   outline: none;
                 }
               }
-              @media only screen and (max-width: 350px) {
-                width: calc(100% - 103px) !important;
-              }
-            }
-          }
-          .anns-price {
-            .form-group {
-              display: flex;
-              width: calc(100% - 140px) !important;
-              input {
-                width: 100% !important;
-              }
-              @media only screen and (max-width: 350px) {
-                width: calc(100% - 103px) !important;
-              }
             }
           }
           .anns-button {
@@ -492,7 +464,7 @@ header {
               padding: 0.8rem 2.2rem;
               z-index: 5;
               text-transform: uppercase;
-              font-weight: 600;
+              font-weight: 500;
               background: $red;
               position: relative;
               overflow: hidden;
@@ -531,7 +503,7 @@ header {
           padding: 1rem 2.2rem;
           z-index: 5;
           text-transform: uppercase;
-          font-weight: 600;
+          font-weight: 500;
           background: $red;
           position: relative;
           overflow: hidden;
@@ -572,3 +544,9 @@ header {
     display: none !important;
   }
 }
+
+@import "partials/responsive/media1200";
+@import "partials/responsive/media992";
+@import "partials/responsive/media768";
+@import "partials/responsive/media576";
+@import "partials/responsive/media350";
