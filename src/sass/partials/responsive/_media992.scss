@@ -1,0 +1,32 @@
+@media only screen and (max-width: 992px) {
+  header {
+    .header-bar {
+        height: 60px;
+      .container-fluid {
+        .row {
+            
+          .header-bar-left.show {
+            margin-left:15px ;
+            padding-top: 10px;
+            width: 106px;
+            display: flex !important;
+          }
+          .header-bar-center {
+            padding-top: 10px;
+            flex: 0 0 calc(100% - 121px);
+            max-width: calc(100% - 121px);
+            padding-right: 5px !important;
+          }
+          .header-bar-right {
+            display: none !important;
+          }
+        }
+      }
+    }
+    .header-content {
+      .col-6.show {
+        display: none !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@media only screen and (max-width: 350px) {
+  header {
+    .header-bar {
+      .header-bar-right {
+        .login {
+          .nav-link-2 {
+            text-transform: capitalize;
+            line-height: 40px;
+            font-size: 9px !important;
+            img {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    nav {
+      .navbar-brand {
+        width: 190px !important;
+        .nav-logo {
+          width: 35px;
+          height: 26px;
+        }
+        .page-name {
+          font-size: 12px !important;
+          padding-right: 0px;
+        }
+      }
+      .button-nav {
+        width: 55px;
+      }
+    }
+    .header-content {
+      .col-6 {
+        .header-filter {
+         form{
+            width: 280px !important;
+          .label {
+            width: 103px !important;
+            padding: 0px 2px !important;
+          }
+          .form-group {
+            width: calc(100% - 103px) !important;
+          }
+          select {
+            width: calc(100% - 103px) !important;
+          }
+         }
+        }
+      }
+    }
+  }
+}

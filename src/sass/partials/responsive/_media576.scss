@@ -1,0 +1,66 @@
+@media only screen and (max-width: 576px) {
+  header {
+    nav {
+      .navbar-brand {
+        width: 208px !important;
+        .nav-logo {
+          width: 40px;
+          height: 26px;
+        }
+        .page-name {
+          font-size: 14px !important;
+          padding-right: 0px;
+        }
+      }
+      .button-nav {
+        width: 55px;
+      }
+    }
+    nav.nav-scrool {
+      height: 50px !important;
+    }
+    .header-content {
+      .col-6 {
+        .header-filter {
+          width: 349px;
+          form{
+            padding: 10px 10px;
+            .label{
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+  footer {
+    #contact-col {
+      order: 3;
+    }
+    #thanks-col {
+      order: 1;
+    }
+    #spec-thanks-col {
+      order: 2;
+    }
+    #jrc-col {
+      order: 4;
+    }
+    .col-lg-3 {
+      padding-left: 50px;
+      display: flex;
+      justify-content: center;
+      .contact {
+        margin-right: 42px;
+      }
+    }
+    .footer-logo {
+      img {
+        margin-left: 0px;
+      }
+      .by-jrc {
+        font-size: 14px;
+      }
+    }
+  }
+}
