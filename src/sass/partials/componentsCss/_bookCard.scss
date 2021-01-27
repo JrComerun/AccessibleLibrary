@@ -1,0 +1,163 @@
+.book {
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  transition: ease 0.4s;
+  color: $light;
+  display: flex;
+  border-radius: 14px;
+  background: $dark;
+  box-shadow: 0 0px 28px rgba(0, 0, 0, 0.3), 0 6px 10px rgba(0, 0, 0, 0.3);
+  .book-img {
+    position: relative;
+    transition: ease 0.3s;
+    img {
+      width: 207.986px;
+      height: 280px;
+      transition: ease 0.4s;
+    }
+    .book-price {
+      text-transform: uppercase;
+      border-radius: 50%;
+      position: absolute;
+      background-color: $red;
+      color: $light;
+      height: 40px;
+      bottom: 7px;
+      right: 7px;
+      font-size: 18px;
+      text-align: center;
+      font-weight: 500;
+      padding: 7px 16px 8px 13px;
+    }
+  }
+  .book-content {
+    width: 207.986px !important;
+    height: 250px;
+    transition: ease 0.3s;
+    position: relative;
+    .book-content-head {
+      padding: 10px 0px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      transition: ease 0.6s;
+      width: 207.986px !important;
+      color: lightgrey;
+      i {
+        cursor: pointer;
+        font-size: 20px;
+        transition: ease 0.4s;
+        &:hover {
+          color: $hover;
+          transition: ease 0.4s;
+        }
+      }
+    }
+    .book-content-body {
+      padding-top: 26px;
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: capitalize;
+      .book-name {
+        border-bottom: 1px $light solid;
+        padding: 5px 5px 5px 20px;
+        transition: ease 0.4s;
+        &:hover {
+          color: $hover;
+          transition: ease 0.4s;
+        }
+      }
+      .book-auhtor {
+        border-bottom: 1px $light solid;
+        padding: 5px 5px 5px 20px;
+        transition: ease 0.4s;
+        &:hover {
+          color: $hover;
+          transition: ease 0.4s;
+        }
+      }
+      .book-price {
+        border-bottom: 1px $light solid;
+        padding: 5px 5px 5px 20px;
+        transition: ease 0.4s;
+        &:hover {
+          color: $hover;
+          transition: ease 0.4s;
+        }
+      }
+      .book-date {
+        border-bottom: 1px $light solid;
+        padding: 5px 5px 5px 20px;
+        a {
+          transition: ease 0.4s;
+          &:hover {
+            color: $hover !important;
+            transition: ease 0.4s;
+          }
+        }
+        span {
+          transition: ease 0.4s;
+          &:hover {
+            color: $hover;
+            transition: ease 0.4s;
+          }
+        }
+      }
+    }
+    .book-content-footer {
+      position: absolute;
+      width: 100%;
+      bottom: -14px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      font-weight: 550;
+      font-size: 14px;
+
+      .a-buy {
+        .buy {
+          width: 80px;
+          height: 25px;
+          text-align: center;
+          line-height: 25px;
+          background-color: $hover;
+          border-radius: 40px;
+        }
+      }
+      .book-saler-img {
+        display: flex;
+        justify-content: center;
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          border: 2px $light solid;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+  &:hover {
+    .book-img {
+      transform: translateX(-207.986px);
+      transition: ease 0.6s;
+    }
+    .book-content {
+      transform: translateX(-207.986px);
+      transition: ease 0.6s;
+    }
+  }
+}
+.pad-top50 {
+  padding-top: 50px;
+}
+
+.jrc-col-5 {
+  max-width: 228px;
+  padding: 10px;
+  @media only screen and (max-width: 576px) {
+    max-width: 50% !important;
+  }
+}

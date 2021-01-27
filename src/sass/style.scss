@@ -1,4 +1,8 @@
 @import "../sass/partials/variables";
+@import "../sass/partials/componentsCss/LoginModal";
+@import "../sass/partials/componentsCss/selected";
+@import "../sass/partials/componentsCss/bookCard";
+@import "../sass/partials/componentsCss/sectionHead";
 body {
   margin: 0;
   color: $dark;
@@ -108,7 +112,6 @@ header {
         height: 100%;
         form {
           .input-group {
-            padding-right: 15px;
             .form-outline {
               width: calc(100% - 40px);
               input {
@@ -466,10 +469,11 @@ header {
           }
           .anns-button {
             button {
+              margin-bottom: 5px;
               border: none;
               color: $light;
               font-size: 16px;
-              padding: 0.8rem 2.2rem;
+              padding: 0.7rem 2.2rem;
               z-index: 5;
               text-transform: uppercase;
               font-weight: 500;
@@ -552,12 +556,14 @@ header {
     display: none !important;
   }
 }
+main{
+}
 footer {
   text-transform: uppercase;
   color: $light;
   font-weight: 500;
-  padding-top: 80px;
-  min-height: 550px;
+  padding-top: 50px;
+  min-height: 410px;
   width: 100% !important;
   background-repeat: no-repeat;
   background-size: cover;
@@ -650,7 +656,7 @@ footer {
     }
   }
   .footer-logo {
-    margin-top: 120px;
+    margin-top: 80px;
     .foot-logo {
       img {
         width: 80px;
@@ -665,7 +671,7 @@ footer {
     position: absolute;
     top: 0%;
     width: 100%;
-    min-height: 550px;
+    min-height: 410px;
     background: rgba(2, 0, 11, 0.75);
     z-index: -1;
   }
@@ -675,3 +681,4 @@ footer {
 @import "partials/responsive/media768";
 @import "partials/responsive/media576";
 @import "partials/responsive/media350";
+@import "../sass/partials/componentsCss/mobileBookCard";

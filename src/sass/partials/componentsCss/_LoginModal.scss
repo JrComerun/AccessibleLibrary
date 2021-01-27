@@ -1,0 +1,112 @@
+.Login-Modal {
+  color: $light;
+  .modal-content {
+    background-size: cover;
+    height: 550px;
+    background-position: center bottom;
+    .modal-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .login-des {
+        img {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+        }
+        margin-bottom: 50px;
+      }
+      form {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 550;
+        .form-group {
+          width: 100%;
+          input {
+            width: 250px;
+            @media only screen and (max-width: 350px){
+              width: 200px;
+            }
+          }
+        }
+        .form-check {
+          display: flex;
+          input {
+            width: 15px;
+            margin-right: 10px;
+          }
+        }
+        button {
+          margin-bottom: 5px;
+          border: none;
+          color: $light;
+          font-size: 14px;
+          padding: 0.5rem 2.1rem;
+          z-index: 5;
+          text-transform: uppercase;
+          font-weight: 500;
+          background: $red;
+          position: relative;
+          overflow: hidden;
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 2px;
+            left: 1px;
+            border-color: transparent transparent transparent $light;
+            border-width: 20px 0 0 20px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            border-color: transparent $light transparent transparent;
+            border-width: 0 20px 20px 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+          }
+        }
+      }
+      .reg-forgot {
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 20px;
+        a {
+          transition: ease 0.4s;
+          padding: 0px 12px;
+          &:hover {
+            color: $hover !important;
+            transition: ease 0.4s;
+          }
+        }
+      }
+      .login-soc {
+        padding-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a {
+          margin-right: 10px;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: $light;
+          text-align: center;
+          padding: 15px 0px;
+          color: $dark  !important;
+          i {
+            font-size: 22px;
+          }
+        }
+      }
+    }
+  }
+}
