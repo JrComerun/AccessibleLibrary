@@ -8,7 +8,7 @@
           height: 26px;
         }
         .page-name {
-          font-size: 14px !important;
+          font-size: 18px !important;
           padding-right: 0px;
         }
       }
@@ -18,15 +18,21 @@
     }
     nav.nav-scrool {
       height: 50px !important;
+      .navbar-brand {
+        .page-name {
+          font-size: 14px !important;
+          padding-right: 0px;
+        }
+      }
     }
     .header-content {
       .col-6 {
         .header-filter {
           width: 349px;
-          form{
+          form {
             padding: 0px 10px;
             margin: 10px 10px;
-            .label{
+            .label {
               font-size: 13px;
             }
           }
@@ -35,6 +41,10 @@
     }
   }
   footer {
+    min-height: 730px;
+    &::after {
+      min-height: 730px;
+    }
     #contact-col {
       order: 3;
     }
@@ -52,7 +62,10 @@
       display: flex;
       justify-content: center;
       .contact {
-        margin-right: 42px;
+        margin-right: 30px;
+        .mobile{
+          padding-left: 10px;
+        }
       }
     }
     .footer-logo {
@@ -60,7 +73,7 @@
         margin-left: 0px;
       }
       .by-jrc {
-        font-size: 14px;
+        font-size: 12px;
       }
     }
   }

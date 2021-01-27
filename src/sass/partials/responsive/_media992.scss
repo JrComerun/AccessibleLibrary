@@ -29,4 +29,37 @@
       }
     }
   }
+  footer {
+    min-height: 470px;
+    padding-top: 50px;
+    &::after {
+      min-height: 470px;
+    }
+    #contact-col {
+      order: 2;
+    }
+    #thanks-col {
+      order: 1;
+    }
+    #spec-thanks-col {
+      order: 3;
+    }
+    #jrc-col {
+      order: 4;
+    }
+    .footer-logo {
+      margin-top: 0px;
+      padding-bottom: 50px;
+      flex-direction: column;
+      align-items: flex-start !important;
+      img {
+        margin-top: 20px;
+        margin-left: 70px;
+      }
+      .by-jrc {
+        font-size: 13px;
+        margin-top: 20px;
+      }
+    }
+  }
 }
