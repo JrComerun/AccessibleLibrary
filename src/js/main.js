@@ -4,7 +4,6 @@ $(document).ready(function () {
   //                Navigation On Scrool
   //****************************************************
   let nav = document.querySelector("nav");
-  let navButton = document.querySelector(".button-nav");
   $(window).scroll(function(){
     if($(window).scrollTop()>60){
       nav.classList.add("nav-scrool");
@@ -76,14 +75,15 @@ $(document).ready(function () {
   })
 
 
-
-
-
-
-
-
-
 })
+
+
+  // ***************************************************
+  //             PreLoader By JrC
+  //****************************************************
+window.addEventListener('load', (event) => {
+  $(".overlay").fadeOut();
+});
 
 
 

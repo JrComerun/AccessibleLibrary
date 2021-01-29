@@ -60,14 +60,15 @@
     }
   }
   footer {
-    min-height: 680px;
+    min-height: 800px;
     &::after {
-      min-height: 680px;
+      min-height: 800px;
     }
-    .thanks-foot {
-      h4 {
+    h4 {
         font-size: 14px !important;
       }
+    .thanks-foot {
+      
       div {
         font-size: 12px !important;
       }
@@ -75,6 +76,9 @@
         width: 35px !important;
         height: 35px !important;
       }
+    }
+    #spec-thanks-col {
+      padding-left: 0px !important;
     }
     .contact {
       .mobile {

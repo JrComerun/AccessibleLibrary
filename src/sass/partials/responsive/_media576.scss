@@ -32,6 +32,9 @@
           form {
             padding: 0px 10px;
             margin: 10px 10px;
+            select{
+              height: 36px !important;
+            }
             h3{
               font-size: 21px !important;
             }
@@ -47,9 +50,9 @@
     }
   }
   footer {
-    min-height: 730px;
+    min-height: 880px;
     &::after {
-      min-height: 730px;
+      min-height: 880px;
     }
     #contact-col {
       order: 3;
@@ -64,15 +67,8 @@
       order: 4;
     }
     .col-lg-3 {
-      padding-left: 50px;
       display: flex;
       justify-content: center;
-      .contact {
-        margin-right: 30px;
-        .mobile{
-          padding-left: 10px;
-        }
-      }
     }
     .footer-logo {
       img {

@@ -1,4 +1,5 @@
 @import "../sass/partials/variables";
+@import "../sass/partials/componentsCss/preloader";
 @import "../sass/partials/componentsCss/LoginModal";
 @import "../sass/partials/componentsCss/selected";
 @import "../sass/partials/componentsCss/bookCard";
@@ -54,7 +55,6 @@ header {
       padding-left: 50px;
       display: flex;
       align-items: baseline;
-
       .icons {
         .menu {
           padding: 0px;
@@ -310,7 +310,6 @@ header {
       border: none !important;
     }
     .navigation {
-      padding-right: 40px;
       a {
         margin-right: 45px;
         // height: max-content;
@@ -369,17 +368,17 @@ header {
           padding-top: 14px;
           &::before {
             content: "";
-            background-color: $dark;
+            background-color: #110825;
             position: absolute;
-            width: 47px;
-            height: 15px;
-            bottom: -12px;
+            width: 45px;
+            height: 9px;
+            bottom: -4px;
             left: 50%;
             -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
             z-index: -1;
-            border-top-left-radius: 68px;
-            border-top-right-radius: 68px;
+            border-top-left-radius: 78px;
+            border-top-right-radius: 78px;
           }
           &::after {
             content: "";
@@ -583,7 +582,7 @@ header {
     display: none;
   }
   .nav-mobile2 {
-    display: none !important;
+    display: none ;
   }
 }
 // main {
@@ -646,7 +645,7 @@ footer {
               transition: transform 0.2s ease-out;
               &:last-child {
                 display: inline-block;
-                padding: 0px 10px;
+                padding-right: 20px;
                 font-size: 30px;
               }
               &:first-child {
@@ -717,4 +716,5 @@ footer {
 @import "partials/responsive/media768";
 @import "partials/responsive/media576";
 @import "partials/responsive/media350";
-@import "../sass/partials/componentsCss/mobileBookCard";
+@import "../sass/partials/componentsCss/navMobile1";
+@import "../sass/partials/componentsCss/navMobile2";
