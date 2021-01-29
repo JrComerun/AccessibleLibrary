@@ -3,11 +3,12 @@
 @import "../sass/partials/componentsCss/selected";
 @import "../sass/partials/componentsCss/bookCard";
 @import "../sass/partials/componentsCss/sectionHead";
+@import "../sass/partials/componentsCss/bookEdu";
 body {
   margin: 0;
   color: $dark;
   background-color: $light;
-  font-family: 'Roboto', sans-serif !important;
+  font-family: "Roboto", sans-serif !important;
   ::selection {
     color: $light;
     background: $dark;
@@ -21,6 +22,7 @@ a {
 
 header {
   width: 100%;
+
   height: 100vh;
   overflow: hidden;
   position: relative;
@@ -28,6 +30,9 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
   color: $light;
+  @media only screen and (max-height: 630px) {
+    height: 623px;
+  }
   &::after {
     content: "";
     position: absolute;
@@ -35,6 +40,9 @@ header {
     width: 100%;
     height: 100vh;
     background: rgba(2, 0, 11, 0.75);
+    @media only screen and (max-height: 630px) {
+      height: 623px;
+    }
   }
   .header-bar {
     position: relative;
@@ -144,7 +152,7 @@ header {
       }
     }
     .header-bar-right {
-      padding-right: 0px ;
+      padding-right: 0px;
       .languages-bar {
         z-index: 20;
         height: 100%;
@@ -226,13 +234,37 @@ header {
     .header-bar-left.show {
       display: none !important;
       a {
-        .nav-link {
-          line-height: 26px;
-          height: 37px;
-          font-size: 14px;
-          font-weight: bold;
-          background-color: $red;
-          text-transform: uppercase;
+        border: none;
+        color: $light;
+        font-size: 11px;
+        font-size: 11px;
+        padding: 13px 15px 10px 15px;
+        z-index: 5;
+        font-weight: 500;
+        background: $red;
+        position: relative;
+        overflow: hidden;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 2px;
+          left: 2px;
+          border-color: transparent transparent transparent $light;
+          border-width: 18px 0 0 18px;
+          width: 0;
+          height: 0;
+          border-style: solid;
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          top: 2px;
+          right: 2px;
+          border-color: transparent $light transparent transparent;
+          border-width: 0 18px 18px 0;
+          width: 0;
+          height: 0;
+          border-style: solid;
         }
       }
     }
@@ -358,7 +390,6 @@ header {
             left: 50%;
             transform: translateX(-50%);
             background-color: $hover;
-            opacity: 0;
             transition: ease 0.3s;
           }
           &:hover {
@@ -366,7 +397,6 @@ header {
             transition: ease 0.4s;
           }
           &:hover::after {
-            opacity: 1;
             height: 35px;
             transition: ease 0.4s;
           }
@@ -379,16 +409,16 @@ header {
     }
   }
   .header-content {
-    padding-top: 110px;
+    padding-top: 100px;
     .col-6 {
       z-index: 15;
       .header-filter {
-        background-color: rgba(180, 180, 180, 0.3);
         width: 430px;
+        height: 420px;
         border-radius: 15px;
         text-align: center;
         form {
-          background-color: rgba(180, 180, 180, 0.3);
+          background-color: rgba(180, 180, 180, 0.4);
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -396,7 +426,7 @@ header {
           padding: 0px 10px;
           font-weight: 500;
           border-radius: 15px;
-          .label{
+          .label {
             text-align: left;
           }
           .anns-head {
@@ -433,7 +463,6 @@ header {
             }
           }
           .input-div {
-            margin-bottom: 10px;
             .label {
               font-weight: 500;
               font-size: 16px;
@@ -458,12 +487,12 @@ header {
               }
             }
           }
-          .anns-price{
-            .form-group{
+          .anns-price {
+            .form-group {
               width: 100%;
               display: flex;
-              input{
-                border-right: 1px solid $dark; 
+              input {
+                border-right: 1px solid $dark;
               }
             }
           }
@@ -511,8 +540,8 @@ header {
       z-index: 15;
       .header-add-book {
         a {
-          font-size: 16px;
-          padding: 1rem 2.2rem;
+          font-size: 15px;
+          padding: 0.9rem 1.5rem;
           z-index: 5;
           text-transform: uppercase;
           font-weight: 500;
@@ -536,8 +565,8 @@ header {
           &::before {
             content: "";
             position: absolute;
-            top: 2px;
-            right: 3px;
+            top: 3px;
+            right: 4px;
             border-color: transparent $light transparent transparent;
             border-width: 0 23px 23px 0;
             width: 0;
@@ -549,6 +578,7 @@ header {
       }
     }
   }
+
   .nav-mobile {
     display: none;
   }
@@ -556,8 +586,11 @@ header {
     display: none !important;
   }
 }
-main{
-}
+// main {
+//   #Last {
+//     background-color: rgb(247, 238, 238);
+//   }
+// }
 footer {
   text-transform: uppercase;
   color: $light;
@@ -675,6 +708,9 @@ footer {
     background: rgba(2, 0, 11, 0.75);
     z-index: -1;
   }
+}
+.pad-top80 {
+  padding-top: 80px;
 }
 @import "partials/responsive/media1200";
 @import "partials/responsive/media992";

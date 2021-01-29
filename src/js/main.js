@@ -12,7 +12,7 @@ $(document).ready(function () {
     }
     else{
       nav.classList.remove("nav-scrool");
-      $(".header-content").css("padding-top","110px")
+      $(".header-content").css("padding-top","100px")
     }
   });
 
@@ -53,8 +53,27 @@ $(document).ready(function () {
     $(".selected-box a").css("width","0px")
    }
   })
+   
 
-
+  // ***************************************************
+  //             Active Profile Carousel
+  //****************************************************
+ $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        400:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+  })
 
 
 
