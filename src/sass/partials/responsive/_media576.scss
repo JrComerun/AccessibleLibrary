@@ -16,7 +16,7 @@
         width: 55px;
       }
     }
-    nav.nav-scrool {
+    nav.nav-scroll {
       height: 50px !important;
       .navbar-brand {
         .page-name {
@@ -50,9 +50,9 @@
     }
   }
   footer {
-    min-height: 880px;
+    min-height: 870px;
     &::after {
-      min-height: 880px;
+      min-height: 870px;
     }
     #contact-col {
       order: 3;

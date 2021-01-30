@@ -1,20 +1,5 @@
 
 $(document).ready(function () {
-  // ***************************************************
-  //                Navigation On Scrool
-  //****************************************************
-  let nav = document.querySelector("nav");
-  $(window).scroll(function(){
-    if($(window).scrollTop()>60){
-      nav.classList.add("nav-scrool");
-      $(".header-content").css("padding-top","150px")
-    }
-    else{
-      nav.classList.remove("nav-scrool");
-      $(".header-content").css("padding-top","100px")
-    }
-  });
-
 
   // ***************************************************
   //                Selected On Scrool
@@ -43,7 +28,7 @@ $(document).ready(function () {
    {
     $(".selected-box").addClass("show")
     $(".selected-box i").css("fontSize","60px")
-    $(".selected-box a").css("width","80px")
+    $(".selected-box a").css("width","100%")
    }
    else
    {
@@ -54,27 +39,7 @@ $(document).ready(function () {
   })
    
 
-  // ***************************************************
-  //             Active Profile Carousel
-  //****************************************************
- $('.owl-carousel').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:true,
-    responsive:{
-        0:{
-            items:1
-        },
-        400:{
-            items:3
-        },
-        1000:{
-            items:5
-        }
-    }
-  })
-
-
+  
 })
 
 

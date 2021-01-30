@@ -116,6 +116,7 @@ header {
       }
     }
     .header-bar-center {
+      padding-right: 0px;
       .header-search {
         height: 100%;
         form {
@@ -152,7 +153,48 @@ header {
       }
     }
     .header-bar-right {
-      padding-right: 0px;
+      padding: 0px;
+      .cat-1200-992 {
+        display: none;
+        a {
+          border: none;
+          color: $light;
+          font-size: 11px;
+          font-size: 11px;
+          padding: 13px 15px 10px 15px;
+          z-index: 5;
+          font-weight: 500;
+          background: $red;
+          position: relative;
+          overflow: hidden;
+          margin-right: 11px;
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 2px;
+            left: 2px;
+            border-color: transparent transparent transparent $light;
+            border-width: 18px 0 0 18px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            border-color: transparent $light transparent transparent;
+            border-width: 0 18px 18px 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+          }
+        }
+        @media only screen and (max-width: 1200px) {
+          display: block !important;
+        }
+      }
       .languages-bar {
         z-index: 20;
         height: 100%;
@@ -336,7 +378,7 @@ header {
       }
     }
   }
-  nav.nav-scrool {
+  nav.nav-scroll {
     transform: scale(1) !important;
     box-shadow: 0px 0px 12px -2px black !important;
     border-top: 0px !important;
@@ -577,19 +619,15 @@ header {
       }
     }
   }
-
-  .nav-mobile {
-    display: none;
+}
+main {
+  #Last {
+    border-top: 1px dashed gray;
   }
-  .nav-mobile2 {
-    display: none ;
+  #eduBooks {
+    border-top: 1px dashed gray;
   }
 }
-// main {
-//   #Last {
-//     background-color: rgb(247, 238, 238);
-//   }
-// }
 footer {
   text-transform: uppercase;
   color: $light;
@@ -718,3 +756,4 @@ footer {
 @import "partials/responsive/media350";
 @import "../sass/partials/componentsCss/navMobile1";
 @import "../sass/partials/componentsCss/navMobile2";
+@import "../sass/partials/componentsCss/categoryMobile";

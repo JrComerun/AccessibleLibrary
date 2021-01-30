@@ -2,7 +2,7 @@
   color: $light;
   .modal-content {
     background-size: cover;
-    height: 550px;
+    height: 600px;
     background-position: center bottom;
     .modal-body {
       display: flex;
@@ -27,7 +27,7 @@
           width: 100%;
           input {
             width: 250px;
-            @media only screen and (max-width: 350px){
+            @media only screen and (max-width: 350px) {
               width: 200px;
             }
           }
@@ -80,6 +80,10 @@
         font-weight: 500;
         margin-top: 20px;
         a {
+          @media only screen and (max-width: 350px) {
+            padding: 0px 8px !important;
+            font-size: 12px !important;
+          }
           transition: ease 0.4s;
           padding: 0px 12px;
           &:hover {
@@ -101,9 +105,14 @@
           background-color: $light;
           text-align: center;
           padding: 15px 0px;
-          color: $dark  !important;
+          color: $dark !important;
           i {
             font-size: 22px;
+          }
+          @media only screen and (max-width: 350px) {
+            width: 40px !important;
+            height: 40px !important;
+            padding: 9px 0px !important;
           }
         }
       }

@@ -9,8 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/css/owlCarousel/owl.css">
-    <link rel="stylesheet" href="src/css/owlCarousel/owlDeafult.css">
     <link rel="stylesheet" href="src/css/bootsrap/bootstrap-grid.css">
     <link rel="stylesheet" href="src/css/bootsrap/bootstrap-reboot.css">
     <link rel="stylesheet" href="src/css/bootsrap/bootstrap.css">
@@ -24,7 +22,7 @@
             <div class="container-fluid">
                 <div class="row justify-content-between align-items-center">
                     <div class="header-bar-left show d-flex justify-content-center">
-                        <a id="filter">
+                        <a class="filter">
                                 KATEGORİYA
                         </a>
                     </div>
@@ -73,6 +71,11 @@
                         </div>
                     </div>
                     <div class="col-lg-6 header-bar-right  d-flex justify-content-end align-items-center">
+                        <div class="cat-1200-992">
+                            <a class="filter">
+                                KATEGORİYA
+                            </a>
+                        </div>
                         <div class="languages-bar d-flex align-items-center">
                             <div class="lang" id="aze-lang">
                                 <img src="src/img/logo/azerbaijan.png" alt=""> <span>Aze</span>
@@ -184,128 +187,6 @@
              </div>
                
         </nav>
-        <div class="nav-mobile" id="nav-mobile">
-            <div class="nav-close-btn d-flex justify-content-end">
-                <a class="close-btn" id="Nav-close-btn"><i class="fas fa-times-circle"></i></a>
-            </div>
-            <div class="languages-bar d-flex align-items-center"> 
-                <div class="lang d-flex" id="aze-lang2">
-                    <img width="20" height="20" src="src/img/logo/azerbaijan.png" alt=""> <span>AZE</span> 
-                </div>
-                <div class="lang d-flex" id="eng-lang2">
-                    <img width="20" height="20" src="src/img/logo/united-kingdom.png" alt=""> <span>ENG</span> 
-                </div>
-                <div class="lang d-flex" id="rus-lang2">
-                    <img width="20" height="20" src="src/img/logo/russia.png" alt=""> <span>RUS</span> 
-                </div>
-            </div>
-            <div class="login d-flex justify-content-between align-items-center">
-                <a data-toggle="modal" data-target="#Login-Reg">
-                    <div class="nav-link2">
-                              Giriş
-                    </div>
-                </a>
-                 <a data-toggle="modal" data-target="#Login-Reg">
-                    <div class="nav-link2"> 
-                             Qeydiyyat
-                    </div>
-                 </a>
-             </div>
-             <div class="navigation">
-                <a href="">
-                    <div class="nav-link2">
-                        Əsas Səhifə
-                    </div>
-                </a>
-                <a href="">
-                    <div class="nav-link2">
-                        Kitablar
-                    </div>
-                </a>
-                <a href="">
-                    <div class="nav-link2">
-                        Haqqımızda
-                    </div>
-                </a>
-                <a href="">
-                    <div class="nav-link2">
-                        Bizimlə Əlaqə 
-                    </div>
-                </a>
-            </div>
-            <div class="nav-text">
-                <div class="text">
-                    Kitab almaq istəyirsiniz?  Artıq köhnə kitabınızı satıb yenisini ala bilərsiniz!!!
-                </div>
-            </div>
-            <div class="icons-soc mt-3">
-                <ul class="menu">
-                    <li>
-                        <a href="#0">
-                            <span>FaceBook</span>
-                            <span>
-                                <i class="fab fa-facebook-square" aria-hidden="true"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#0">
-                            <span>Twitter</span>
-                            <span>
-                                <i class="fab fa-twitter-square" aria-hidden="true"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#0">
-                            <span>Instagram</span>
-                            <span>
-                                <i class="fab fa-instagram-square" aria-hidden="true"></i>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="nav-mobile2">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 add-book">
-                        <a href="" class="add-book-btn" data-toggle="modal" data-target="#Login-Reg">
-                            ELAN YERLƏŞDİR !
-                        </a>
-                    </div>
-                    <div class="col-lg-12 menu">
-                        <div class="icons-menu">
-                            <div class="small-menu">
-                                <a href="">
-                                    <i class="fas fa-home"></i>
-                                </a>
-                                <div class="word">Əsas Səhifə</div>
-                            </div>
-                            <div class="small-menu">
-                                <a href="">
-                                    <i class="fas fa-bookmark"></i>
-                                </a>
-                                <div class="word">Seçilmişlər</div>
-                            </div>
-                            <div class="small-menu">
-                                <a href="">
-                                    <i class="fas fa-envelope"></i>
-                                </a>
-                                <div class="word">Mesajlar</div>
-                            </div>
-                            <div class="small-menu">
-                                <a href="">
-                                    <i class="fas fa-user"></i>
-                                </a>
-                                <div class="word">Profil</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="header-content">
             <div class="container-fluid">
@@ -979,7 +860,9 @@
         </section>
         <!-- *-*-*-*-*-*-*-*-*      Last Books End      *-*-*-*-*-*-*-*-* -->
         <!-- ---------------------------------------------------------- -->
-        <!-- *-*-*-*-*-*-*-*-*      Last Books Start      *-*-*-*-*-*-*-*-* -->
+
+
+        <!-- *-*-*-*-*-*-*-*-*      Education Books Start      *-*-*-*-*-*-*-*-* -->
         <section id="eduBooks">
             <div class="container pad-top80">
                 <div class="row">
@@ -992,65 +875,202 @@
                     </div>
                 </div>
                 <div class="row  justify-content-center">
-                <!-- ---------------------     Book    --------------------- -->
-                <div class="col-lg-3 col-6 d-flex  align-items-center book-con">
-                    <div class="book">
-                        <div class="book-img">
-                            <img src="src/img/books/book-1-1.jpg" alt="">
-                            <div class="book-price">
-                                5azn
-                            </div>
-                        </div>
-                        <div class="book-content">
-                            <div class="book-content-head">
-                                <a href="#">
-                                    <i class="fab fa-whatsapp"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fas fa-envelope"></i>
-                                </a>
-                                <a href="">
-                                    <i class="far fa-bookmark"></i>
-                                </a>
-                            </div>
-                            <div class="book-content-body ">
-                                <a href="">
-                                    <div class="book-name">
-                                        Toefl Grammer
-                
-                                    </div>
-                                </a>
-                                <div class="book-author">
-                                    Müəllif : Jr Comerun
+                    <!-- ---------------------     Book    --------------------- -->
+                    <div class="col-lg-3 col-6 d-flex  align-items-center book-con">
+                        <div class="book">
+                            <div class="book-img">
+                                <img src="src/img/books/book-2-1.jpg" alt="">
+                                <div class="book-price">
+                                    5azn
                                 </div>
                             </div>
-                            <div class="book-content-footer">
-                                <div class="book-watch">
-                                    <a href="index.html">
-                                        Ətraflı bax
+                            <div class="book-content">
+                                <div class="book-content-head">
+                                    <a href="#">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    <a href="">
+                                        <i class="far fa-bookmark"></i>
                                     </a>
                                 </div>
-                                <a href="index.html">
-                                    <div class="book-saler-img">
-                                        <img src="src/img/thanks/Kamran_Jabiyev.jpg" alt="">
+                                <div class="book-content-body ">
+                                    <a href="">
+                                        <div class="book-name">
+                                            Toefl Grammer
+                    
+                                        </div>
+                                    </a>
+                                    <div class="book-author">
+                                        Müəllif : Jr Comerun
                                     </div>
-                                </a>
+                                </div>
+                                <div class="book-content-footer">
+                                    <div class="book-watch">
+                                        <a href="index.html">
+                                            Ətraflı bax
+                                        </a>
+                                    </div>
+                                    <a href="index.html">
+                                        <div class="book-saler-img">
+                                            <img src="src/img/thanks/Kamran_Jabiyev.jpg" alt="">
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- ---------------------------------------------------------- -->
-                <!-- ---------------------     Book    --------------------- -->
-                
-                <!-- ---------------------------------------------------------- -->
-                <!-- ---------------------     Book    --------------------- -->
-                
-                <!-- ---------------------------------------------------------- -->
+                    <!-- ---------------------------------------------------------- -->
+                    <!-- ---------------------     Book    --------------------- -->
+                    <div class="col-lg-3 col-6 d-flex  align-items-center book-con">
+                        <div class="book">
+                            <div class="book-img">
+                                <img src="src/img/books/book-1-1.jpg" alt="">
+                                <div class="book-price">
+                                    5azn
+                                </div>
+                            </div>
+                            <div class="book-content">
+                                <div class="book-content-head">
+                                    <a href="#">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    <a href="">
+                                        <i class="far fa-bookmark"></i>
+                                    </a>
+                                </div>
+                                <div class="book-content-body ">
+                                    <a href="">
+                                        <div class="book-name">
+                                            Toefl Grammer
                     
+                                        </div>
+                                    </a>
+                                    <div class="book-author">
+                                        Müəllif : Jr Comerun
+                                    </div>
+                                </div>
+                                <div class="book-content-footer">
+                                    <div class="book-watch">
+                                        <a href="index.html">
+                                            Ətraflı bax
+                                        </a>
+                                    </div>
+                                    <a href="index.html">
+                                        <div class="book-saler-img">
+                                            <img src="src/img/thanks/Kamran_Jabiyev.jpg" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ---------------------------------------------------------- -->
+                    <!-- ---------------------     Book    --------------------- -->
+                    <div class="col-lg-3 col-6 d-flex  align-items-center book-con">
+                        <div class="book">
+                            <div class="book-img">
+                                <img src="src/img/books/book-4-1.jpg" alt="">
+                                <div class="book-price">
+                                    5azn
+                                </div>
+                            </div>
+                            <div class="book-content">
+                                <div class="book-content-head">
+                                    <a href="#">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    <a href="">
+                                        <i class="far fa-bookmark"></i>
+                                    </a>
+                                </div>
+                                <div class="book-content-body ">
+                                    <a href="">
+                                        <div class="book-name">
+                                            Toefl Grammer
+                    
+                                        </div>
+                                    </a>
+                                    <div class="book-author">
+                                        Müəllif : Jr Comerun
+                                    </div>
+                                </div>
+                                <div class="book-content-footer">
+                                    <div class="book-watch">
+                                        <a href="index.html">
+                                            Ətraflı bax
+                                        </a>
+                                    </div>
+                                    <a href="index.html">
+                                        <div class="book-saler-img">
+                                            <img src="src/img/thanks/Kamran_Jabiyev.jpg" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ---------------------------------------------------------- -->
+                    <!-- ---------------------     Book    --------------------- -->
+                    <div class="col-lg-3 col-6 d-flex  align-items-center book-con">
+                        <div class="book">
+                            <div class="book-img">
+                                <img src="src/img/books/book-3-1.jpg" alt="">
+                                <div class="book-price">
+                                    5azn
+                                </div>
+                            </div>
+                            <div class="book-content">
+                                <div class="book-content-head">
+                                    <a href="#">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    <a href="">
+                                        <i class="far fa-bookmark"></i>
+                                    </a>
+                                </div>
+                                <div class="book-content-body ">
+                                    <a href="">
+                                        <div class="book-name">
+                                            Toefl Grammer
+                    
+                                        </div>
+                                    </a>
+                                    <div class="book-author">
+                                        Müəllif : Jr Comerun
+                                    </div>
+                                </div>
+                                <div class="book-content-footer">
+                                    <div class="book-watch">
+                                        <a href="index.html">
+                                            Ətraflı bax
+                                        </a>
+                                    </div>
+                                    <a href="index.html">
+                                        <div class="book-saler-img">
+                                            <img src="src/img/thanks/Kamran_Jabiyev.jpg" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ---------------------------------------------------------- -->
                 </div>
             </div>
         </section>
-        <!-- *-*-*-*-*-*-*-*-*      Last Books End      *-*-*-*-*-*-*-*-* -->
+        <!-- *-*-*-*-*-*-*-*-*      Education Books End      *-*-*-*-*-*-*-*-* -->
         <!-- ---------------------------------------------------------- -->
     </main>
     <!-- *-*-*-*-*-*-*-*-*      Main ENd      *-*-*-*-*-*-*-*-* -->
@@ -1179,11 +1199,11 @@
         <div class="Login-Modal modal fade  " id="Login-Reg" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog ">
-                <div class="modal-content" style="background-image: url(src/img/components/yoxla.jpg);">
+                <div class="modal-content" style="background-image: url(src/img/components/login.jpg);">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Accessible Library by JrC</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span style="color: white;" aria-hidden="true">&times;</span>
+                            <span style="color: white !important;font-size: 22px; " aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
@@ -1223,6 +1243,8 @@
         </div>
         <!-- *-*-*-*-*-*-*-*-*      Login Modal End      *-*-*-*-*-*-*-*-* -->
         <!-- ---------------------------------------------------------- -->
+
+
         <!-- *-*-*-*-*-*-*-*-*      Selected Start      *-*-*-*-*-*-*-*-* -->
         <div id="Selected">
             <a style="cursor: pointer;" class="selected ">
@@ -1235,6 +1257,8 @@
         </div>
         <!-- *-*-*-*-*-*-*-*-*      Selected End      *-*-*-*-*-*-*-*-* -->
         <!-- ---------------------------------------------------------- -->
+
+
         <!-- *-*-*-*-*-*-*-*-*      PreLoader Start      *-*-*-*-*-*-*-*-* -->
         <div class="overlay">
             <div class="preloader">
@@ -1255,13 +1279,209 @@
         </div>
         <!-- *-*-*-*-*-*-*-*-*      PreLoader End      *-*-*-*-*-*-*-*-* -->
         <!-- ---------------------------------------------------------- -->
+
+
+        <!-- *-*-*-*-*-*-*-*-*  Mobile Navigation On Button Start      *-*-*-*-*-*-*-*-* -->
+        <div id="nav-mobile-1" >
+            <div class="nav-close-btn d-flex justify-content-end">
+                <a class="close-btn" id="Nav-close-btn"><i class="fas fa-times-circle"></i></a>
+            </div>
+            <div class="languages-bar d-flex align-items-center justify-content-center">
+                <div class="lang d-flex" id="aze-lang2">
+                    <img width="20" height="20" src="src/img/logo/azerbaijan.png" alt=""> <span>AZE</span>
+                </div>
+                <div class="lang d-flex" id="eng-lang2">
+                    <img width="20" height="20" src="src/img/logo/united-kingdom.png" alt=""> <span>ENG</span>
+                </div>
+                <div class="lang d-flex" id="rus-lang2">
+                    <img width="20" height="20" src="src/img/logo/russia.png" alt=""> <span>RUS</span>
+                </div>
+            </div>
+            <div class="login d-flex justify-content-around align-items-center">
+                <a data-toggle="modal" data-target="#Login-Reg">
+                    <div class="nav-link2">
+                        Giriş
+                    </div>
+                </a>
+                <a data-toggle="modal" data-target="#Login-Reg">
+                    <div class="nav-link2">
+                        Qeydiyyat
+                    </div>
+                </a>
+            </div>
+            <div class="navigation">
+                <a href="">
+                    <div class="nav-link2">
+                        Əsas Səhifə
+                    </div>
+                </a>
+                <a href="">
+                    <div class="nav-link2">
+                        Kitablar
+                    </div>
+                </a>
+                <a href="">
+                    <div class="nav-link2">
+                        Kategorilər
+                    </div>
+                </a>
+                <a href="">
+                    <div class="nav-link2">
+                        Haqqımızda
+                    </div>
+                </a>
+                <a href="">
+                    <div class="nav-link2">
+                        Bizimlə Əlaqə
+                    </div>
+                </a>
+            </div>
+            <div class="nav-text">
+                <div class="text">
+                    Kitab almaq istəyirsiniz? Artıq köhnə kitabınızı satıb yenisini ala bilərsiniz!!!
+                </div>
+            </div>
+            <div class="icons-soc mt-3">
+                <ul class="menu">
+                    <li>
+                        <a href="#0">
+                            <span>FaceBook</span>
+                            <span>
+                                <i class="fab fa-facebook-square" aria-hidden="true"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#0">
+                            <span>Twitter</span>
+                            <span>
+                                <i class="fab fa-twitter-square" aria-hidden="true"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#0">
+                            <span>Instagram</span>
+                            <span>
+                                <i class="fab fa-instagram-square" aria-hidden="true"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- *-*-*-*-*-*-*-*-*  Mobile Navigation On Button End      *-*-*-*-*-*-*-*-* -->
+        <!-- ---------------------------------------------------------- -->
+
+
+        <!-- *-*-*-*-*-*-*-*-*  Mobile Navigation On Scrool Start      *-*-*-*-*-*-*-*-* -->
+        <div id="nav-mobile-2">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 add-book">
+                        <a href="" class="add-book-btn" data-toggle="modal" data-target="#Login-Reg">
+                            ELAN YERLƏŞDİR !
+                        </a>
+                    </div>
+                    <div class="col-lg-12 menu">
+                        <div class="icons-menu">
+                            <div class="small-menu">
+                                <a href="">
+                                    <i class="fas fa-home"></i>
+                                </a>
+                                <div class="word">Əsas Səhifə</div>
+                            </div>
+                            <div class="small-menu">
+                                <a href="">
+                                    <i class="fas fa-bookmark"></i>
+                                </a>
+                                <div class="word">Seçilmişlər</div>
+                            </div>
+                            <div class="small-menu">
+                                <a href="">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <div class="word">Mesajlar</div>
+                            </div>
+                            <div class="small-menu">
+                                <a href="">
+                                    <i class="fas fa-user"></i>
+                                </a>
+                                <div class="word">Şəxsi Hesab</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- *-*-*-*-*-*-*-*-*  Mobile Navigation On Scrool End      *-*-*-*-*-*-*-*-* -->
+        <!-- ---------------------------------------------------------- -->
+
+        <!-- *-*-*-*-*-*-*-*-*  Mobile Category On Button Start      *-*-*-*-*-*-*-*-* -->
+        <div id="cat-mobile">
+            <div class="cat-close-btn d-flex justify-content-end">
+                <a class="close-btn" id="Cat-close-btn"><i class="fas fa-times-circle"></i></a>
+            </div>
+            <div class="mob-categories">
+                <a href="">
+                    <div class="mob-category">
+                        <img src="src/img/categories/roman.png" alt="">
+                        <div class="text">Əsər və Roman</div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="mob-category">
+                        <img src="src/img/categories/studying.png" alt="">
+                        <div class="text">Dərslik</div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="mob-category">
+                        <img src="src/img/categories/science.png" alt="">
+                        <div class="text">Elmi</div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="mob-category">
+                        <img src="src/img/categories/biography.png" alt="">
+                        <div class="text">Həyat Hekayəsi</div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="mob-category">
+                        <img src="src/img/categories/search.png" alt="">
+                        <div class="text">Bilgi və Araşdırma</div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="mob-category">
+                        <img src="src/img/categories/literature.png" alt="">
+                        <div class="text">Ədəbiyyat Şeir</div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="mob-category">
+                        <img src="src/img/categories/childBook.png" alt="">
+                        <div class="text">Uşaq Kitabları</div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="mob-category">
+                        <img src="src/img/categories/journey.png" alt="">
+                        <div class="text">Dunya Səyahəti</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- *-*-*-*-*-*-*-*-*  Mobile Category On Button End      *-*-*-*-*-*-*-*-* -->
+        <!-- ---------------------------------------------------------- -->
     </div>
     <!-- *-*-*-*-*-*-*-*-*      Components End      *-*-*-*-*-*-*-*-* -->
     <script src="src/js/jquery/jquery.js"></script>
-    <script src="src/js/owlCarousel/owl.js" ></script>
     <script src="src/js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="src/js/bootstrap/bootstrap.min.js"></script>   
     <script src="src/js/moblie.js"></script>
+    <script src="src/js/navScroll.js"></script>
     <script src="src/js/main.js"></script>
 </body>
 </html>

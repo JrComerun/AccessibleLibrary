@@ -1,5 +1,8 @@
+#nav-mobile-1 {
+  display: none;
+}
 @media only screen and (max-width: 1200px) {
-  .nav-mobile {
+  #nav-mobile-1 {
     display: block !important;
     width: 280px;
     height: 100vh;
@@ -9,6 +12,7 @@
     right: 0;
     z-index: 100000000000000000000;
     transform: translateX(100%);
+    transition: ease 0.7s;
     font-weight: 600;
     font-size: 18px;
     padding: 1rem 3rem 3.6rem 3.6rem;
@@ -19,11 +23,13 @@
       }
     }
     .languages-bar {
+      margin-left: 10px;
       margin-bottom: 25px;
       font-size: 13px;
       .lang {
         span {
           margin-left: 5px;
+          color: $light !important;
         }
         margin-right: 20px;
       }
@@ -32,12 +38,11 @@
       margin-bottom: 60px;
       a {
         padding: 0 10px;
-        border-right: 2px solid $light;
-        border-left: 2px solid $light;
       }
     }
     .navigation {
-      margin-bottom: 80px;
+      margin-bottom: 50px;
+      text-align: center;
       .nav-link2 {
         font-size: 20px;
         border-bottom: 2px solid $light;
@@ -102,5 +107,14 @@
         }
       }
     }
+    .text {
+      text-align: center;
+      color: $light;
+      margin-bottom: 30px;
+    }
+  }
+  #nav-mobile-1.show {
+    transform: translateX(0%);
+    transition: ease 0.7s;
   }
 }

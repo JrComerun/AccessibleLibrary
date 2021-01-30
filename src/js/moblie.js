@@ -4,28 +4,60 @@ $(document).ready(function () {
   //****************************************************
     let openNav = $("#Nav-open-btn")
     let closeNav = $("#Nav-close-btn")
-    openNav.click(function () {
-        $("#nav-mobile").css("transform","translateX(0%)")
-        $("#nav-mobile").css("transition","ease 0.7s")
+  
+    openNav.click(function (e) {
+      $("#nav-mobile-1").addClass("show")
+      if ($("#cat-mobile").hasClass("show")){
+        $("#cat-mobile").removeClass("show")
+      }
+       e.stopPropagation();
     })
     closeNav.click(function () {
-        $("#nav-mobile").css("transform","translateX(100%)")
-        $("#nav-mobile").css("transition","ease 0.7s")
+        $("#nav-mobile-1").removeClass("show")
     })
-
+    //      close btn on html click
+    $('html').click(function() {
+      if ($("#nav-mobile-1").hasClass("show")){
+        $("#nav-mobile-1").removeClass("show")
+      }
+    });
 
   // ***************************************************
   //            Add Book Navigation on Scrool
   //****************************************************
-    let nav = document.querySelector(".nav-mobile2");
-  $(window).scroll(function(){
-    if($(window).scrollTop()>120){
-      nav.classList.add("nav-scrool2");
-    }
-    else{
-      nav.classList.remove("nav-scrool2");
-    }
-  });
+    let nav = document.querySelector("#nav-mobile-2");
+    $(window).scroll(function(){
+      if($(window).scrollTop()>120){
+        nav.classList.add("nav-scroll2");
+      }
+      else{
+        nav.classList.remove("nav-scroll2");
+      }
+    });
+  
+  
+  // ***************************************************
+  //            Categories Mobile  on Button
+  //****************************************************
+    let openCat = $(".filter")
+    let closeCat = $("#Cat-close-btn")
+  
+    openCat.click(function (e) {
+      $("#cat-mobile").addClass("show")
+      if ($("#nav-mobile-1").hasClass("show")){
+        $("#nav-mobile-1").removeClass("show")
+      }
+       e.stopPropagation();
+    })
+    closeCat.click(function () {
+        $("#cat-mobile").removeClass("show")
+    })
+    //      close btn on html click
+    $('html').click(function() {
+      if ($("#cat-mobile").hasClass("show")){
+        $("#cat-mobile").removeClass("show")
+      }
+    });
 })
 
  
