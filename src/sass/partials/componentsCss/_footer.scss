@@ -1,0 +1,118 @@
+footer {
+  text-transform: uppercase;
+  color: $light;
+  font-weight: 500;
+  padding-top: 50px;
+  min-height: 410px;
+  width: 100% !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 20;
+  .thanks-foot {
+    z-index: 20;
+    div {
+      padding-top: 10px;
+      font-size: 13px;
+      font-weight: 500;
+
+      img {
+        border-radius: 15px;
+        width: 45px;
+        height: 45px;
+        object-fit: cover;
+        margin-right: 5px;
+      }
+    }
+  }
+  .mobile {
+    span {
+      font-size: 13px;
+    }
+  }
+  .contact {
+    z-index: 20;
+    div {
+      padding-top: 10px;
+      font-size: 14px;
+    }
+    .icons {
+      height: 60px;
+      .menu {
+        padding: 0px;
+        display: flex;
+        justify-content: center;
+        li {
+          list-style: none;
+          a {
+            color: $light;
+            display: block;
+            position: relative;
+            overflow: hidden;
+            span {
+              transition: transform 0.2s ease-out;
+              &:last-child {
+                display: inline-block;
+                padding-right: 20px;
+                font-size: 30px;
+              }
+              &:first-child {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transform: translateX(-150%);
+              }
+              .fa-instagram-square {
+                color: $instagram;
+              }
+              .fa-facebook-square {
+                color: $facebook;
+              }
+              .fa-twitter-square {
+                color: $twitter;
+              }
+            }
+            &:hover {
+              width: 82px;
+              span {
+                &:last-child {
+                  transform: translateX(200%);
+                }
+              }
+              span {
+                &:first-child {
+                  transform: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .footer-logo {
+    margin-top: 80px;
+    .foot-logo {
+      img {
+        width: 80px;
+      }
+    }
+    .by-jrc {
+      font-size: 18px;
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    min-height: 410px;
+    background: rgba(2, 0, 11, 0.75);
+    z-index: -1;
+  }
+}

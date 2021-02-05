@@ -1,0 +1,106 @@
+@import "partials/variables";
+header {
+  background: none !important;
+  height: max-content;
+  background-color: $dark !important;
+  &::after {
+    z-index: -1;
+    height: max-content;
+  }
+  .header-content {
+    display: none  !important;
+  }
+  .header-content-second {
+    display: block !important;
+    margin-top: 5px;
+    padding: 30px 0px 17px 0px;
+    background-color: #ebe2cb;
+    border-bottom: 1px rgb(153, 152, 152) solid;
+    .col-12 {
+      z-index: 19;
+      .categories {
+        display: flex;
+        flex-wrap: wrap;
+        color: $dark;
+        justify-content: flex-end;
+        .category {
+          position: relative;
+          .main-category {
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding-right: 20px;
+            padding-bottom: 14px;
+            img {
+              width: 40px;
+              height: 40px;
+            }
+            .text {
+              font-weight: 700;
+              font-size: 16px;
+              margin-left: 15px;
+              position: relative;
+            }
+          }
+        }
+        .childCategories {
+          transition: 0.4s;
+          top: 50px;
+          position: absolute;
+          width: 100%;
+          background-color: $dark;
+          padding: 10px 10px 10px 20px;
+          display: none;
+          z-index: 19;
+          .col-12 {
+            padding: 0;
+            .all {
+              font-size: 14px;
+              font-weight: 700;
+              padding-bottom: 5px;
+              border-bottom: 1px solid $light;
+            }
+          }
+          .col-6 {
+            padding: 0;
+            a {
+              color: $light !important;
+
+              .child {
+                padding-top: 5px;
+                font-size: 14px;
+                font-weight: 700;
+                width: max-content;
+                border-bottom: 1px solid $light;
+              }
+            }
+          }
+
+          // display: none;
+        }
+        .childCategories.show {
+          display: block;
+          &::after {
+            position: absolute;
+            content: "";
+            top: -11px;
+            left: 50px;
+            background-color: $dark;
+            z-index: 14px;
+            width: 25px;
+            height: 25px;
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+    @media only screen and (max-width: 1200px) {
+      display: none !important;
+    }
+  }
+}
+
+.pad-top80 {
+  padding-top: 50px !important;
+}

@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,MAAM,AAAC,CACL,UAAU,CAAE,eAAe,CAC3B,MAAM,CAAE,sBAAsB,CAC9B,gBAAgB,CCLZ,OAAO,CDKa,UAAU,CAWnC,AAdD,AAIE,MAJI,AAIH,OAAO,AAAC,CACP,OAAO,CAAE,EAAE,CACX,MAAM,CAAE,sBAAsB,CAC/B,AAPH,AAQE,MARI,CAQJ,eAAe,AAAA,CACX,OAAO,CAAE,eAAe,CAC3B,AAVH,AAWE,MAXI,CAWJ,sBAAsB,AAAC,CACrB,OAAO,CAAE,eAAe,CACzB",
+    "sources": [
+        "../sass/thirdy.scss",
+        "../sass/partials/_variables.scss"
+    ],
+    "names": [],
+    "file": "thirdy.css"
+}

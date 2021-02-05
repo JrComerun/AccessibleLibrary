@@ -5,7 +5,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 80%;
+    min-width: 280px;
     height: 100vh;
     background-color: $light;
     display: flex !important;
@@ -29,7 +29,7 @@
         align-items: center;
         width: 100%;
         margin-bottom: 14px;
-        margin-left: 24px;
+        padding-left: 24px;
         img {
           width: 50px;
           height: 50px;
