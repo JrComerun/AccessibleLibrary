@@ -21,7 +21,7 @@ $(document).ready(function () {
       $(".header-bar").css("padding-bottom", "0px")
     }
   });
-
+  
   
 })
 

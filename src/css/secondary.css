@@ -1,19 +1,2 @@
-header {
-  background: none !important;
-  height: max-content;
-  background-color: #110825 !important;
-}
-
-header::after {
-  z-index: -1;
-  height: max-content;
-}
-
-header .header-content {
-  display: none  !important;
-}
-
-.pad-top80 {
-  padding-top: 50px !important;
-}
+header{background:none !important;height:-webkit-max-content;height:-moz-max-content;height:max-content;background-color:#110825 !important}header::after{z-index:-1;height:-webkit-max-content;height:-moz-max-content;height:max-content}header .header-content{display:none  !important}.pad-top80{padding-top:50px !important}
 /*# sourceMappingURL=secondary.css.map */

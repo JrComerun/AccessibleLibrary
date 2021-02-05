@@ -1,645 +1,742 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Accessible Library</title>
-    <link rel="icon" href="src/img/logo/nav-logo.png" type="image/png" sizes="16x16">
+    <link
+      rel="icon"
+      href="src/img/logo/nav-logo.png"
+      type="image/png"
+      sizes="16x16"
+    />
     <script src="src/js/Font_Awesome/icons.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;1,500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="src/css/bootsrap/bootstrap-grid.css">
-    <link rel="stylesheet" href="src/css/bootsrap/bootstrap-reboot.css">
-    <link rel="stylesheet" href="src/css/bootsrap/bootstrap.css">
-    <link rel="stylesheet" href="src/css/style.css">
-    <link rel="stylesheet" href="src/css/secondary.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/css/bootsrap/bootstrap-grid.css" />
+    <link rel="stylesheet" href="src/css/bootsrap/bootstrap-reboot.css" />
+    <link rel="stylesheet" href="src/css/bootsrap/bootstrap.css" />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="src/css/secondary.css" />
     <title>Accessible Library</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- *-*-*-*-*-*-*-*-*      Header Start      *-*-*-*-*-*-*-*-* -->
     <header style="background-image: url(src/img/layout/header2.jpg)">
-        <div class="header-bar">
-            <div class="container-fluid">
-                <div class="row justify-content-between align-items-center">
-                    <div class="header-bar-left show d-flex justify-content-center">
-                        <a class="filter">
-                            KATEGORİYA
-                        </a>
+      <div class="header-bar">
+        <div class="container-fluid">
+          <div class="row justify-content-between align-items-center">
+            <div class="header-bar-left show d-flex justify-content-center">
+              <a class="filter"> KATEGORİYA </a>
+            </div>
+            <div class="col-lg-2 header-bar-left none">
+              <div class="icons mt-3">
+                <ul class="menu">
+                  <li>
+                    <a href="#0">
+                      <span>FaceBook</span>
+                      <span>
+                        <i
+                          class="fab fa-facebook-square"
+                          aria-hidden="true"
+                        ></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#0">
+                      <span>Twitter</span>
+                      <span>
+                        <i class="fab fa-twitter-square" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#0">
+                      <span>Instagram</span>
+                      <span>
+                        <i
+                          class="fab fa-instagram-square"
+                          aria-hidden="true"
+                        ></i>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-4 header-bar-center">
+              <div class="header-search">
+                <form action="">
+                  <div class="input-group">
+                    <div class="form-outline">
+                      <input type="search" id="form1" class="form-control" />
                     </div>
-                    <div class="col-lg-2 header-bar-left none">
-                        <div class="icons mt-3">
-                            <ul class="menu">
-                                <li>
-                                    <a href="#0">
-                                        <span>FaceBook</span>
-                                        <span>
-                                            <i class="fab fa-facebook-square" aria-hidden="true"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#0">
-                                        <span>Twitter</span>
-                                        <span>
-                                            <i class="fab fa-twitter-square" aria-hidden="true"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#0">
-                                        <span>Instagram</span>
-                                        <span>
-                                            <i class="fab fa-instagram-square" aria-hidden="true"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 header-bar-center">
-                        <div class="header-search">
-                            <form action="">
-                                <div class="input-group">
-                                    <div class="form-outline">
-                                        <input type="search" id="form1" class="form-control" />
-                                    </div>
-                                    <button type="button" class="btn btn-primary">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 header-bar-right  d-flex justify-content-end align-items-center">
-                        <div class="cat-1200-992">
-                            <a class="filter">
-                                KATEGORİYA
-                            </a>
-                        </div>
-                        <div class="languages-bar d-flex align-items-center">
-                            <div class="lang" id="aze-lang">
-                                <img src="src/img/logo/azerbaijan.png" alt=""> <span>Aze</span>
-                            </div>
-                            <div class="lang" id="eng-lang">
-                                <img src="src/img/logo/united-kingdom.png" alt=""> <span>Eng</span>
-                            </div>
-                            <div class="lang" id="rus-lang">
-                                <img src="src/img/logo/russia.png" alt=""> <span>Rus</span>
-                            </div>
-                        </div>
-                        <div class="login d-flex align-items-center">
-
-                            <a data-toggle="modal" data-target="#Login-Reg">
-                                <div class="nav-link-2">
-                                    <img style="border-radius: 50%;" width="20px" src="src/img/logo/user.png" alt="">
-                                    Giriş
-                                </div>
-                            </a>
-                            <a data-toggle="modal" data-target="#Login-Reg">
-                                <div class="nav-link-2">
-                                    <img style="border-radius: 50%;" width="20px" src="src/img/logo/user.png" alt="">
-                                    Qeydiyyat
-                                </div>
-                            </a>
-                        </div>
-                        <div class="icons d-flex align-items-center">
-
-                            <a href="" style="cursor: pointer;" title="Seçilmişlərə bax!">
-                                <div class="nav-link-6 pt-5px">
-                                    <i style="font-size: 20px;" class="fas fa-bookmark"></i>
-                                </div>
-                            </a>
-                            <!-- <a href="" style="cursor: pointer;" title="Bildirişdən Çıxart!">
+                    <button type="button" class="btn btn-primary">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div
+              class="col-lg-6 header-bar-right d-flex justify-content-end align-items-center"
+            >
+              <div class="cat-1200-992">
+                <a class="filter"> KATEGORİYA </a>
+              </div>
+              <div class="languages-bar d-flex align-items-center">
+                <div class="lang" id="aze-lang">
+                  <img src="src/img/logo/azerbaijan.png" alt="" />
+                  <span>Aze</span>
+                </div>
+                <div class="lang" id="eng-lang">
+                  <img src="src/img/logo/united-kingdom.png" alt="" />
+                  <span>Eng</span>
+                </div>
+                <div class="lang" id="rus-lang">
+                  <img src="src/img/logo/russia.png" alt="" /> <span>Rus</span>
+                </div>
+              </div>
+              <div class="login d-flex align-items-center">
+                <a data-toggle="modal" data-target="#Login-Reg">
+                  <div class="nav-link-2">
+                    <img
+                      style="border-radius: 50%"
+                      width="20px"
+                      src="src/img/logo/user.png"
+                      alt=""
+                    />
+                    Giriş
+                  </div>
+                </a>
+                <a data-toggle="modal" data-target="#Login-Reg">
+                  <div class="nav-link-2">
+                    <img
+                      style="border-radius: 50%"
+                      width="20px"
+                      src="src/img/logo/user.png"
+                      alt=""
+                    />
+                    Qeydiyyat
+                  </div>
+                </a>
+              </div>
+              <div class="icons d-flex align-items-center">
+                <a href="" style="cursor: pointer" title="Seçilmişlərə bax!">
+                  <div class="nav-link-6 pt-5px">
+                    <i style="font-size: 20px" class="fas fa-bookmark"></i>
+                  </div>
+                </a>
+                <!-- <a href="" style="cursor: pointer;" title="Bildirişdən Çıxart!">
                                                         <div class="nav-link-2 pt-5px">
                                                             <i style="font-size: 20px;" class="fas fa-bell-slash"></i>
                                                         </div>
                                                     </a> -->
-                            <a data-toggle="Login-Modal" data-target="#Login-Reg" title="Bildirişdən Əldə et!">
-                                <div class="nav-link-6 pt-5px">
-                                    <i style="font-size: 20px;" class="fas fa-bell"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <a
+                  data-toggle="Login-Modal"
+                  data-target="#Login-Reg"
+                  title="Bildirişdən Əldə et!"
+                >
+                  <div class="nav-link-6 pt-5px">
+                    <i style="font-size: 20px" class="fas fa-bell"></i>
+                  </div>
+                </a>
+              </div>
             </div>
+          </div>
         </div>
-        <nav class="navbar navbar-expand-lg ">
-            <div class="container-fluid " style="height: 100%;">
-                <div class="row justify-content-between align-items-center w-100" style="height: 100% !important;">
-                    <a class="navbar-brand d-flex align-items-center pl-3" href="#">
-                        <img class="nav-logo img-fluid " src="src/img/logo/nav-logo.png" alt="">
-                        <div class="page-name">
-                            <span class="acc1">Əlçatan Kitabxana </span>
-                            <!-- <span class="lib" >Library</span> -->
-
-                        </div>
-                    </a>
-                    <div class="navigation d-flex ">
-                        <a href="index.html">
-                            <div class="nav-link">
-                                Əsas Səhifə
-                            </div>
-                        </a>
-                        <a href="categories.html">
-                            <div class="nav-link ">
-                                Kateqorilər
-                            </div>
-                        </a>
-                        <a href="">
-                            <div class="nav-link">
-                                Kitablar
-                            </div>
-                        </a>
-                        <a href="">
-                            <div class="nav-link">
-                                Haqqımızda
-                            </div>
-                        </a>
-                        <a href="">
-                            <div class="nav-link ">
-                                Bizimlə Əlaqə
-                            </div>
-                        </a>
-                    </div>
-                    <button class="button-nav" id="Nav-open-btn">
-                        <i class="fas fa-bars"></i>
-                    </button>
-
-                </div>
-
+      </div>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid" style="height: 100%">
+          <div
+            class="row justify-content-between align-items-center w-100"
+            style="height: 100% !important"
+          >
+            <a class="navbar-brand d-flex align-items-center pl-3" href="#">
+              <img
+                class="nav-logo img-fluid"
+                src="src/img/logo/nav-logo.png"
+                alt=""
+              />
+              <div class="page-name">
+                <span class="acc1">Əlçatan Kitabxana </span>
+                <!-- <span class="lib" >Library</span> -->
+              </div>
+            </a>
+            <div class="navigation d-flex">
+              <a href="index.html">
+                <div class="nav-link">Əsas Səhifə</div>
+              </a>
+              <a href="categories.html">
+                <div class="nav-link">Kateqorilər</div>
+              </a>
+              <a href="">
+                <div class="nav-link">Kitablar</div>
+              </a>
+              <a href="">
+                <div class="nav-link">Haqqımızda</div>
+              </a>
+              <a href="">
+                <div class="nav-link">Bizimlə Əlaqə</div>
+              </a>
             </div>
-
-        </nav>
+            <button class="button-nav" id="Nav-open-btn">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
     </header>
     <!-- *-*-*-*-*-*-*-*-*      Header End      *-*-*-*-*-*-*-*-* -->
     <!-- ---------------------------------------------------------- -->
 
-
     <!-- *-*-*-*-*-*-*-*-*      Main Start      *-*-*-*-*-*-*-*-* -->
     <main>
-        <!-- *-*-*-*-*-*-*-*-*      Profile Start      *-*-*-*-*-*-*-*-* -->
-        <section id="Profile">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 profile">
-                        <div class="profile-img">
-                            <img src="src/img/thanks/elgun-magsudzade.jfif" alt="">
-                        </div>
-                        <div class="profile-content">
-                            <div class="profile-name">
-                                Elgun
-                            </div>
-                            <div class="profile-date">
-                                Əlçatan Kitabxanada-da 04.07.2016
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <nav>
-                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <a class="nav-link active" id="nav-active-tab" data-toggle="tab" href="#nav-active" role="tab"
-                                    aria-controls="nav-home" aria-selected="true">Aktiv Elanlar</a>
-                                <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
-                                    aria-controls="nav-profile" aria-selected="false">Deaktiv Elanlar</a>
-                            </div>
-                        </nav>
-                        <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-active" role="tabpanel" aria-labelledby="nav-active-tab">
-                                <div class="row">
-                                    <div class="col-12 d-flex justify-content-center my-5 flex-column align-items-center">
-                                        <a class="search" href=""><i class="fab fa-searchengin"></i></a>
-                                        <h3>Aktiv Kitabı Yoxdur</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                                <div class="row">
-                                    <div class="col-12 d-flex justify-content-center my-5 flex-column align-items-center">
-                                        <a class="search" href=""><i class="fab fa-searchengin"></i></a>
-                                        <h3>Deaktiv Kitabı Yoxdur</h3>
-                                    </div>
-                                </div>
-                            </div>
-                          
-                        </div>
-                    </div>
+      <!-- *-*-*-*-*-*-*-*-*      Profile Start      *-*-*-*-*-*-*-*-* -->
+      <section id="Profile">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 profile">
+              <div class="profile-img">
+                <img src="src/img/thanks/elgun-magsudzade.jfif" alt="" />
+              </div>
+              <div class="profile-content">
+                <div class="profile-name">Elgun</div>
+                <div class="profile-date">
+                  Əlçatan Kitabxanada-da 04.07.2016
                 </div>
+              </div>
             </div>
-        </section>
-        <!-- *-*-*-*-*-*-*-*-*      Profile End      *-*-*-*-*-*-*-*-* -->
-        <!-- ---------------------------------------------------------- -->
+            <div class="col-12">
+              <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <a
+                    class="nav-link active"
+                    id="nav-active-tab"
+                    data-toggle="tab"
+                    href="#nav-active"
+                    role="tab"
+                    aria-controls="nav-home"
+                    aria-selected="true"
+                    >Aktiv Elanlar</a
+                  >
+                  <a
+                    class="nav-link"
+                    id="nav-profile-tab"
+                    data-toggle="tab"
+                    href="#nav-profile"
+                    role="tab"
+                    aria-controls="nav-profile"
+                    aria-selected="false"
+                    >Deaktiv Elanlar</a
+                  >
+                </div>
+              </nav>
+              <div class="tab-content" id="nav-tabContent">
+                <div
+                  class="tab-pane fade show active"
+                  id="nav-active"
+                  role="tabpanel"
+                  aria-labelledby="nav-active-tab"
+                >
+                  <div class="row">
+                    <div
+                      class="col-12 d-flex justify-content-center my-5 flex-column align-items-center"
+                    >
+                      <a class="search" href=""
+                        ><i class="fab fa-searchengin"></i
+                      ></a>
+                      <h3>Aktiv Kitabı Yoxdur</h3>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="nav-profile"
+                  role="tabpanel"
+                  aria-labelledby="nav-profile-tab"
+                >
+                  <div class="row">
+                    <div
+                      class="col-12 d-flex justify-content-center my-5 flex-column align-items-center"
+                    >
+                      <a class="search" href=""
+                        ><i class="fab fa-searchengin"></i
+                      ></a>
+                      <h3>Deaktiv Kitabı Yoxdur</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- *-*-*-*-*-*-*-*-*      Profile End      *-*-*-*-*-*-*-*-* -->
+      <!-- ---------------------------------------------------------- -->
     </main>
     <!-- *-*-*-*-*-*-*-*-*      Main ENd      *-*-*-*-*-*-*-*-* -->
     <!-- ---------------------------------------------------------- -->
 
-
     <!-- *-*-*-*-*-*-*-*-*      Footer Start      *-*-*-*-*-*-*-*-* -->
-    <footer style="background-image: url(src/img/layout/footer.jpg);">
-        <div class="container">
-            <div class="row d-flex justify-content-center ">
-                <div class="col-lg-3 partners py-3">
-                    <h4 class="pb-3">Əlaqəli saytlar</h4>
-                    <a href="https://azgpeng.com/jrc" target="_blank">
-                        <div class="pb-3">
-                            <img style="border-radius: 10px;margin-right: 5px; object-fit: cover;" width="40"
-                                height="40" src="src/img/logo/jrc.png" alt=""> JrC portfolio
-                        </div>
-                    </a>
-                    <a href="https://azgpeng.com" target="_blank">
-                        <div>
-                            <img style="border-radius: 10px;margin-right: 5px;" width="40" src="src/img/logo/azgp1.png"
-                                alt=""> AzGPEng
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6 py-3" id="thanks-col">
-                    <div class="thanks-foot d-flex flex-column align-items-start justify-content-center">
-                        <h4 class="text-center">
-                            Təşəkkürlər!
-                        </h4>
-                        <div>
-                            <img src="src/img/thanks/OrxanBije.jpg" alt=""> Orxan Bije
-                        </div>
-                        <div>
-                            <img src="src/img/thanks/ShohretM.jpg" alt=""> Şöhrət Məhərrəmov
-                        </div>
-                        <div>
-                            <img src="src/img/thanks/logocode.webp" alt=""> Code Academy
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col-lg-3 col-md-6 py-3" id="spec-thanks-col">
-                    <div class="thanks-foot spec-thanks d-flex flex-column
-                        align-items-start justify-content-center">
-                        <h4 class="text-center">
-                            Xüsusi Təşəkkürlər!
-                        </h4>
-                        <div>
-                            <img src="src/img/thanks/Kamran_Jabiyev.jpg" alt=""> Kamran Jabiyev (№1)
-                        </div>
-                        <div>
-                            <img src="src/img/thanks/elgun-magsudzade.jfif" alt="">
-                            Elgun Maqsudzade
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 py-3 " id="contact-col">
-
-                    <div class="contact d-flex flex-column align-items-start justify-content-center">
-                        <h4>
-                            Əlaqə
-                        </h4>
-                        <div class="icons">
-                            <ul class="menu">
-                                <li>
-                                    <a href="#0">
-                                        <span>facebook</span>
-                                        <span>
-                                            <i class="fab fa-facebook-square" aria-hidden="true"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#0">
-                                        <span>twitter</span>
-                                        <span>
-                                            <i class="fab fa-twitter-square" aria-hidden="true"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#0">
-                                        <span>instagram</span>
-                                        <span>
-                                            <i class="fab fa-instagram-square" aria-hidden="true"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="mobile text-center d-flex">
-                            <span>Tel: </span> <span>+(994) 506804400</span>
-                        </div>
-                        <div class="mobile text-center d-flex">
-                            <span>Email: </span> <span>Knjc621@gmail.com</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 col-md-6 " id="jrc-col">
-                    <div class="footer-logo d-flex justify-content-center align-items-center">
-                        <div class="foot-logo pr-3">
-                            <img src="src/img/logo/nav-logo.png" alt="">
-                        </div>
-                        <div class="by-jrc">
-                            @2021 Accessible Library by JrC
-                        </div>
-                    </div>
-
-                </div>
-
+    <footer style="background-image: url(src/img/layout/footer.jpg)">
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-3 partners py-3">
+            <h4 class="pb-3">Əlaqəli saytlar</h4>
+            <a href="https://azgpeng.com/jrc" target="_blank">
+              <div class="pb-3">
+                <img
+                  style="
+                    border-radius: 10px;
+                    margin-right: 5px;
+                    object-fit: cover;
+                  "
+                  width="40"
+                  height="40"
+                  src="src/img/logo/jrc.png"
+                  alt=""
+                />
+                JrC portfolio
+              </div>
+            </a>
+            <a href="https://azgpeng.com" target="_blank">
+              <div>
+                <img
+                  style="border-radius: 10px; margin-right: 5px"
+                  width="40"
+                  src="src/img/logo/azgp1.png"
+                  alt=""
+                />
+                AzGPEng
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-3 col-md-6 py-3" id="thanks-col">
+            <div
+              class="thanks-foot d-flex flex-column align-items-start justify-content-center"
+            >
+              <h4 class="text-center">Təşəkkürlər!</h4>
+              <div>
+                <img src="src/img/thanks/OrxanBije.jpg" alt="" /> Orxan Bije
+              </div>
+              <div>
+                <img src="src/img/thanks/ShohretM.jpg" alt="" /> Şöhrət
+                Məhərrəmov
+              </div>
+              <div>
+                <img src="src/img/thanks/logocode.webp" alt="" /> Code Academy
+              </div>
             </div>
+          </div>
+          <div class="col-lg-3 col-md-6 py-3" id="spec-thanks-col">
+            <div
+              class="thanks-foot spec-thanks d-flex flex-column align-items-start justify-content-center"
+            >
+              <h4 class="text-center">Xüsusi Təşəkkürlər!</h4>
+              <div>
+                <img src="src/img/thanks/Kamran_Jabiyev.jpg" alt="" /> Kamran
+                Jabiyev (№1)
+              </div>
+              <div>
+                <img src="src/img/thanks/elgun-magsudzade.jfif" alt="" />
+                Elgun Maqsudzade
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 py-3" id="contact-col">
+            <div
+              class="contact d-flex flex-column align-items-start justify-content-center"
+            >
+              <h4>Əlaqə</h4>
+              <div class="icons">
+                <ul class="menu">
+                  <li>
+                    <a href="#0">
+                      <span>facebook</span>
+                      <span>
+                        <i
+                          class="fab fa-facebook-square"
+                          aria-hidden="true"
+                        ></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#0">
+                      <span>twitter</span>
+                      <span>
+                        <i class="fab fa-twitter-square" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#0">
+                      <span>instagram</span>
+                      <span>
+                        <i
+                          class="fab fa-instagram-square"
+                          aria-hidden="true"
+                        ></i>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="mobile text-center d-flex">
+                <span>Tel: </span> <span>+(994) 506804400</span>
+              </div>
+              <div class="mobile text-center d-flex">
+                <span>Email: </span> <span>Knjc621@gmail.com</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-6" id="jrc-col">
+            <div
+              class="footer-logo d-flex justify-content-center align-items-center"
+            >
+              <div class="foot-logo pr-3">
+                <img src="src/img/logo/nav-logo.png" alt="" />
+              </div>
+              <div class="by-jrc">@2021 Accessible Library by JrC</div>
+            </div>
+          </div>
         </div>
+      </div>
     </footer>
     <!-- *-*-*-*-*-*-*-*-*      Footer End      *-*-*-*-*-*-*-*-* -->
     <!-- ---------------------------------------------------------- -->
 
-
     <!-- *-*-*-*-*-*-*-*-*      Components Start      *-*-*-*-*-*-*-*-* -->
     <div class="components">
-        <!-- ---------------------------------------------------------- -->
-        <!-- *-*-*-*-*-*-*-*-*      Login Modal Start      *-*-*-*-*-*-*-*-* -->
-        <div class="Login-Modal modal fade  " id="Login-Reg" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog ">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Accessible Library by JrC</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span style="color: white !important;font-size: 22px; " aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="login-des">
-                            <img src="src/img/logo/user.png" alt="">
-                        </div>
-                        <form action="">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">İstifadəçi Adı</label>
-                                <input type="text" class="form-control" id="Username-log" aria-describedby="emailHelp">
-                                <span></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Parol</label>
-                                <input type="password" class="form-control" id="Password-log">
-                                <span></span>
-                            </div>
-                            <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                            </div>
-                            <button type="button" class="btn btn-success">Daxil ol</button>
-                        </form>
-                        <div class="reg-forgot">
-                            <a href="">Parolu unutmusan?</a>
-                            <a href="">Qeydiyyatdan Keç</a>
-                        </div>
-                        <div class="login-soc">
-                            <a href=""> <i class="fab fa-facebook-f"></i></a>
-                            <a href=""> <i class="fab fa-google"></i></a>
-                            <a href=""> <i class="fab fa-vk"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <!-- *-*-*-*-*-*-*-*-*      Login Modal End      *-*-*-*-*-*-*-*-* -->
-        <!-- ---------------------------------------------------------- -->
-
-
-        <!-- *-*-*-*-*-*-*-*-*      Selected Start      *-*-*-*-*-*-*-*-* -->
-        <div id="Selected">
-            <a style="cursor: pointer;" class="selected ">
-                <i class="fas fa-heart"></i>
-            </a>
-            <div class="selected-box">
-                <i class="fas fa-box-open my-3"></i>
-                <a href="">See Your Box</a>
-            </div>
-        </div>
-        <!-- *-*-*-*-*-*-*-*-*      Selected End      *-*-*-*-*-*-*-*-* -->
-        <!-- ---------------------------------------------------------- -->
-
-
-        <!-- *-*-*-*-*-*-*-*-*      PreLoader Start      *-*-*-*-*-*-*-*-* -->
-        <div class="overlay">
-            <div class="preloader">
-                <div class="diamond">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <div class="movement">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-            <div id="Pre-JrC">
+      <!-- ---------------------------------------------------------- -->
+      <!-- *-*-*-*-*-*-*-*-*      Login Modal Start      *-*-*-*-*-*-*-*-* -->
+      <div
+        class="Login-Modal modal fade"
+        id="Login-Reg"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
                 Accessible Library by JrC
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span
+                  style="color: white !important; font-size: 22px"
+                  aria-hidden="true"
+                  >&times;</span
+                >
+              </button>
             </div>
+            <div class="modal-body">
+              <div class="login-des">
+                <img src="src/img/logo/user.png" alt="" />
+              </div>
+              <form action="">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">İstifadəçi Adı</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Username-log"
+                    aria-describedby="emailHelp"
+                  />
+                  <span></span>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Parol</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="Password-log"
+                  />
+                  <span></span>
+                </div>
+                <div class="form-group form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="exampleCheck1"
+                  />
+                  <label class="form-check-label" for="exampleCheck1"
+                    >Check me out</label
+                  >
+                </div>
+                <button type="button" class="btn btn-success">Daxil ol</button>
+              </form>
+              <div class="reg-forgot">
+                <a href="">Parolu unutmusan?</a>
+                <a href="">Qeydiyyatdan Keç</a>
+              </div>
+              <div class="login-soc">
+                <a href=""> <i class="fab fa-facebook-f"></i></a>
+                <a href=""> <i class="fab fa-google"></i></a>
+                <a href=""> <i class="fab fa-vk"></i></a>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- *-*-*-*-*-*-*-*-*      PreLoader End      *-*-*-*-*-*-*-*-* -->
-        <!-- ---------------------------------------------------------- -->
+      </div>
+      <!-- *-*-*-*-*-*-*-*-*      Login Modal End      *-*-*-*-*-*-*-*-* -->
+      <!-- ---------------------------------------------------------- -->
 
-
-        <!-- *-*-*-*-*-*-*-*-*  Mobile Navigation On Button Start      *-*-*-*-*-*-*-*-* -->
-        <div id="nav-mobile-1">
-            <div class="nav-close-btn d-flex justify-content-end">
-                <a class="close-btn" id="Nav-close-btn"><i class="fas fa-times-circle"></i></a>
-            </div>
-            <div class="languages-bar d-flex align-items-center justify-content-center">
-                <div class="lang d-flex" id="aze-lang2">
-                    <img width="20" height="20" src="src/img/logo/azerbaijan.png" alt=""> <span>AZE</span>
-                </div>
-                <div class="lang d-flex" id="eng-lang2">
-                    <img width="20" height="20" src="src/img/logo/united-kingdom.png" alt=""> <span>ENG</span>
-                </div>
-                <div class="lang d-flex" id="rus-lang2">
-                    <img width="20" height="20" src="src/img/logo/russia.png" alt=""> <span>RUS</span>
-                </div>
-            </div>
-            <div class="login d-flex justify-content-around align-items-center">
-                <a data-toggle="modal" data-target="#Login-Reg">
-                    <div class="nav-link2">
-                        Giriş
-                    </div>
-                </a>
-                <a data-toggle="modal" data-target="#Login-Reg">
-                    <div class="nav-link2">
-                        Qeydiyyat
-                    </div>
-                </a>
-            </div>
-            <div class="navigation">
-                <a href="index.html">
-                    <div class="nav-link2">
-                        Əsas Səhifə
-                    </div>
-                </a>
-                <a href="categories.html">
-                    <div class="nav-link2">
-                        Kitablar
-                    </div>
-                </a>
-                <a href="">
-                    <div class="nav-link2">
-                        Kategorilər
-                    </div>
-                </a>
-                <a href="">
-                    <div class="nav-link2">
-                        Haqqımızda
-                    </div>
-                </a>
-                <a href="">
-                    <div class="nav-link2">
-                        Bizimlə Əlaqə
-                    </div>
-                </a>
-            </div>
-            <div class="nav-text">
-                <div class="text">
-                    Kitab almaq istəyirsiniz? Artıq köhnə kitabınızı satıb yenisini ala bilərsiniz!!!
-                </div>
-            </div>
-            <div class="icons-soc mt-3">
-                <ul class="menu">
-                    <li>
-                        <a href="#0">
-                            <span>FaceBook</span>
-                            <span>
-                                <i class="fab fa-facebook-square" aria-hidden="true"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#0">
-                            <span>Twitter</span>
-                            <span>
-                                <i class="fab fa-twitter-square" aria-hidden="true"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#0">
-                            <span>Instagram</span>
-                            <span>
-                                <i class="fab fa-instagram-square" aria-hidden="true"></i>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+      <!-- *-*-*-*-*-*-*-*-*      Selected Start      *-*-*-*-*-*-*-*-* -->
+      <div id="Selected">
+        <a style="cursor: pointer" class="selected">
+          <i class="fas fa-heart"></i>
+        </a>
+        <div class="selected-box">
+          <i class="fas fa-box-open my-3"></i>
+          <a href="">See Your Box</a>
         </div>
-        <!-- *-*-*-*-*-*-*-*-*  Mobile Navigation On Button End      *-*-*-*-*-*-*-*-* -->
-        <!-- ---------------------------------------------------------- -->
+      </div>
+      <!-- *-*-*-*-*-*-*-*-*      Selected End      *-*-*-*-*-*-*-*-* -->
+      <!-- ---------------------------------------------------------- -->
 
+      <!-- *-*-*-*-*-*-*-*-*      PreLoader Start      *-*-*-*-*-*-*-*-* -->
+      <div class="overlay">
+        <div class="preloader">
+          <div class="diamond">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="movement">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div id="Pre-JrC">Accessible Library by JrC</div>
+      </div>
+      <!-- *-*-*-*-*-*-*-*-*      PreLoader End      *-*-*-*-*-*-*-*-* -->
+      <!-- ---------------------------------------------------------- -->
 
-        <!-- *-*-*-*-*-*-*-*-*  Mobile Navigation On Scrool Start      *-*-*-*-*-*-*-*-* -->
-        <div id="nav-mobile-2">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 add-book">
-                        <a href="" class="add-book-btn" data-toggle="modal" data-target="#Login-Reg">
-                            ELAN YERLƏŞDİR !
-                        </a>
-                    </div>
-                    <div class="col-lg-12 menu">
-                        <div class="icons-menu">
-                            <div class="small-menu">
-                                <a href="">
-                                    <i class="fas fa-home"></i>
-                                </a>
-                                <div class="word">Əsas Səhifə</div>
-                            </div>
-                            <div class="small-menu">
-                                <a href="">
-                                    <i class="fas fa-bookmark"></i>
-                                </a>
-                                <div class="word">Seçilmişlər</div>
-                            </div>
-                            <div class="small-menu">
-                                <a href="">
-                                    <i class="fas fa-envelope"></i>
-                                </a>
-                                <div class="word">Mesajlar</div>
-                            </div>
-                            <div class="small-menu">
-                                <a href="">
-                                    <i class="fas fa-user"></i>
-                                </a>
-                                <div class="word">Şəxsi Hesab</div>
-                            </div>
-                        </div>
-                    </div>
+      <!-- *-*-*-*-*-*-*-*-*  Mobile Navigation On Button Start      *-*-*-*-*-*-*-*-* -->
+      <div id="nav-mobile-1">
+        <div class="nav-close-btn d-flex justify-content-end">
+          <a class="close-btn" id="Nav-close-btn"
+            ><i class="fas fa-times-circle"></i
+          ></a>
+        </div>
+        <div
+          class="languages-bar d-flex align-items-center justify-content-center"
+        >
+          <div class="lang d-flex" id="aze-lang2">
+            <img
+              width="20"
+              height="20"
+              src="src/img/logo/azerbaijan.png"
+              alt=""
+            />
+            <span>AZE</span>
+          </div>
+          <div class="lang d-flex" id="eng-lang2">
+            <img
+              width="20"
+              height="20"
+              src="src/img/logo/united-kingdom.png"
+              alt=""
+            />
+            <span>ENG</span>
+          </div>
+          <div class="lang d-flex" id="rus-lang2">
+            <img width="20" height="20" src="src/img/logo/russia.png" alt="" />
+            <span>RUS</span>
+          </div>
+        </div>
+        <div class="login d-flex justify-content-around align-items-center">
+          <a data-toggle="modal" data-target="#Login-Reg">
+            <div class="nav-link2">Giriş</div>
+          </a>
+          <a data-toggle="modal" data-target="#Login-Reg">
+            <div class="nav-link2">Qeydiyyat</div>
+          </a>
+        </div>
+        <div class="navigation">
+          <a href="index.html">
+            <div class="nav-link2">Əsas Səhifə</div>
+          </a>
+          <a href="categories.html">
+            <div class="nav-link2">Kitablar</div>
+          </a>
+          <a href="">
+            <div class="nav-link2">Kategorilər</div>
+          </a>
+          <a href="">
+            <div class="nav-link2">Haqqımızda</div>
+          </a>
+          <a href="">
+            <div class="nav-link2">Bizimlə Əlaqə</div>
+          </a>
+        </div>
+        <div class="nav-text">
+          <div class="text">
+            Kitab almaq istəyirsiniz? Artıq köhnə kitabınızı satıb yenisini ala
+            bilərsiniz!!!
+          </div>
+        </div>
+        <div class="icons-soc mt-3">
+          <ul class="menu">
+            <li>
+              <a href="#0">
+                <span>FaceBook</span>
+                <span>
+                  <i class="fab fa-facebook-square" aria-hidden="true"></i>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#0">
+                <span>Twitter</span>
+                <span>
+                  <i class="fab fa-twitter-square" aria-hidden="true"></i>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#0">
+                <span>Instagram</span>
+                <span>
+                  <i class="fab fa-instagram-square" aria-hidden="true"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- *-*-*-*-*-*-*-*-*  Mobile Navigation On Button End      *-*-*-*-*-*-*-*-* -->
+      <!-- ---------------------------------------------------------- -->
+
+      <!-- *-*-*-*-*-*-*-*-*  Mobile Navigation On Scrool Start      *-*-*-*-*-*-*-*-* -->
+      <div id="nav-mobile-2">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12 add-book">
+              <a
+                href=""
+                class="add-book-btn"
+                data-toggle="modal"
+                data-target="#Login-Reg"
+              >
+                ELAN YERLƏŞDİR !
+              </a>
+            </div>
+            <div class="col-lg-12 menu">
+              <div class="icons-menu">
+                <div class="small-menu">
+                  <a href="">
+                    <i class="fas fa-home"></i>
+                  </a>
+                  <div class="word">Əsas Səhifə</div>
                 </div>
+                <div class="small-menu">
+                  <a href="">
+                    <i class="fas fa-bookmark"></i>
+                  </a>
+                  <div class="word">Seçilmişlər</div>
+                </div>
+                <div class="small-menu">
+                  <a href="">
+                    <i class="fas fa-envelope"></i>
+                  </a>
+                  <div class="word">Mesajlar</div>
+                </div>
+                <div class="small-menu">
+                  <a href="">
+                    <i class="fas fa-user"></i>
+                  </a>
+                  <div class="word">Şəxsi Hesab</div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-        <!-- *-*-*-*-*-*-*-*-*  Mobile Navigation On Scrool End      *-*-*-*-*-*-*-*-* -->
-        <!-- ---------------------------------------------------------- -->
+      </div>
+      <!-- *-*-*-*-*-*-*-*-*  Mobile Navigation On Scrool End      *-*-*-*-*-*-*-*-* -->
+      <!-- ---------------------------------------------------------- -->
 
-        <!-- *-*-*-*-*-*-*-*-*  Mobile Category On Button Start      *-*-*-*-*-*-*-*-* -->
-        <div id="cat-mobile">
-            <div class="cat-close-btn d-flex justify-content-end">
-                <a class="close-btn" id="Cat-close-btn"><i class="fas fa-times-circle"></i></a>
-            </div>
-            <div class="mob-categories">
-                <a href="">
-                    <div class="mob-category">
-                        <img src="src/img/categories/roman.png" alt="">
-                        <div class="text">Əsər və Roman</div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="mob-category">
-                        <img src="src/img/categories/studying.png" alt="">
-                        <div class="text">Dərslik</div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="mob-category">
-                        <img src="src/img/categories/science.png" alt="">
-                        <div class="text">Elmi</div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="mob-category">
-                        <img src="src/img/categories/biography.png" alt="">
-                        <div class="text">Həyat Hekayəsi</div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="mob-category">
-                        <img src="src/img/categories/search.png" alt="">
-                        <div class="text">Bilgi və Araşdırma</div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="mob-category">
-                        <img src="src/img/categories/lit.png" alt="">
-                        <div class="text">Ədəbiyyat Şeir</div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="mob-category">
-                        <img src="src/img/categories/childBook.png" alt="">
-                        <div class="text">Uşaq Kitabları</div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="mob-category">
-                        <img src="src/img/categories/journey.png" alt="">
-                        <div class="text">Dunya Səyahəti</div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="mob-category">
-                        <img src="src/img/categories/other.png" alt="">
-                        <div class="text">Digər</div>
-                    </div>
-                </a>
-            </div>
+      <!-- *-*-*-*-*-*-*-*-*  Mobile Category On Button Start      *-*-*-*-*-*-*-*-* -->
+      <div id="cat-mobile">
+        <div class="cat-close-btn d-flex justify-content-end">
+          <a class="close-btn" id="Cat-close-btn"
+            ><i class="fas fa-times-circle"></i
+          ></a>
         </div>
-        <!-- *-*-*-*-*-*-*-*-*  Mobile Category On Button End      *-*-*-*-*-*-*-*-* -->
-        <!-- ---------------------------------------------------------- -->
+        <div class="mob-categories">
+          <a href="">
+            <div class="mob-category">
+              <img src="src/img/categories/roman.png" alt="" />
+              <div class="text">Əsər və Roman</div>
+            </div>
+          </a>
+          <a href="">
+            <div class="mob-category">
+              <img src="src/img/categories/studying.png" alt="" />
+              <div class="text">Dərslik</div>
+            </div>
+          </a>
+          <a href="">
+            <div class="mob-category">
+              <img src="src/img/categories/science.png" alt="" />
+              <div class="text">Elmi</div>
+            </div>
+          </a>
+          <a href="">
+            <div class="mob-category">
+              <img src="src/img/categories/biography.png" alt="" />
+              <div class="text">Həyat Hekayəsi</div>
+            </div>
+          </a>
+          <a href="">
+            <div class="mob-category">
+              <img src="src/img/categories/search.png" alt="" />
+              <div class="text">Bilgi və Araşdırma</div>
+            </div>
+          </a>
+          <a href="">
+            <div class="mob-category">
+              <img src="src/img/categories/lit.png" alt="" />
+              <div class="text">Ədəbiyyat Şeir</div>
+            </div>
+          </a>
+          <a href="">
+            <div class="mob-category">
+              <img src="src/img/categories/childBook.png" alt="" />
+              <div class="text">Uşaq Kitabları</div>
+            </div>
+          </a>
+          <a href="">
+            <div class="mob-category">
+              <img src="src/img/categories/journey.png" alt="" />
+              <div class="text">Dunya Səyahəti</div>
+            </div>
+          </a>
+          <a href="">
+            <div class="mob-category">
+              <img src="src/img/categories/other.png" alt="" />
+              <div class="text">Digər</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- *-*-*-*-*-*-*-*-*  Mobile Category On Button End      *-*-*-*-*-*-*-*-* -->
+      <!-- ---------------------------------------------------------- -->
     </div>
     <!-- *-*-*-*-*-*-*-*-*      Components End      *-*-*-*-*-*-*-*-* -->
     <script src="src/js/jquery/jquery.js"></script>
@@ -649,6 +746,5 @@
     <script src="src/js/dragDropSelOnScroll.js"></script>
     <script src="src/js/books.js"></script>
     <script src="src/js/main.js"></script>
-</body>
-
+  </body>
 </html>
