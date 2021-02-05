@@ -240,6 +240,14 @@ header {
             transition: ease 0.3s;
             border-left: 1px solid $border;
             transition: ease 0.4s;
+            .fas {
+              margin-right: 5px;
+              font-size: 15px;
+            }
+            .fa-user-plus {
+              margin-right: 2px;
+              font-size: 15px;
+            }
             &:hover {
               color: $hover;
               transition: ease 0.4s;
@@ -593,7 +601,7 @@ header {
       }
     }
   }
-  .header-content-second{
+  .header-content-second {
     display: none !important;
   }
 }

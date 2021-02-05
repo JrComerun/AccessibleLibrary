@@ -10,6 +10,14 @@ body ::selection {
   background: #110825;
 }
 
+button:focus {
+  outline: none;
+}
+
+select:focus {
+  outline: none;
+}
+
 a {
   text-decoration: none !important;
   color: #dddada !important;
@@ -605,6 +613,16 @@ header .header-bar .header-bar-right .login a .nav-link-2 {
   transition: ease 0.3s;
   border-left: 1px solid rgba(228, 228, 228, 0.288);
   transition: ease 0.4s;
+}
+
+header .header-bar .header-bar-right .login a .nav-link-2 .fas {
+  margin-right: 5px;
+  font-size: 15px;
+}
+
+header .header-bar .header-bar-right .login a .nav-link-2 .fa-user-plus {
+  margin-right: 2px;
+  font-size: 15px;
 }
 
 header .header-bar .header-bar-right .login a .nav-link-2:hover {
@@ -1340,34 +1358,64 @@ main #eduBooks {
   border-top: 1px dashed gray;
 }
 
-.Login-Modal {
+.login-modal {
   color: #dddada;
 }
 
-.Login-Modal .modal-content {
-  background-color: rgba(23, 13, 41, 0.767);
-  background-size: cover;
-  height: 600px;
-  background-position: center bottom;
+.login-modal .modal-dialog {
+  max-width: unset !important;
 }
 
-.Login-Modal .modal-content .modal-body {
+.login-modal .modal-dialog .login-register-content {
+  height: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.Login-Modal .modal-content .modal-body .login-des {
-  margin-bottom: 50px;
+.login-modal .modal-dialog .login-register-content .login-register-body {
+  overflow: hidden;
+  position: relative;
+  width: 600px;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.Login-Modal .modal-content .modal-body .login-des img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+.login-modal .modal-dialog .login-register-content .login-register-body .register-part-modal {
+  transition: all 0.4s;
+  opacity: 0;
+  left: 50%;
+  position: absolute;
+  max-width: 600px;
+  transform: translateX(50%);
+  height: auto !important;
 }
 
-.Login-Modal .modal-content .modal-body form {
+.login-modal .modal-dialog .login-register-content .login-register-body .login-part-modal {
+  transition: all 0.4s;
+  opacity: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  max-width: 500px;
+}
+
+.login-modal .modal-dialog .login-register-content .login-register-body .modal-content {
+  background-color: rgba(23, 13, 41, 0.767);
+  height: 500px;
+}
+
+.login-modal .modal-dialog .login-register-content .login-register-body .modal-content .modal-body {
+  padding-top: 40px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+.login-modal .modal-dialog .login-register-content .login-register-body .modal-content .modal-body form {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -1376,30 +1424,16 @@ main #eduBooks {
   font-weight: 550;
 }
 
-.Login-Modal .modal-content .modal-body form .form-group {
-  width: 100%;
-}
-
-.Login-Modal .modal-content .modal-body form .form-group input {
-  width: 250px;
-}
-
-@media only screen and (max-width: 350px) {
-  .Login-Modal .modal-content .modal-body form .form-group input {
-    width: 200px;
-  }
-}
-
-.Login-Modal .modal-content .modal-body form .form-check {
+.login-modal .modal-dialog .login-register-content .login-register-body .modal-content .modal-body form .form-check {
   display: flex;
 }
 
-.Login-Modal .modal-content .modal-body form .form-check input {
+.login-modal .modal-dialog .login-register-content .login-register-body .modal-content .modal-body form .form-check input {
   width: 15px;
   margin-right: 10px;
 }
 
-.Login-Modal .modal-content .modal-body form button {
+.login-modal .modal-dialog .login-register-content .login-register-body .modal-content .modal-body form button {
   margin-bottom: 5px;
   border: none;
   color: #dddada;
@@ -1413,7 +1447,7 @@ main #eduBooks {
   overflow: hidden;
 }
 
-.Login-Modal .modal-content .modal-body form button::after {
+.login-modal .modal-dialog .login-register-content .login-register-body .modal-content .modal-body form button::after {
   content: "";
   position: absolute;
   bottom: 2px;
@@ -1425,7 +1459,7 @@ main #eduBooks {
   border-style: solid;
 }
 
-.Login-Modal .modal-content .modal-body form button::before {
+.login-modal .modal-dialog .login-register-content .login-register-body .modal-content .modal-body form button::before {
   content: "";
   position: absolute;
   top: 2px;
@@ -1437,37 +1471,40 @@ main #eduBooks {
   border-style: solid;
 }
 
-.Login-Modal .modal-content .modal-body .reg-forgot {
+.login-modal .modal-dialog .login-register-content .login-register-body .modal-content .modal-body .reg-forgot {
   font-size: 14px;
   font-weight: 500;
   margin-top: 20px;
 }
 
-.Login-Modal .modal-content .modal-body .reg-forgot a {
+.login-modal .modal-dialog .login-register-content .login-register-body .modal-content .modal-body .reg-forgot button {
+  color: white;
+  background-color: transparent;
+  border: none;
   transition: ease 0.4s;
   padding: 0px 12px;
 }
 
 @media only screen and (max-width: 350px) {
-  .Login-Modal .modal-content .modal-body .reg-forgot a {
+  .login-modal .modal-dialog .login-register-content .login-register-body .modal-content .modal-body .reg-forgot button {
     padding: 0px 8px !important;
     font-size: 12px !important;
   }
 }
 
-.Login-Modal .modal-content .modal-body .reg-forgot a:hover {
+.login-modal .modal-dialog .login-register-content .login-register-body .modal-content .modal-body .reg-forgot button:hover {
   color: #a31901 !important;
   transition: ease 0.4s;
 }
 
-.Login-Modal .modal-content .modal-body .login-soc {
+.login-modal .modal-dialog .login-register-content .login-register-body .modal-content .modal-body .login-soc {
   padding-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.Login-Modal .modal-content .modal-body .login-soc a {
+.login-modal .modal-dialog .login-register-content .login-register-body .modal-content .modal-body .login-soc a {
   margin-right: 10px;
   width: 50px;
   height: 50px;
@@ -1478,12 +1515,12 @@ main #eduBooks {
   color: #110825 !important;
 }
 
-.Login-Modal .modal-content .modal-body .login-soc a i {
+.login-modal .modal-dialog .login-register-content .login-register-body .modal-content .modal-body .login-soc a i {
   font-size: 22px;
 }
 
 @media only screen and (max-width: 350px) {
-  .Login-Modal .modal-content .modal-body .login-soc a {
+  .login-modal .modal-dialog .login-register-content .login-register-body .modal-content .modal-body .login-soc a {
     width: 40px !important;
     height: 40px !important;
     padding: 9px 0px !important;
@@ -1927,11 +1964,6 @@ main #eduBooks {
   #Categories {
     display: none !important;
   }
-}
-
-.login-page .img-holder {
-  height: 100vh;
-  width: 100%;
 }
 
 @media only screen and (max-width: 1200px) {
