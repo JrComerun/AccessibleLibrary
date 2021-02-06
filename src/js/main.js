@@ -19,6 +19,7 @@ $(document).ready(function () {
       $(".header-bar").css("padding-bottom", "0px");
     }
   });
+<<<<<<< HEAD
   // ***************************************************
   //                Modal login & register switch
   //****************************************************
@@ -31,3 +32,14 @@ function SwitchToLog() {
   $(".register-part-modal").css({ transform: "translateX(800px)", opacity: "0" });
   $(".login-part-modal").css({ transform: "translateX(-50%)", opacity: "1" });
 }
+=======
+  
+  
+})
+
+
+
+
+
+  
+>>>>>>> 63960b774f163293856c74b0d5e307e0a0b244b7
