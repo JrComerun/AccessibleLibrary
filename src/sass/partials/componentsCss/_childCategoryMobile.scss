@@ -1,4 +1,4 @@
-#cat-mobile {
+#child-cat-mobile {
   display: none;
   @media only screen and (max-width: 1200px) {
     z-index: 11111111111111111;
@@ -12,7 +12,7 @@
     flex-direction: column;
     transform: translateX(-100%);
     transition: ease 0.7s;
-    .cat-close-btn {
+    .child-cat-close-btn {
       width: 100%;
       padding: 5px 15px 18px 0px;
       .close-btn {
@@ -61,7 +61,7 @@
      width: 100%;
    }
 }
-#cat-mobile.show{
+#child-cat-mobile.show{
     transform: translateX(0%);
     transition: ease 0.7s;
 }

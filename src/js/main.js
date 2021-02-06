@@ -41,6 +41,23 @@ function SwitchToLog() {
   $(".register-part-modal").css({ transform: "translateX(800px)", opacity: "0" });
   $(".login-part-modal").css({ transform: "translateX(-50%)", opacity: "1" });
 }
+
 // ***************************************************
 //                Modal login & register switch
 //****************************************************
+
+
+
+
+var thumbnails = document.getElementById("thumbnails")
+var imgs = thumbnails.getElementsByTagName("img")
+var main = document.getElementById("main")
+var counter=0;
+
+for(let i=0;i<imgs.length;i++){
+  let img=imgs[i]
+  img.addEventListener("click",function(){
+  main.src=this.src
+})
+  
+}
