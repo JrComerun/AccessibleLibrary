@@ -9,6 +9,8 @@
   a {
     width: 52px;
     height: 58px;
+    line-height: 58px;
+    white-space: nowrap;
     z-index: 666;
     background-color: $dark;
     text-align: center;
@@ -22,11 +24,8 @@
   }
   .selected-box {
     width: 0px;
-    height: 120px;
     background-color: $dark;
     transition: ease 0.5s;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,17 +37,12 @@
       background-color: transparent;
       font-size: 13px !important;
     }
-    i {
-      font-size: 0px;
-      color: #bb8242;
-      transition: 0.5s;
-    }
   }
   .selected-box.show {
     transition: ease 0.5s;
     width: 150px;
   }
-  @media only screen and (max-width:1150px) {
-      display: none;
+  @media only screen and (max-width: 1150px) {
+    display: none;
   }
 }
