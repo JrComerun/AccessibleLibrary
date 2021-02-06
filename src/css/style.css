@@ -10,6 +10,14 @@ body ::selection {
   background: #110825;
 }
 
+button:focus {
+  outline: none;
+}
+
+select:focus {
+  outline: none;
+}
+
 a {
   text-decoration: none !important;
   color: #dddada !important;
@@ -605,6 +613,16 @@ header .header-bar .header-bar-right .login a .nav-link-2 {
   transition: ease 0.3s;
   border-left: 1px solid rgba(228, 228, 228, 0.288);
   transition: ease 0.4s;
+}
+
+header .header-bar .header-bar-right .login a .nav-link-2 .fas {
+  margin-right: 5px;
+  font-size: 15px;
+}
+
+header .header-bar .header-bar-right .login a .nav-link-2 .fa-user-plus {
+  margin-right: 2px;
+  font-size: 15px;
 }
 
 header .header-bar .header-bar-right .login a .nav-link-2:hover {
