@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessible Library</title>
+    <link rel="icon" href="src/img/logo/nav-logo.png" type="image/png" sizes="16x16" />
+    <script src="src/js/Font_Awesome/icons.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/css/bootsrap/bootstrap-grid.css" />
+    <link rel="stylesheet" href="src/css/bootsrap/bootstrap-reboot.css" />
+    <link rel="stylesheet" href="src/css/bootsrap/bootstrap.css" />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="src/css/secondary.css" />
+    <title>Accessible Library</title>
+  </head>
+
+  <body>
+    <!-- *-*-*-*-*-*-*-*-*      Header Start      *-*-*-*-*-*-*-*-* -->
+    <header style="background-image: url(src/img/layout/header2.jpg)">
+      <div class="header-bar">
+        <div class="container-fluid">
+          <div class="row justify-content-between align-items-center">
+            <div class="header-bar-left show d-flex justify-content-center">
+              <a class="filter"> KATEGORİYA </a>
+            </div>
+            <div class="col-lg-2 header-bar-left none">
+              <div class="icons mt-3">
+                <ul class="menu">
+                  <li>
+                    <a href="#0">
+                      <span>FaceBook</span>
+                      <span>
+                        <i class="fab fa-facebook-square" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#0">
+                      <span>Twitter</span>
+                      <span>
+                        <i class="fab fa-twitter-square" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#0">
+                      <span>Instagram</span>
+                      <span>
+                        <i class="fab fa-instagram-square" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-4 header-bar-center">
+              <div class="header-search">
+                <form action="">
+                  <div class="input-group">
+                    <div class="form-outline">
+                      <input type="search" id="form1" class="form-control" />
+                    </div>
+                    <button type="button" class="btn btn-primary">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-lg-6 header-bar-right d-flex justify-content-end align-items-center">
+              <div class="cat-1200-992">
+                <a class="filter"> KATEGORİYA </a>
+              </div>
+              <div class="languages-bar d-flex align-items-center">
+                <div class="lang" id="aze-lang">
+                  <img src="src/img/logo/azerbaijan.png" alt="" />
+                  <span>Aze</span>
+                </div>
+                <div class="lang" id="eng-lang">
+                  <img src="src/img/logo/united-kingdom.png" alt="" />
+                  <span>Eng</span>
+                </div>
+                <div class="lang" id="rus-lang">
+                  <img src="src/img/logo/russia.png" alt="" /> <span>Rus</span>
+                </div>
+              </div>
+              <div class="login d-flex align-items-center">
+                <a data-toggle="modal" data-target="#Login-Reg">
+                  <div class="nav-link-2">
+                    <img
+                      style="border-radius: 50%"
+                      width="20px"
+                      src="src/img/logo/user.png"
+                      alt=""
+                    />
+                    Giriş
+                  </div>
+                </a>
+                <a data-toggle="modal" data-target="#Login-Reg">
+                  <div class="nav-link-2">
+                    <img
+                      style="border-radius: 50%"
+                      width="20px"
+                      src="src/img/logo/user.png"
+                      alt=""
+                    />
+                    Qeydiyyat
+                  </div>
+                </a>
+              </div>
+              <div class="icons d-flex align-items-center">
+                <a href="" style="cursor: pointer" title="Seçilmişlərə bax!">
+                  <div class="nav-link-6 pt-5px">
+                    <i style="font-size: 20px" class="fas fa-bookmark"></i>
+                  </div>
+                </a>
+                <!-- <a href="" style="cursor: pointer;" title="Bildirişdən Çıxart!">
+                                                        <div class="nav-link-2 pt-5px">
+                                                            <i style="font-size: 20px;" class="fas fa-bell-slash"></i>
+                                                        </div>
+                                                    </a> -->
+                <a data-toggle="Login-Modal" data-target="#Login-Reg" title="Bildirişdən Əldə et!">
+                  <div class="nav-link-6 pt-5px">
+                    <i style="font-size: 20px" class="fas fa-bell"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid" style="height: 100%">
+          <div
+            class="row justify-content-between align-items-center w-100"
+            style="height: 100% !important"
+          >
+            <a class="navbar-brand d-flex align-items-center pl-3" href="#">
+              <img class="nav-logo img-fluid" src="src/img/logo/nav-logo.png" alt="" />
+              <div class="page-name">
+                <span class="acc1">Əlçatan Kitabxana </span>
+                <!-- <span class="lib" >Library</span> -->
+              </div>
+            </a>
+            <div class="navigation d-flex">
+              <a href="index.html">
+                <div class="nav-link">Əsas Səhifə</div>
+              </a>
+              <a href="categories.html">
+                <div class="nav-link">Kateqorilər</div>
+              </a>
+              <a href="">
+                <div class="nav-link">Kitablar</div>
+              </a>
+              <a href="">
+                <div class="nav-link">Haqqımızda</div>
+              </a>
+              <a href="">
+                <div class="nav-link">Bizimlə Əlaqə</div>
+              </a>
+            </div>
+            <button class="button-nav" id="Nav-open-btn">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- *-*-*-*-*-*-*-*-*      Header End      *-*-*-*-*-*-*-*-* -->
+    <!-- ---------------------------------------------------------- -->
+
+    <!-- *-*-*-*-*-*-*-*-*      Main Start      *-*-*-*-*-*-*-*-* -->
+    <main>
+      <section class="addbook">
+        <div class="container">
+          <h2 class="anouncement-title">Kitab haqqında</h2>
+          <hr class="divider" />
+          <form>
+            <div class="row">
+              <div class="col-md-6 form-item form-group">
+                <label>Kitabın adı :</label>
+                <input type="text" placeholder="Ad" />
+              </div>
+              <div class="col-md-6 form-item form-group">
+                <label>Kitabın müəllifi :</label>
+                <input type="text" placeholder="Müəllif" />
+              </div>
+              <div class="col-md-6 form-item form-group">
+                <label>Kitabın qiyməti (Azn) :</label>
+                <input type="number" min="0" placeholder="Qiymət" />
+              </div>
+              <div class="col-md-6 form-item form-group">
+                <label>Kitabın yazıldığı dil :</label>
+                <input type="text" placeholder="Dil" />
+              </div>
+              <div class="col-md-6 form-item">
+                <div class="select-form">
+                  <label for="">Kateqori seç :</label>
+                  <select class="sel-category">
+                    <option selected>Bütun Kateqorilər</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6 form-item">
+                <div class="select-form">
+                  <label for="">Alt Kateqori seç :</label>
+                  <select class="sel-child-category">
+                    <option selected>Bütun Elanlar</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 form-item">
+                <div class="col-12 p-0 d-flex align-items-center">
+                  <label class="image-select-btn select-btn" for="image-select">Şəkil seç</label>
+                  <span class="ml-3">Maks(4)</span>
+                  <input type="file" class="image-select" id="image-select" accept="image/*" />
+                </div>
+                <div class="col-md-6">
+                  <div class="selected-images"></div>
+                </div>
+              </div>
+              <div class="col-12">
+                <hr class="divider" />
+                <h5>Əlaqə məlumatları</h5>
+              </div>
+              <div class="col-md-6 form-item form-group">
+                <label>Adınız :</label>
+                <input type="text" placeholder="Ad" />
+              </div>
+              <div class="col-md-6 form-item form-group">
+                <label>Email :</label>
+                <input type="text" placeholder="Email" />
+              </div>
+              <div class="col-md-6 form-item form-group">
+                <label>Əlaqə nömrəsi :</label>
+                <input type="tel" placeholder="Mobil nömrə" />
+              </div>
+              <div class="col-md-6 form-item">
+                <div class="select-form">
+                  <label for="">Şəhər seç :</label>
+                  <select class="sel-child-category">
+                    <option selected>Bütun Elanlar</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="select-btn">Yerləşdir</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <!-- *-*-*-*-*-*-*-*-*      Main ENd      *-*-*-*-*-*-*-*-* -->
+    <!-- ---------------------------------------------------------- -->
+
+    <!-- *-*-*-*-*-*-*-*-*      Footer Start      *-*-*-*-*-*-*-*-* -->
+    <footer style="background-image: url(src/img/layout/footer.jpg)">
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-3 partners py-3">
+            <h4 class="pb-3">Əlaqəli saytlar</h4>
+            <a href="https://azgpeng.com/jrc" target="_blank">
+              <div class="pb-3">
+                <img
+                  style="border-radius: 10px; margin-right: 5px; object-fit: cover"
+                  width="40"
+                  height="40"
+                  src="src/img/logo/jrc.png"
+                  alt=""
+                />
+                JrC portfolio
+              </div>
+            </a>
+            <a href="https://azgpeng.com" target="_blank">
+              <div>
+                <img
+                  style="border-radius: 10px; margin-right: 5px"
+                  width="40"
+                  src="src/img/logo/azgp1.png"
+                  alt=""
+                />
+                AzGPEng
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-3 col-md-6 py-3" id="thanks-col">
+            <div class="thanks-foot d-flex flex-column align-items-start justify-content-center">
+              <h4 class="text-center">Təşəkkürlər!</h4>
+              <div><img src="src/img/thanks/OrxanBije.jpg" alt="" /> Orxan Bije</div>
+              <div><img src="src/img/thanks/ShohretM.jpg" alt="" /> Şöhrət Məhərrəmov</div>
+              <div><img src="src/img/thanks/logocode.webp" alt="" /> Code Academy</div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 py-3" id="spec-thanks-col">
+            <div
+              class="thanks-foot spec-thanks d-flex flex-column align-items-start justify-content-center"
+            >
+              <h4 class="text-center">Xüsusi Təşəkkürlər!</h4>
+              <div><img src="src/img/thanks/Kamran_Jabiyev.jpg" alt="" /> Kamran Jabiyev (№1)</div>
+              <div>
+                <img src="src/img/thanks/elgun-magsudzade.jfif" alt="" />
+                Elgun Maqsudzade
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 py-3" id="contact-col">
+            <div class="contact d-flex flex-column align-items-start justify-content-center">
+              <h4>Əlaqə</h4>
+              <div class="icons">
+                <ul class="menu">
+                  <li>
+                    <a href="#0">
+                      <span>facebook</span>
+                      <span>
+                        <i class="fab fa-facebook-square" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#0">
+                      <span>twitter</span>
+                      <span>
+                        <i class="fab fa-twitter-square" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#0">
+                      <span>instagram</span>
+                      <span>
+                        <i class="fab fa-instagram-square" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="mobile text-center d-flex">
+                <span>Tel: </span> <span>+(994) 506804400</span>
+              </div>
+              <div class="mobile text-center d-flex">
+                <span>Email: </span> <span>Knjc621@gmail.com</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-6" id="jrc-col">
+            <div class="footer-logo d-flex justify-content-center align-items-center">
+              <div class="foot-logo pr-3">
+                <img src="src/img/logo/nav-logo.png" alt="" />
+              </div>
+              <div class="by-jrc">@2021 Accessible Library by JrC</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- *-*-*-*-*-*-*-*-*      Footer End      *-*-*-*-*-*-*-*-* -->
+    <!-- ---------------------------------------------------------- -->
+
+    <!-- *-*-*-*-*-*-*-*-*      Components Start      *-*-*-*-*-*-*-*-* -->
+
+    <!-- *-*-*-*-*-*-*-*-*      Components End      *-*-*-*-*-*-*-*-* -->
+    <script src="src/js/jquery/jquery.js"></script>
+    <script src="src/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="src/js/bootstrap/bootstrap.min.js"></script>
+    <script src="src/js/mobile.js"></script>
+    <script src="src/js/dragDropSelOnScroll.js"></script>
+    <script src="src/js/books.js"></script>
+    <script src="src/js/main.js"></script>
+  </body>
+</html>

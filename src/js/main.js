@@ -20,9 +20,19 @@ $(document).ready(function () {
     }
   });
   // ***************************************************
-  //                Modal login & register switch
+  //                Anouncement file select
+  //****************************************************
+
+  // Ajax
+
+  // ***************************************************
+  //                Anouncement file select
   //****************************************************
 });
+
+// ***************************************************
+//                Modal login & register switch
+//****************************************************
 function SwitchToReg() {
   $(".login-part-modal").css({ transform: "translateX(-1000px)", opacity: "0" });
   $(".register-part-modal").css({ transform: "translateX(-50%)", opacity: "1" });
@@ -31,3 +41,6 @@ function SwitchToLog() {
   $(".register-part-modal").css({ transform: "translateX(800px)", opacity: "0" });
   $(".login-part-modal").css({ transform: "translateX(-50%)", opacity: "1" });
 }
+// ***************************************************
+//                Modal login & register switch
+//****************************************************

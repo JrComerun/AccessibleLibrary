@@ -18,6 +18,14 @@ select {
     outline: none;
   }
 }
+input {
+  &::placeholder {
+    font-weight: 400;
+  }
+  &:focus {
+    outline: none;
+  }
+}
 a {
   text-decoration: none !important;
   color: $light !important;
@@ -60,4 +68,9 @@ a {
       border-style: solid;
     }
   }
+}
+.divider {
+  width: 200px;
+  border: 1px solid $dark;
+  margin: 30px 0;
 }

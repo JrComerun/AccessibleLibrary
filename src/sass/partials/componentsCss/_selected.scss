@@ -1,4 +1,12 @@
-#Selected {
+.announcement {
+  top: 235px !important;
+  svg {
+    fill: white;
+    width: 31px;
+    height: auto;
+  }
+}
+.select-holder {
   display: flex;
   align-items: center;
   position: fixed;
@@ -32,7 +40,7 @@
     justify-content: center;
     color: $light;
     a {
-      width: 0;
+      width: 0px;
       transition: 0.5s;
       background-color: transparent;
       font-size: 13px !important;

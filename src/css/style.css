@@ -18,6 +18,14 @@ select:focus {
   outline: none;
 }
 
+input::placeholder {
+  font-weight: 400;
+}
+
+input:focus {
+  outline: none;
+}
+
 a {
   text-decoration: none !important;
   color: #dddada !important;
@@ -62,6 +70,12 @@ a {
   width: 0;
   height: 0;
   border-style: solid;
+}
+
+.divider {
+  width: 200px;
+  border: 1px solid #110825;
+  margin: 30px 0;
 }
 
 .overlay {
@@ -1527,7 +1541,17 @@ main #eduBooks {
   }
 }
 
-#Selected {
+.announcement {
+  top: 235px !important;
+}
+
+.announcement svg {
+  fill: white;
+  width: 31px;
+  height: auto;
+}
+
+.select-holder {
   display: flex;
   align-items: center;
   position: fixed;
@@ -1537,7 +1561,7 @@ main #eduBooks {
   z-index: 151515;
 }
 
-#Selected a {
+.select-holder a {
   width: 52px;
   height: 58px;
   line-height: 58px;
@@ -1549,13 +1573,13 @@ main #eduBooks {
   border-bottom-left-radius: 10px;
 }
 
-#Selected a i {
+.select-holder a i {
   font-size: 30px;
   line-height: 61px;
   color: #dddada;
 }
 
-#Selected .selected-box {
+.select-holder .selected-box {
   width: 0px;
   background-color: #110825;
   transition: ease 0.5s;
@@ -1566,20 +1590,20 @@ main #eduBooks {
   color: #dddada;
 }
 
-#Selected .selected-box a {
-  width: 0;
+.select-holder .selected-box a {
+  width: 0px;
   transition: 0.5s;
   background-color: transparent;
   font-size: 13px !important;
 }
 
-#Selected .selected-box.show {
+.select-holder .selected-box.show {
   transition: ease 0.5s;
   width: 150px;
 }
 
 @media only screen and (max-width: 1150px) {
-  #Selected {
+  .select-holder {
     display: none;
   }
 }
@@ -2082,6 +2106,139 @@ main #eduBooks {
 }
 
 #Filter form .search-btn button::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  border-color: transparent #dddada transparent transparent;
+  border-width: 0 18px 18px 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.addbook {
+  padding: 80px 0px;
+  background-color: #ebe2cb;
+  border-bottom: 1px #999898 solid;
+}
+
+.addbook .anouncement-title {
+  margin: 0px;
+}
+
+.addbook form {
+  width: 100%;
+}
+
+.addbook form label {
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: #444;
+  margin: 10px 0px 0px 12px;
+}
+
+.addbook form .form-item {
+  margin-bottom: 15px;
+}
+
+.addbook form .form-item .image-select {
+  width: 0;
+  height: 0;
+}
+
+.addbook form .select-form select {
+  display: block;
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: #6e6e6e;
+  line-height: 1.3;
+  padding: 0.6em 0em 0.5em 0.8em;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid #aaa;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+  border-radius: 0.5em;
+  appearance: none;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+
+.addbook form .select-form select option {
+  font-size: 13px;
+  border-radius: 10px;
+}
+
+.addbook form .select-form select option:hover {
+  background-color: #861703 !important;
+}
+
+.addbook form .select-form select:focus {
+  border-color: #aaa;
+  color: #222;
+  outline: none;
+}
+
+.addbook form .select-form select:hover {
+  border-color: #888;
+}
+
+.addbook form .form-group {
+  width: 100%;
+}
+
+.addbook form .form-group input {
+  width: 100%;
+  display: block;
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: #444;
+  line-height: 1.3;
+  padding: 0.6em 0.5em 0.5em 0.8em;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid #aaa;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+  border-radius: 0.5em;
+  appearance: none;
+  background-color: #fff;
+}
+
+.addbook .select-btn {
+  cursor: pointer;
+  margin: 0px;
+  border: none;
+  color: #dddada;
+  font-size: 16px;
+  padding: 5px 20px 5px 20px;
+  z-index: 5;
+  font-weight: 500;
+  background: #861703;
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.addbook .select-btn::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+  border-color: transparent transparent transparent #dddada;
+  border-width: 18px 0 0 18px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.addbook .select-btn::before {
   content: "";
   position: absolute;
   top: 2px;
