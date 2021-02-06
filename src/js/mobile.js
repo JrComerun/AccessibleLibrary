@@ -49,21 +49,43 @@ if ($(window).width() < 1200) {
     let openCat = $(".filter")
     let closeCat = $("#Cat-close-btn")
 
-    openCat.click(function (e) {
+    openCat.click(function () {
       $("#cat-mobile").addClass("show")
-      if ($("#nav-mobile-1").hasClass("show")) {
-        $("#nav-mobile-1").removeClass("show")
-      }
-      e.stopPropagation();
+      // if ($("#nav-mobile-1").hasClass("show")) {
+      //   $("#nav-mobile-1").removeClass("show")
+      // }
+      // e.stopPropagation();
     })
     closeCat.click(function () {
       $("#cat-mobile").removeClass("show")
     })
     //*********      close btn on html click   ***********
-    $('html').click(function () {
-      if ($("#cat-mobile").hasClass("show")) {
-        $("#cat-mobile").removeClass("show")
-      }
+    // $('html').click(function () {
+    //   if ($("#cat-mobile").hasClass("show")) {
+    //     $("#cat-mobile").removeClass("show")
+    //   }
+    // });
+
+
+    // ***************************************************
+    //            Child Categories Mobile  on Button
+    //****************************************************
+    let openChildCat = $(".open-child-cat")
+    let closeChildCat = $("#Child-cat-close-btn")
+    openChildCat.each( function () { 
+       $( this ).click(function (e) {
+      $("#child-cat-mobile").addClass("show")
+    })
     });
+    closeChildCat.click(function () {
+      $("#child-cat-mobile").removeClass("show")
+    })
+    //*********      close btn on html click   ***********
+    // $('html').click(function () {
+    //   if ($("#child-cat-mobile").hasClass("show")) {
+    //     $("#child-cat-mobile").removeClass("show")
+    //   }
+    // });
+    
   })
 }
