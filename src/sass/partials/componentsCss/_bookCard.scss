@@ -60,6 +60,7 @@
       transform: rotateY(180deg);
       z-index: 1;
       border-radius: 14px;
+      font-weight: 500;
       .book-content-head {
         padding: 10px 0px;
         display: flex;
@@ -91,6 +92,7 @@
           text-transform: uppercase;
         }
         .book-author {
+          font-weight: 500;
           font-size: 13px;
         }
       }
