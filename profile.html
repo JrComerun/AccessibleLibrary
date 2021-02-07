@@ -218,6 +218,7 @@
             <div class="col-12">
               <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  
                   <a
                     class="nav-link active"
                     id="nav-active-tab"
@@ -230,13 +231,33 @@
                   >
                   <a
                     class="nav-link"
+                    id="nav-deactive-tab"
+                    data-toggle="tab"
+                    href="#nav-deactive"
+                    role="tab"
+                    aria-controls="nav-deactive"
+                    aria-selected="false"
+                    >Deaktiv Elanlar</a
+                  >
+                  <a
+                    class="nav-link"
+                    id="nav-message-tab"
+                    data-toggle="tab"
+                    href="#nav-message"
+                    role="tab"
+                    aria-controls="nav-message"
+                    aria-selected="false"
+                    >Messages</a
+                  >
+                  <a
+                    class="nav-link"
                     id="nav-profile-tab"
                     data-toggle="tab"
                     href="#nav-profile"
                     role="tab"
                     aria-controls="nav-profile"
                     aria-selected="false"
-                    >Deaktiv Elanlar</a
+                    >Profile Settings</a
                   >
                 </div>
               </nav>
@@ -260,9 +281,9 @@
                 </div>
                 <div
                   class="tab-pane fade"
-                  id="nav-profile"
+                  id="nav-deactive"
                   role="tabpanel"
-                  aria-labelledby="nav-profile-tab"
+                  aria-labelledby="nav-deactive-tab"
                 >
                   <div class="row">
                     <div
@@ -273,6 +294,30 @@
                       ></a>
                       <h3>Deaktiv Kitabı Yoxdur</h3>
                     </div>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="nav-message"
+                  role="tabpanel"
+                  aria-labelledby="nav-message-tab"
+                >
+                <div class="messages">
+                  <div class="row">
+                    <div class="col-4">
+                    </div>
+                    <div class="col-8"></div>
+                  </div>
+                </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="nav-profile"
+                  role="tabpanel"
+                  aria-labelledby="nav-profile-tab"
+                >
+                  <div class="row">
+                    
                   </div>
                 </div>
               </div>

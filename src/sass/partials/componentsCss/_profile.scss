@@ -1,4 +1,5 @@
 #Profile {
+  padding-top: 20px;
   .profile {
     display: flex;
     align-items: center;
@@ -56,6 +57,7 @@
       }
     }
     .tab-content {
+      overflow: hidden;
       .tab-pane {
         .search {
           margin-bottom: 15px;
