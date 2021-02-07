@@ -3,6 +3,7 @@ body {
   color: $dark;
   background-color: $light;
   font-family: "Roboto", sans-serif !important;
+  font-weight: 500;
   ::selection {
     color: $light;
     background: $dark;
@@ -29,7 +30,6 @@ input {
 textarea {
   &::placeholder {
     font-weight: 400;
-    font-family: "Roboto", sans-serif !important;
     font-size: 15px;
   }
   &:focus {

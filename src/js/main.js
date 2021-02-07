@@ -42,9 +42,10 @@ function SwitchToLog() {
   $(".login-part-modal").css({ transform: "translateX(-50%)", opacity: "1" });
 }
 
-// ***************************************************
-//                Modal login & register switch
-//****************************************************
+
+  // ***************************************************
+  //                Book Detail switch Image
+  //****************************************************
 
 var imgs = document.getElementsByClassName("book-detail-img");
 var main = document.getElementById("main");
@@ -55,4 +56,6 @@ for (let i = 0; i < imgs.length; i++) {
   img.addEventListener("click", function () {
     main.src = this.src;
   });
+
+  
 }
