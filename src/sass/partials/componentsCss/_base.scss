@@ -26,6 +26,16 @@ input {
     outline: none;
   }
 }
+textarea {
+  &::placeholder {
+    font-weight: 400;
+    font-family: "Roboto", sans-serif !important;
+    font-size: 15px;
+  }
+  &:focus {
+    outline: none;
+  }
+}
 a {
   text-decoration: none !important;
   color: $light !important;
