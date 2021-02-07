@@ -1,0 +1,79 @@
+#About {
+  padding: 80px 0px ;
+  .about-page-img {
+    img {
+      max-width: 90%;
+    }
+  }
+  .amazing{
+    margin: 10px 0px;
+    font-size: 27px;
+    text-align: center;
+  }
+  .about {
+    font-weight: 500;
+    .nav {
+      margin-bottom: 10px;
+      width: 100%;
+      border-bottom: 1px $red solid;
+
+      .nav-item {
+        text-align: center;
+        width: 50%;
+        a {
+          font-weight: 700;
+          font-size: 18px;
+          font-weight: 500;
+          color: $dark !important;
+          border: none !important;
+        }
+        a.active {
+          background-color: $red !important;
+          color: $light !important;
+        }
+      }
+    }
+    .tab-pane {
+      padding-bottom: 30px;
+      border-bottom: 1px $red solid;
+      @media only screen and (max-width: 576px) {
+        text-align: center !important;
+        }
+      .about-name {
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .about-name-divider {
+        margin-bottom: 20px;
+      }
+      .about-text {
+        padding: 3px 0px;
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .contact {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @media only screen and (max-width: 992px) {
+        justify-content: space-evenly;
+        }
+        .icon-holder {
+          font-size: 35px;
+          .fa-whatsapp-square {
+            color: #25d366;
+          }
+          .fa-github-square {
+            color: #211f1f;
+          }
+        }
+        .img-icon-holder {
+          width: 31px;
+          img {
+            height: 36px;
+          }
+        }
+      }
+    }
+  }
+}
