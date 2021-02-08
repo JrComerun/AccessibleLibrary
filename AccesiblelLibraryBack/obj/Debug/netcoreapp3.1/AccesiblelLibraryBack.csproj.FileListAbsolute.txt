@@ -107,8 +107,9 @@ C:\Users\TOSHIBA\Desktop\AccesiblelLibraryBack\AccesiblelLibraryBack\bin\Debug\n
 C:\Users\TOSHIBA\Desktop\AccesiblelLibraryBack\AccesiblelLibraryBack\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\TOSHIBA\Desktop\AccesiblelLibraryBack\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
 C:\Users\TOSHIBA\Desktop\AccesiblelLibraryBack\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\Razor\Views\About\Index.cshtml.g.cs
-C:\Users\TOSHIBA\Desktop\AccesiblelLibraryBack\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\Razor\Views\Books\Index.cshtml.g.cs
-C:\Users\TOSHIBA\Desktop\AccesiblelLibraryBack\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\Razor\Views\Books\Filter.cshtml.g.cs
 C:\Users\TOSHIBA\Desktop\AccesiblelLibraryBack\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\Razor\Views\AddBook\Index.cshtml.g.cs
 C:\Users\TOSHIBA\Desktop\AccesiblelLibraryBack\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SelectHolder1.cshtml.g.cs
 C:\Users\TOSHIBA\Desktop\AccesiblelLibraryBack\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SelectHolder2.cshtml.g.cs
+C:\Users\TOSHIBA\Desktop\AccesiblelLibraryBack\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\Razor\Views\Book\Detail.cshtml.g.cs
+C:\Users\TOSHIBA\Desktop\AccesiblelLibraryBack\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\Razor\Views\Book\Filter.cshtml.g.cs
+C:\Users\TOSHIBA\Desktop\AccesiblelLibraryBack\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\Razor\Views\Book\Index.cshtml.g.cs

@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace AccesiblelLibraryBack.Controllers
 {
-    public class BooksController : Controller
+    public class BookController : Controller
     {
         public IActionResult Index()
         {
             return View();
         }
         public IActionResult Filter()
+        {
+            return View();
+        }
+        public IActionResult Detail()
         {
             return View();
         }
