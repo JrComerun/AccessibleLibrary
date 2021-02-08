@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  color: $dark;
+  background-color: $light;
+  font-family: "Roboto", sans-serif !important;
+  font-weight: 500;
+  ::selection {
+    color: $light;
+    background: $dark;
+  }
+}
+button {
+  &:focus {
+    outline: none;
+  }
+}
+select {
+  &:focus {
+    outline: none;
+  }
+}
+input {
+  &::placeholder {
+    font-weight: 400;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+textarea {
+  &::placeholder {
+    font-weight: 400;
+    font-size: 15px;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+a {
+  text-decoration: none !important;
+  color: $light !important;
+}
+.pad-top80 {
+  padding-top: 80px;
+}
+.loadMore {
+  a {
+    border: none;
+    color: $light;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 12px 15px 10px 15px;
+    z-index: 5;
+    font-weight: 500;
+    background: $red;
+    position: relative;
+    overflow: hidden;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 2px;
+      left: 2px;
+      border-color: transparent transparent transparent $light;
+      border-width: 18px 0 0 18px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      border-color: transparent $light transparent transparent;
+      border-width: 0 18px 18px 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+  }
+}
+.divider {
+  width: 200px;
+  border: 1px solid $dark;
+  margin: 30px 0;
+}
