@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model LayoutVM
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -82,17 +83,29 @@
                                 <img src="~/src/img/logo/russia.png" alt="" /> <span>Rus</span>
                             </div>
                         </div>
-                        <div class="login d-flex align-items-center">
-                            <a data-toggle="modal" data-target="#Login-Reg" onclick="SwitchToLog()">
-                                <div class="nav-link-2"><i class="fas fa-user"></i>Giriş</div>
-                            </a>
-                            <a data-toggle="modal" data-target="#Login-Reg" onclick="SwitchToReg()">
-                                <div class="nav-link-2">
-                                    <i class="fas fa-user-plus"></i>
-                                    Qeydiyyat
-                                </div>
-                            </a>
-                        </div>
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+
+                            <div class="login d-flex align-items-center">
+                                <a data-toggle="modal" data-target="#Login-Reg" onclick="SwitchToLog()">
+                                    <div class="nav-link-2"><i class="fas fa-user"></i>Giriş</div>
+                                </a>
+                                <a data-toggle="modal" data-target="#Login-Reg" onclick="SwitchToReg()">
+                                    <div class="nav-link-2">
+                                        <i class="fas fa-user-plus"></i>
+                                        Qeydiyyat
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="login d-flex align-items-center">
+                                <a>
+                                    <div class="nav-link-2"><i class="fas fa-user"></i>@(User.Identity.Name)</div>
+                                </a>
+                            </div>
+                        }
                         <div class="icons d-flex align-items-center">
                             <a href="" style="cursor: pointer" title="Seçilmişlərə bax!">
                                 <div class="nav-link-6 pt-5px">
@@ -100,10 +113,10 @@
                                 </div>
                             </a>
                             <!-- <a href="" style="cursor: pointer;" title="Bildirişdən Çıxart!">
-                                                                <div class="nav-link-2 pt-5px">
-                                                                    <i style="font-size: 20px;" class="fas fa-bell-slash"></i>
-                                                                </div>
-                                                            </a> -->
+                                <div class="nav-link-2 pt-5px">
+                                    <i style="font-size: 20px;" class="fas fa-bell-slash"></i>
+                                </div>
+                            </a> -->
                             <a data-toggle="Login-Modal" data-target="#Login-Reg" title="Bildirişdən Əldə et!">
                                 <div class="nav-link-6 pt-5px">
                                     <i style="font-size: 20px" class="fas fa-bell"></i>
@@ -129,10 +142,10 @@
                         <a asp-controller="Home" asp-action="Index">
                             <div class="nav-link">Əsas Səhifə</div>
                         </a>
-                        <a asp-controller="Book" asp-action="Index">
+                        <a asp-controller="Books" asp-action="Index">
                             <div class="nav-link">Kitablar</div>
                         </a>
-                        <a asp-controller="Book" asp-action="Filter">
+                        <a asp-controller="Books" asp-action="Filter">
                             <div class="nav-link">Ətraflı Axtar</div>
                         </a>
                         <a asp-controller="About" asp-action="Index">
@@ -251,8 +264,6 @@
     </footer>
     <!-- *-*-*-*-*-*-*-*-*      Footer End      *-*-*-*-*-*-*-*-* -->
     <!-- ---------------------------------------------------------- -->
-
-
     <!-- *-*-*-*-*-*-*-*-*      Components Start      *-*-*-*-*-*-*-*-* -->
     <div class="components">
         <!-- ---------------------------------------------------------- -->
@@ -273,23 +284,23 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form action="">
+                                <form asp-controller="Account" asp-action="Login">
+                                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">İstifadəçi Adı</label>
-                                        <input type="text"
-                                               class="form-control"
-                                               id="Username-log"
-                                               aria-describedby="emailHelp" />
+                                        <label asp-for="LoginVM.Username">İstifadəçi Adı</label>
+                                        <input asp-for="LoginVM.Username" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="LoginVM.Username"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Parol</label>
-                                        <input type="password" class="form-control" id="Password-log" />
+                                        <label asp-for="LoginVM.Password">Parol</label>
+                                        <input asp-for="LoginVM.Password" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="LoginVM.Password"></span>
                                     </div>
                                     <div class="form-group form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                                        <label class="form-check-label" for="exampleCheck1">Yadda saxla</label>
+                                        <input asp-for="LoginVM.IsStore" type="checkbox" class="form-check-input" />
+                                        <label asp-for="LoginVM.IsStore" class="form-check-label">Yadda saxla</label>
                                     </div>
-                                    <button type="button" class="btn btn-success">Daxil ol</button>
+                                    <button type="submit" class="btn btn-success">Daxil ol</button>
                                 </form>
                                 <div class="reg-forgot">
                                     <button type="button">Parolu unutmusan?</button>
@@ -312,51 +323,53 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form action="">
+                                <form asp-controller="Account" asp-action="Register">
+                                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Ad</label>
-                                                <input type="text" class="form-control" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Soyad</label>
-                                                <input type="text" class="form-control" />
+                                                <label asp-for="RegisterVM.Name">Ad</label>
+                                                <input asp-for="RegisterVM.Name" class="form-control" />
+                                                <span class="text-danger" asp-validation-for="RegisterVM.Name"></span>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">İstifadəçi Adı</label>
-                                                <input type="text" class="form-control" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Email</label>
-                                                <input type="text" class="form-control" />
+                                                <label asp-for="RegisterVM.Surname">Soyad</label>
+                                                <input asp-for="RegisterVM.Surname" class="form-control" />
+                                                <span class="text-danger" asp-validation-for="RegisterVM.Surname"></span>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Mobil nömrə</label>
-                                                <input type="text" class="form-control" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Ünvan</label>
-                                                <input type="text" class="form-control" placeholder="İstəyə bağlı" />
+                                                <label asp-for="RegisterVM.Username">İstifadəçi Adı</label>
+                                                <input asp-for="RegisterVM.Username" class="form-control" />
+                                                <span class="text-danger" asp-validation-for="RegisterVM.Username"></span>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Parol</label>
-                                                <input type="password" class="form-control" id="Password-log2" />
+                                                <label asp-for="RegisterVM.Email">Email</label>
+                                                <input asp-for="RegisterVM.Email" class="form-control" />
+                                                <span class="text-danger" asp-validation-for="RegisterVM.Email"></span>
                                             </div>
+                                        </div>
+                                        <div class="col-6">
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Tekrar Parol</label>
-                                                <input type="password" class="form-control" id="Password-log3" />
+                                                <label asp-for="RegisterVM.Password">Parol</label>
+                                                <input asp-for="RegisterVM.Password" class="form-control" />
+                                                <span class="text-danger" asp-validation-for="RegisterVM.Password"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label asp-for="RegisterVM.CheckPassword">Tekrar Parol</label>
+                                                <input asp-for="RegisterVM.CheckPassword" class="form-control" />
+                                                <span class="text-danger" asp-validation-for="RegisterVM.CheckPassword"></span>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <button type="button" class="btn btn-success">Qeydiyyatdan Keç</button>
+                                    <button type="submit" class="btn btn-success">Qeydiyyatdan Keç</button>
                                 </form>
                                 <div class="reg-forgot">
                                     <button type="button">Parolu unutmusan?</button>
@@ -431,10 +444,10 @@
                 <a asp-controller="Home" asp-action="Index">
                     <div class="nav-link2">Əsas Səhifə</div>
                 </a>
-                <a asp-controller="Book" asp-action="Index">
+                <a asp-controller="Books" asp-action="Index">
                     <div class="nav-link2">Kitablar</div>
                 </a>
-                <a asp-controller="Book" asp-action="Filter">
+                <a asp-controller="Books" asp-action="Filter">
                     <div class="nav-link2">Ətraflı Axtar</div>
                 </a>
                 <a asp-controller="About" asp-action="Index">
@@ -637,5 +650,7 @@
     <script src="~/src/js/bootstrap/bootstrap.min.js"></script>
     <script src="~/src/js/mobile.js"></script>
     <script src="~/src/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
 </body>
 </html>
