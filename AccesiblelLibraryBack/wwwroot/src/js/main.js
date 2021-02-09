@@ -1,6 +1,7 @@
 // ***************************************************
 //             PreLoader By JrC
 //****************************************************
+
 window.addEventListener("load", (event) => {
     $(".overlay").fadeOut();
 });
@@ -13,6 +14,7 @@ $(document).ready(function () {
     $(window).scroll(function () {
         if ($(window).scrollTop() > 60) {
             nav.classList.add("nav-scroll");
+            $(".dropdown-body-content").removeClass("dr-show")
             $(".header-bar").css("padding-bottom", "40px");
         } else {
             nav.classList.remove("nav-scroll");
@@ -70,9 +72,24 @@ $(document).ready(function () {
             }
         }, true)
     })
+
+
+    // ***************************************************
+    //                Header profile dropdown
+    //****************************************************
+
+    $(".login").click(function () {
+        console.log("dasda")
+        if (!$(".dropdown-body-content").hasClass("dr-show")) {
+            $(".dropdown-body-content").addClass("dr-show")
+        } else {
+            $(".dropdown-body-content").removeClass("dr-show")
+        }
+    })
+
+
+
 });
-
-
 
 // ***************************************************
 //                Modal login & register switch

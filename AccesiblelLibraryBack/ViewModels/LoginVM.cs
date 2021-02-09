@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EduHome.ViewModels
+namespace AccesiblelLibraryBack.ViewModels
 {
     public class LoginVM
     {

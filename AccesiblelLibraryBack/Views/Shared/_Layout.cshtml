@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="~/src/css/bootsrap/bootstrap-reboot.css" />
     <link rel="stylesheet" href="~/src/css/bootsrap/bootstrap.css" />
     <link rel="stylesheet" href="~/src/css/style.css" />
+    <link rel="stylesheet" href="~/src/css/backend.css" />
     @RenderSection("Css", required: false)
     <title>@ViewData["Title"] - AccesiblelLibrary</title>
 </head>
@@ -101,9 +102,13 @@
                         else
                         {
                             <div class="login d-flex align-items-center">
-                                <a>
-                                    <div class="nav-link-2"><i class="fas fa-user"></i>@(User.Identity.Name)</div>
-                                </a>
+                                <button  class="dropdown-head">
+                                    <div class="nav-link-2"><i class="fas fa-user"></i> @(User.Identity.Name)</div>
+                                </button>
+                                <ul class="dropdown-body-content">
+                                    <li class="dropdown-body-item"><a class="item" asp-controller="Account" asp-action="Profile"><div class="nav-link-2"><i class="fas fa-cog"></i>Settings</div></a></li>
+                                    <li class="dropdown-body-item"><a class="item" asp-controller="Account" asp-action="Logout"><div class="nav-link-2"><i class="fas fa-sign-out-alt"></i>Logout</div></a></li>
+                                </ul>
                             </div>
                         }
                         <div class="icons d-flex align-items-center">

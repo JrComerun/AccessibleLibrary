@@ -4,11 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using AccesiblelLibraryBack.Models;
-using EduHome.ViewModels;
+using AccesiblelLibraryBack.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using static EduHome.Extensions.Extension;
+using static AccesiblelLibraryBack.Extensions.Extension;
 
 namespace AccesiblelLibraryBack.Controllers
 {
@@ -26,68 +26,72 @@ namespace AccesiblelLibraryBack.Controllers
             _rolemanager = rolemanager;
             _env = env;
         }
+        public IActionResult Register()
+        {
+            return View();
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterVM register)
+        public async Task<IActionResult> Register(LayoutVM layoutVM)
         {
             if (!ModelState.IsValid) return RedirectToAction("Index", "Home");
             AppUser newUser = new AppUser
             {
-                Name = register.Name,
-                Surname = register.Surname,
-                UserName = register.Username,
-                Email = register.Email,
+                Name = layoutVM.RegisterVM.Name,
+                Surname = layoutVM.RegisterVM.Surname,
+                UserName = layoutVM.RegisterVM.Username,
+                Email = layoutVM.RegisterVM.Email,
                 CreateTime = DateTime.UtcNow
             };
-            IdentityResult identityResult = await _usermanager.CreateAsync(newUser, register.Password);
+            IdentityResult identityResult = await _usermanager.CreateAsync(newUser, layoutVM.RegisterVM.Password);
             if (!identityResult.Succeeded)
             {
                 foreach (IdentityError error in identityResult.Errors)
                 {
                     ModelState.AddModelError("", error.Description);
                 }
-                return View();
+                return RedirectToAction("Index", "Home");
             }
-            await _usermanager.AddToRoleAsync(newUser, Roles.Admin.ToString());
+            await _usermanager.AddToRoleAsync(newUser, Roles.Member.ToString());
             await _signinmanager.SignInAsync(newUser, true);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index","Home");
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginVM login)
+        public async Task<IActionResult> Login(LayoutVM layoutVM)
         {
-            if (!ModelState.IsValid) return View();
+            if (!ModelState.IsValid) return RedirectToAction("Index", "Home");
             AppUser user;
-            if (await _usermanager.FindByEmailAsync(login.Username) != null)
+            if (await _usermanager.FindByEmailAsync(layoutVM.LoginVM.Username) != null)
             {
-                 user = await _usermanager.FindByEmailAsync(login.Username);
+                 user = await _usermanager.FindByEmailAsync(layoutVM.LoginVM.Username);
 
             }
             else
             {
-                 user = await _usermanager.FindByNameAsync(login.Username);
+                 user = await _usermanager.FindByNameAsync(layoutVM.LoginVM.Username);
 
             }
             if (user == null)
             {
                 ModelState.AddModelError("", "Email,Username or Password is incorrect");
-                return View();
+                return RedirectToAction("Index", "Home");
             }
             if (user.IsDeleted)
             {
                 ModelState.AddModelError("", "Email,Username or Password is incorrect");
-                return View();
+                return RedirectToAction("Index", "Home");
             }
-            Microsoft.AspNetCore.Identity.SignInResult signInResult = await _signinmanager.PasswordSignInAsync(user, login.Password, true, true);
+            Microsoft.AspNetCore.Identity.SignInResult signInResult = await _signinmanager.PasswordSignInAsync(user, layoutVM.LoginVM.Password, true, true);
             if (signInResult.IsLockedOut)
             {
                 ModelState.AddModelError("", "Try again few minutes later");
-                return View();
+                return RedirectToAction("Index", "Home");
             }
             if (!signInResult.Succeeded)
             {
                 ModelState.AddModelError("", "Email, Username or Password is incorrect");
-                return View();
+                return RedirectToAction("Index", "Home");
             }
 
             return RedirectToAction("Index", "Home");

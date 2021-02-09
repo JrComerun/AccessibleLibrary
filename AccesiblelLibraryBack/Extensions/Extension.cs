@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EduHome.Extensions
+namespace AccesiblelLibraryBack.Extensions
 {
     public static class Extension
     {

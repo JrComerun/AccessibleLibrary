@@ -19,9 +19,7 @@ namespace AccesiblelLibraryBack.Models
         [NotMapped]
         public IFormFile Photo { get; set; }
         public bool IsDeleted { get; set; }
-        [DataType(DataType.DateTime)]
         public DateTime? DeleteTime { get; set; }
-        [Required, DataType(DataType.DateTime)]
         public DateTime CreateTime { get; set; }
     }
 }
