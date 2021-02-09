@@ -13,7 +13,7 @@ namespace AccesiblelLibraryBack.ViewModels
         [Required(ErrorMessage = "Bu xana doldurulmalıdır"), StringLength(30, ErrorMessage = "Bu xanadakı hərflərin sayı maksimum sayı 30-dur")]
         public string Surname { get; set; }
         [Required(ErrorMessage = "Bu xana doldurulmalıdır")]
-        [RegularExpression(@"^(?=.*[a-z])(?!.*\s).{4,30}$", ErrorMessage = "Bu xanadakı hərflərin sayı 4-dan yuxarı olmalıdır")]
+        [RegularExpression(@"^(?=.*[a-z0-9A-Z])(?!.*\s).{4,30}$", ErrorMessage = "Bu xanadakı hərflərin sayı 4-dan yuxarı olmalıdır")]
         public string Username { get; set; }
         [Required(ErrorMessage = "Bu xana doldurulmalıdır"), DataType(DataType.EmailAddress, ErrorMessage = "Email düzgün deyil")]
         public string Email { get; set; }

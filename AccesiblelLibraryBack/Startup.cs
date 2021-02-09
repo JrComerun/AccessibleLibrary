@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NETCore.MailKit.Extensions;
+using NETCore.MailKit.Infrastructure.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +40,9 @@ namespace AccesiblelLibraryBack
                 IdentityOptions.Lockout.AllowedForNewUsers = true;
                 IdentityOptions.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
                 IdentityOptions.User.RequireUniqueEmail = true;
+                IdentityOptions.SignIn.RequireConfirmedEmail = true;
             }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>().AddErrorDescriber<IdentityErrorDescriber>();
+
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(settings => settings.UseSqlServer(Configuration["ConnectionStrings:Default"]));
         }

@@ -1,4 +1,5 @@
-﻿using AccesiblelLibraryBack.ViewModels;
+﻿using AccesiblelLibraryBack.Models;
+using AccesiblelLibraryBack.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace AccesiblelLibraryBack.ViewModels
     {
         public LoginVM LoginVM { get; set; }
         public RegisterVM RegisterVM { get; set; }
+        public AppUser AppUser { get; set; }
     }
 }

@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "EmailVerification";
+}
+
+<section id="Register">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class=" col-md-12 d-flex  justify-content-center">
+                <div class="email-approve d-flex  justify-content-center align-items-center">
+                    <div class="approve-img">
+                        <img class="img-fluid"
+                             src="~/src/img/layout/email1.png"
+                             alt="" />
+                    </div>
+                    <div class="approve d-flex align-items-center flex-column">
+                        <div class="approve-head">
+                            <h3>Təsdiqləmə</h3>
+                        </div>
+                        <div class="approve-body">
+                            Zəhmət olmasa <span>@ViewBag.Email</span> Email-linizə girib Qeydiyatı təsdiqləyin
+                        </div>
+                        <div class="approve-footer">
+                            <a href="">
+                                Ana Səhifə
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Css{
+    <link rel="stylesheet" href="~/src/css/secondary.css" />
+}

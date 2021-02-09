@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using AccesiblelLibraryBack.Models;
 using AccesiblelLibraryBack.ViewModels;
@@ -19,6 +21,7 @@ namespace AccesiblelLibraryBack.Controllers
         public readonly SignInManager<AppUser> _signinmanager;
         public readonly RoleManager<IdentityRole> _rolemanager;
         public readonly IWebHostEnvironment _env;
+
         public AccountController(UserManager<AppUser> usermanager, SignInManager<AppUser> signinmanager, RoleManager<IdentityRole> rolemanager, IWebHostEnvironment env)
         {
             _usermanager = usermanager;
@@ -49,49 +52,107 @@ namespace AccesiblelLibraryBack.Controllers
                 foreach (IdentityError error in identityResult.Errors)
                 {
                     ModelState.AddModelError("", error.Description);
+                    return View();
                 }
-                return RedirectToAction("Index", "Home");
             }
+            if (identityResult.Succeeded)
+            {
+                var token = await _usermanager.GenerateEmailConfirmationTokenAsync(newUser);
+                var confirmationLink = Url.Action(nameof(VerifyEmail), "Account", new { token, email = newUser.Email }, Request.Scheme);
+                var mailto = newUser.Email;
+
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+                client.UseDefaultCredentials = false;
+                client.EnableSsl = true;
+                client.Credentials = new NetworkCredential("imbackend4000@gmail.com", "backend318");
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+
+                MailMessage message = new MailMessage("imbackend4000@gmail.com", mailto);
+                message.Subject = "Verify Email";
+
+
+                message.Body = $"<a href=\"{confirmationLink}\">Verify Email</a>";
+                message.BodyEncoding = System.Text.Encoding.UTF8;
+                message.IsBodyHtml = true;
+                client.Send(message);
+                return RedirectToAction("EmailVerification", new { email = newUser.Email });
+            }
+
             await _usermanager.AddToRoleAsync(newUser, Roles.Member.ToString());
-            await _signinmanager.SignInAsync(newUser, true);
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
+
+        public async Task<IActionResult> VerifyEmail(string email, string token)
+        {
+            var user = await _usermanager.FindByEmailAsync(email);
+            if (user == null) return BadRequest();
+
+            if (!await _usermanager.IsEmailConfirmedAsync(user))
+            {
+                var result = await _usermanager.ConfirmEmailAsync(user, token);
+                if (result.Succeeded)
+                {
+                    return View();
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+        public IActionResult EmailVerification(string email)
+        {
+            ViewBag.Email = email;
+            return View();
+
+        }
+
+        public  IActionResult Login()
+        {
+            return View();
+        }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LayoutVM layoutVM)
         {
-            if (!ModelState.IsValid) return RedirectToAction("Index", "Home");
+            if (!ModelState.IsValid) return View();
             AppUser user;
             if (await _usermanager.FindByEmailAsync(layoutVM.LoginVM.Username) != null)
             {
-                 user = await _usermanager.FindByEmailAsync(layoutVM.LoginVM.Username);
+                user = await _usermanager.FindByEmailAsync(layoutVM.LoginVM.Username);
 
             }
             else
             {
-                 user = await _usermanager.FindByNameAsync(layoutVM.LoginVM.Username);
+                user = await _usermanager.FindByNameAsync(layoutVM.LoginVM.Username);
 
             }
             if (user == null)
             {
                 ModelState.AddModelError("", "Email,Username or Password is incorrect");
-                return RedirectToAction("Index", "Home");
+                return View();
             }
             if (user.IsDeleted)
             {
                 ModelState.AddModelError("", "Email,Username or Password is incorrect");
-                return RedirectToAction("Index", "Home");
+                return View();
             }
             Microsoft.AspNetCore.Identity.SignInResult signInResult = await _signinmanager.PasswordSignInAsync(user, layoutVM.LoginVM.Password, true, true);
             if (signInResult.IsLockedOut)
             {
                 ModelState.AddModelError("", "Try again few minutes later");
-                return RedirectToAction("Index", "Home");
+                return View();
             }
             if (!signInResult.Succeeded)
             {
                 ModelState.AddModelError("", "Email, Username or Password is incorrect");
-                return RedirectToAction("Index", "Home");
+                return View();
             }
 
             return RedirectToAction("Index", "Home");

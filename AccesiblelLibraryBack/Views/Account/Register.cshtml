@@ -1,10 +1,79 @@
-﻿
+﻿@model RegisterVM
+
 @{
     ViewData["Title"] = "Register";
 }
 
-<h1>Register</h1>
+<div class="login-html">
+    <div class="login-register-body">
+        <div class="log-part-modal content">
+            <div class="body">
+                <form asp-controller="Account" asp-action="Register">
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                    <div class="row">
+                        <div class="col-6 mob-col-12">
+                            <div class="form-group">
+                                <label asp-for="Name">Ad</label>
+                                <input asp-for="Name" class="form-control" />
+                                <span class="text-danger" asp-validation-for="Name"></span>
+                            </div>
+                        </div>
+                        <div class="col-6 mob-col-12">
+                            <div class="form-group">
+                                <label asp-for="Surname">Soyad</label>
+                                <input asp-for="Surname" class="form-control" />
+                                <span class="text-danger" asp-validation-for="Surname"></span>
+                            </div>
+                        </div>
+                        <div class="col-6 mob-col-12">
+                            <div class="form-group">
+                                <label asp-for="Username">İstifadəçi Adı</label>
+                                <input asp-for="Username" class="form-control" />
+                                <span class="text-danger" asp-validation-for="Username"></span>
+                            </div>
+                        </div>
+                        <div class="col-6 mob-col-12">
+                            <div class="form-group">
+                                <label asp-for="Email">Email</label>
+                                <input asp-for="Email" class="form-control" />
+                                <span class="text-danger" asp-validation-for="Email"></span>
+                            </div>
+                        </div>
+                        <div class="col-6 mob-col-12">
+                            <div class="form-group">
+                                <label asp-for="Password">Parol</label>
+                                <input asp-for="Password" class="form-control" />
+                                <span class="text-danger" asp-validation-for="Password"></span>
+                            </div>
+                        </div>
+                        <div class="col-6 mob-col-12">
+                            <div class="form-group">
+                                <label asp-for="CheckPassword">Tekrar Parol</label>
+                                <input asp-for="CheckPassword" class="form-control" />
+                                <span class="text-danger" asp-validation-for="CheckPassword"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Qeydiyyatdan Keç</button>
+                </form>
+                <div class="reg-forgot">
+                    <button type="button">Parolu unutmusan?</button>
+                    <button type="button" class="switch-log" onclick="SwitchToLog()">
+                        Daxil ol
+                    </button>
+                </div>
+                <div class="login-soc">
+                    <a href=""> <i class="fab fa-facebook-f"></i></a>
+                    <a href=""> <i class="fab fa-google"></i></a>
+                    <a href=""> <i class="fab fa-vk"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
 
 @section Css{
     <link rel="stylesheet" href="~/src/css/secondary.css" />
 }
+

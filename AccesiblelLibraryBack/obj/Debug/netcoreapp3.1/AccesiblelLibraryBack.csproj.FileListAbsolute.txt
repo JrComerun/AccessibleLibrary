@@ -268,8 +268,6 @@ C:\Users\USER\Desktop\AccessibleLibrary\AccesiblelLibraryBack\bin\Debug\netcorea
 C:\Users\USER\Desktop\AccessibleLibrary\AccesiblelLibraryBack\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
 C:\Users\USER\Desktop\AccessibleLibrary\AccesiblelLibraryBack\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\USER\Desktop\AccessibleLibrary\AccesiblelLibraryBack\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\USER\Desktop\AccessibleLibrary\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\AccesiblelLibraryBack.csproj.CoreCompileInputs.cache
-C:\Users\USER\Desktop\AccessibleLibrary\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\AccesiblelLibraryBack.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\USER\Desktop\sdsd\AccesiblelLibraryBack\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\USER\Desktop\sdsd\AccesiblelLibraryBack\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\USER\Desktop\sdsd\AccesiblelLibraryBack\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -429,3 +427,13 @@ C:\Users\USER\Desktop\sdsd\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\Accesib
 C:\Users\USER\Desktop\sdsd\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\AccesiblelLibraryBack.pdb
 C:\Users\USER\Desktop\sdsd\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\AccesiblelLibraryBack.genruntimeconfig.cache
 C:\Users\USER\Desktop\sdsd\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\USER\Desktop\AccessibleLibrary\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\Razor\Views\Account\EmailVerification.cshtml.g.cs
+C:\Users\USER\Desktop\AccessibleLibrary\AccesiblelLibraryBack\bin\Debug\netcoreapp3.1\MailKit.dll
+C:\Users\USER\Desktop\AccessibleLibrary\AccesiblelLibraryBack\bin\Debug\netcoreapp3.1\MimeKit.dll
+C:\Users\USER\Desktop\AccessibleLibrary\AccesiblelLibraryBack\bin\Debug\netcoreapp3.1\NETCore.MailKit.dll
+C:\Users\USER\Desktop\AccessibleLibrary\AccesiblelLibraryBack\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\USER\Desktop\AccessibleLibrary\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\AccesiblelLibraryBack.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\AccessibleLibrary\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\AccesiblelLibraryBack.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\USER\Desktop\AccessibleLibrary\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\Razor\Views\Account\VerifyEmail.cshtml.g.cs
+C:\Users\USER\Desktop\AccessibleLibrary\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\USER\Desktop\AccessibleLibrary\AccesiblelLibraryBack\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
