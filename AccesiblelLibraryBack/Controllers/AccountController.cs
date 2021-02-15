@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using AccesiblelLibraryBack.Extensions;
 using AccesiblelLibraryBack.Models;
 using AccesiblelLibraryBack.ViewModels;
 using Microsoft.AspNetCore.Hosting;
@@ -31,7 +32,14 @@ namespace AccesiblelLibraryBack.Controllers
         }
         public IActionResult Register()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                return View("Error");
+            }
+            else
+            {
+                return View();
+            }
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -44,7 +52,8 @@ namespace AccesiblelLibraryBack.Controllers
                 Surname = layoutVM.RegisterVM.Surname,
                 UserName = layoutVM.RegisterVM.Username,
                 Email = layoutVM.RegisterVM.Email,
-                CreateTime = DateTime.UtcNow
+                CreateTime = DateTime.UtcNow,
+                Image="user.png"
             };
             IdentityResult identityResult = await _usermanager.CreateAsync(newUser, layoutVM.RegisterVM.Password);
             if (!identityResult.Succeeded)
@@ -60,21 +69,12 @@ namespace AccesiblelLibraryBack.Controllers
                 var token = await _usermanager.GenerateEmailConfirmationTokenAsync(newUser);
                 var confirmationLink = Url.Action(nameof(VerifyEmail), "Account", new { token, email = newUser.Email }, Request.Scheme);
                 var mailto = newUser.Email;
-
-                SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
-                client.UseDefaultCredentials = false;
-                client.EnableSsl = true;
-                client.Credentials = new NetworkCredential("imbackend4000@gmail.com", "backend318");
-                client.DeliveryMethod = SmtpDeliveryMethod.Network;
-
-                MailMessage message = new MailMessage("imbackend4000@gmail.com", mailto);
-                message.Subject = "Verify Email";
-
-
-                message.Body = $"<a href=\"{confirmationLink}\">Verify Email</a>";
-                message.BodyEncoding = System.Text.Encoding.UTF8;
-                message.IsBodyHtml = true;
-                client.Send(message);
+                var messageBody = $"<p>Emaili təsdiqləmək üçün <a href=\"{confirmationLink}\"> buraya daxil </a>  olun</p>" +
+                    $"</br><p>Qeydiyatı təsdiqləmə müdtəti 10 dəqiqədir</p>";
+                var messageSubject = "Email Təsdiqləmə";
+                //***********     Send Message to Email     ***********
+                Helper.SendMessage(messageSubject,messageBody,mailto);
+                
                 return RedirectToAction("EmailVerification", new { email = newUser.Email });
             }
 
@@ -84,8 +84,10 @@ namespace AccesiblelLibraryBack.Controllers
 
         public async Task<IActionResult> VerifyEmail(string email, string token)
         {
+            ViewBag.Email = email;
+            if (email == null) return View("Error");
             var user = await _usermanager.FindByEmailAsync(email);
-            if (user == null) return BadRequest();
+            if (user == null) return View("Error");
 
             if (!await _usermanager.IsEmailConfirmedAsync(user))
             {
@@ -96,8 +98,9 @@ namespace AccesiblelLibraryBack.Controllers
                 }
                 else
                 {
-                    return View();
+                    return View("Error");
                 }
+
             }
             else
             {
@@ -106,14 +109,22 @@ namespace AccesiblelLibraryBack.Controllers
         }
         public IActionResult EmailVerification(string email)
         {
+            if (email == null) return View("Error");
             ViewBag.Email = email;
             return View();
 
         }
 
-        public  IActionResult Login()
+        public IActionResult Login()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                return View("Error");
+            }
+            else
+            {
+                return View();
+            }
         }
 
 

@@ -5,13 +5,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20210209173423_ManyTablesCreated.cs" />
+    <Compile Remove="Migrations\20210209173423_ManyTablesCreated.Designer.cs" />
+    <Compile Remove="Migrations\20210210130911_ManyTablesCreated.cs" />
+    <Compile Remove="Migrations\20210210130911_ManyTablesCreated.Designer.cs" />
+    <Compile Remove="Migrations\20210210131449_ManyTablesCreated.cs" />
+    <Compile Remove="Migrations\20210210131449_ManyTablesCreated.Designer.cs" />
+    <Compile Remove="Migrations\20210214093441_Bookmarkchange.cs" />
+    <Compile Remove="Migrations\20210214093441_Bookmarkchange.Designer.cs" />
+    <Compile Remove="Migrations\20210214094120_Bookmarkchange.cs" />
+    <Compile Remove="Migrations\20210214094120_Bookmarkchange.Designer.cs" />
+    <Compile Remove="Migrations\20210214135335_Bookmarkchange.cs" />
+    <Compile Remove="Migrations\20210214135335_Bookmarkchange.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.11">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     <PackageReference Include="NETCore.MailKit" Version="2.0.3" />
   </ItemGroup>
 

@@ -20,7 +20,14 @@
         </svg>
     </a>
     <div class="selected-box">
-        <a asp-controller="AddBook" asp-action="Index">Add Book</a>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a asp-controller="AddBook" asp-action="Index">Elan Yerləşdir</a>
+        }
+        else
+        {
+            <a style="cursor:pointer" data-toggle="modal" data-target="#Login-Reg" onclick="SwitchToLog()">Elan Yerləşdir</a>
+        }
     </div>
 </div>
 

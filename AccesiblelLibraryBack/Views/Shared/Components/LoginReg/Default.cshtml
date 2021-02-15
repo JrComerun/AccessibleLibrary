@@ -1,0 +1,128 @@
+﻿@model LayoutVM
+@{
+    Layout = null;
+}
+
+<!-- *-*-*-*-*-*-*-*-*      Login Modal Start      *-*-*-*-*-*-*-*-* -->
+<div class="login-modal modal fade"
+     id="Login-Reg"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="login-register-content">
+            <div class="login-register-body">
+                <div class="login-part-modal modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Accessible Library</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span style="color: white !important; font-size: 22px" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form asp-controller="Account" asp-action="Login">
+                            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                            <div class="form-group">
+                                <label asp-for="LoginVM.Username">İstifadəçi Adı</label>
+                                <input asp-for="LoginVM.Username" class="form-control" />
+                                <span class="text-danger" asp-validation-for="LoginVM.Username"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="LoginVM.Password">Parol</label>
+                                <input asp-for="LoginVM.Password" class="form-control" />
+                                <span class="text-danger" asp-validation-for="LoginVM.Password"></span>
+                            </div>
+                            <div class="form-group form-check">
+                                <input asp-for="LoginVM.IsStore" type="checkbox" class="form-check-input" />
+                                <label asp-for="LoginVM.IsStore" class="form-check-label">Yadda saxla</label>
+                            </div>
+                            <button type="submit" class="btn btn-success">Daxil ol</button>
+                        </form>
+                        <div class="reg-forgot">
+                            <button type="button">Parolu unutmusan?</button>
+                            <button type="button" class="switch-reg" onclick="SwitchToReg()">
+                                Qeydiyyatdan Keç
+                            </button>
+                        </div>
+                        <div class="login-soc">
+                            <a href=""> <i class="fab fa-facebook-f"></i></a>
+                            <a href=""> <i class="fab fa-google"></i></a>
+                            <a href=""> <i class="fab fa-vk"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="register-part-modal modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel3">Accessible Library</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span style="color: white !important; font-size: 22px" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form asp-controller="Account" asp-action="Register">
+                            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label asp-for="RegisterVM.Name">Ad</label>
+                                        <input asp-for="RegisterVM.Name" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="RegisterVM.Name"></span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label asp-for="RegisterVM.Surname">Soyad</label>
+                                        <input asp-for="RegisterVM.Surname" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="RegisterVM.Surname"></span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label asp-for="RegisterVM.Username">İstifadəçi Adı</label>
+                                        <input asp-for="RegisterVM.Username" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="RegisterVM.Username"></span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label asp-for="RegisterVM.Email">Email</label>
+                                        <input asp-for="RegisterVM.Email" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="RegisterVM.Email"></span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label asp-for="RegisterVM.Password">Parol</label>
+                                        <input asp-for="RegisterVM.Password" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="RegisterVM.Password"></span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label asp-for="RegisterVM.CheckPassword">Tekrar Parol</label>
+                                        <input asp-for="RegisterVM.CheckPassword" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="RegisterVM.CheckPassword"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success">Qeydiyyatdan Keç</button>
+                        </form>
+                        <div class="reg-forgot">
+                            <button type="button">Parolu unutmusan?</button>
+                            <button type="button" class="switch-log" onclick="SwitchToLog()">
+                                Daxil ol
+                            </button>
+                        </div>
+                        <div class="login-soc">
+                            <a href=""> <i class="fab fa-facebook-f"></i></a>
+                            <a href=""> <i class="fab fa-google"></i></a>
+                            <a href=""> <i class="fab fa-vk"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- *-*-*-*-*-*-*-*-*      Login Modal End      *-*-*-*-*-*-*-*-* -->
+<!-- ---------------------------------------------------------- -->

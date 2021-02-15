@@ -21,5 +21,8 @@ namespace AccesiblelLibraryBack.Models
         public bool IsDeleted { get; set; }
         public DateTime? DeleteTime { get; set; }
         public DateTime CreateTime { get; set; }
+        public ICollection<Book> Books { get; set; }
+        public ICollection<AppUserBook> AppUserBooks { get; set; }
+
     }
 }

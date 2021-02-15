@@ -21,19 +21,13 @@
                         <span class="text-danger"
                               asp-validation-for="LoginVM.Password"></span>
                     </div>
-                    <div class="form-group form-check">
-                        <input asp-for="LoginVM.IsStore"
-                               type="checkbox"
-                               class="form-check-input" />
-                        <label asp-for="LoginVM.IsStore" class="form-check-label">Yadda saxla</label>
-                    </div>
-                    <button type="submit" class="btn btn-success">Daxil ol</button>
+                    <button type="submit" class="btn btn-success mt-5">Daxil ol</button>
                 </form>
                 <div class="reg-forgot">
-                    <button type="button">Parolu unutmusan?</button>
-                    <button type="button" class="switch-reg" onclick="SwitchToReg()">
+                    <a class="pr-3">Parolu unutmusan?</a>
+                    <a asp-controller="Account" asp-action="Register"  >
                         Qeydiyyatdan Keç
-                    </button>
+                    </a>
                 </div>
                 <div class="login-soc">
                     <a href=""> <i class="fab fa-facebook-f"></i></a>

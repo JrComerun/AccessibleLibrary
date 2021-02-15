@@ -8,8 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using NETCore.MailKit.Extensions;
-using NETCore.MailKit.Infrastructure.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,21 +27,19 @@ namespace AccesiblelLibraryBack
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews();
             services.AddIdentity<AppUser, IdentityRole>(IdentityOptions =>
             {
-
                 IdentityOptions.Password.RequireDigit = true;
                 IdentityOptions.Password.RequiredLength = 6;
                 IdentityOptions.Password.RequireNonAlphanumeric = false;
                 IdentityOptions.Password.RequireUppercase = false;
                 IdentityOptions.Lockout.MaxFailedAccessAttempts = 3;
                 IdentityOptions.Lockout.AllowedForNewUsers = true;
-                IdentityOptions.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+                IdentityOptions.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(3);
                 IdentityOptions.User.RequireUniqueEmail = true;
                 IdentityOptions.SignIn.RequireConfirmedEmail = true;
-            }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>().AddErrorDescriber<IdentityErrorDescriber>();
-
-            services.AddControllersWithViews();
+            }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
             services.AddDbContext<AppDbContext>(settings => settings.UseSqlServer(Configuration["ConnectionStrings:Default"]));
         }
 

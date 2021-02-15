@@ -1,4 +1,4 @@
-﻿@model LayoutVM
+﻿
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,7 +102,7 @@
                         else
                         {
                             <div class="login d-flex align-items-center">
-                                <button  class="dropdown-head">
+                                <button class="dropdown-head">
                                     <div class="nav-link-2"><i class="fas fa-user"></i> @(User.Identity.Name)</div>
                                 </button>
                                 <ul class="dropdown-body-content">
@@ -270,391 +270,38 @@
     <!-- *-*-*-*-*-*-*-*-*      Footer End      *-*-*-*-*-*-*-*-* -->
     <!-- ---------------------------------------------------------- -->
     <!-- *-*-*-*-*-*-*-*-*      Components Start      *-*-*-*-*-*-*-*-* -->
-    <div class="components">
-        <!-- ---------------------------------------------------------- -->
-        <!-- *-*-*-*-*-*-*-*-*      Login Modal Start      *-*-*-*-*-*-*-*-* -->
-        <div class="login-modal modal fade"
-             id="Login-Reg"
-             tabindex="-1"
-             aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="login-register-content">
-                    <div class="login-register-body">
-                        <div class="login-part-modal modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Accessible Library</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span style="color: white !important; font-size: 22px" aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form asp-controller="Account" asp-action="Login">
-                                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-                                    <div class="form-group">
-                                        <label asp-for="LoginVM.Username">İstifadəçi Adı</label>
-                                        <input asp-for="LoginVM.Username" class="form-control" />
-                                        <span class="text-danger" asp-validation-for="LoginVM.Username"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label asp-for="LoginVM.Password">Parol</label>
-                                        <input asp-for="LoginVM.Password" class="form-control" />
-                                        <span class="text-danger" asp-validation-for="LoginVM.Password"></span>
-                                    </div>
-                                    <div class="form-group form-check">
-                                        <input asp-for="LoginVM.IsStore" type="checkbox" class="form-check-input" />
-                                        <label asp-for="LoginVM.IsStore" class="form-check-label">Yadda saxla</label>
-                                    </div>
-                                    <button type="submit" class="btn btn-success">Daxil ol</button>
-                                </form>
-                                <div class="reg-forgot">
-                                    <button type="button">Parolu unutmusan?</button>
-                                    <button type="button" class="switch-reg" onclick="SwitchToReg()">
-                                        Qeydiyyatdan Keç
-                                    </button>
-                                </div>
-                                <div class="login-soc">
-                                    <a href=""> <i class="fab fa-facebook-f"></i></a>
-                                    <a href=""> <i class="fab fa-google"></i></a>
-                                    <a href=""> <i class="fab fa-vk"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="register-part-modal modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel3">Accessible Library</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span style="color: white !important; font-size: 22px" aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form asp-controller="Account" asp-action="Register">
-                                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label asp-for="RegisterVM.Name">Ad</label>
-                                                <input asp-for="RegisterVM.Name" class="form-control" />
-                                                <span class="text-danger" asp-validation-for="RegisterVM.Name"></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label asp-for="RegisterVM.Surname">Soyad</label>
-                                                <input asp-for="RegisterVM.Surname" class="form-control" />
-                                                <span class="text-danger" asp-validation-for="RegisterVM.Surname"></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label asp-for="RegisterVM.Username">İstifadəçi Adı</label>
-                                                <input asp-for="RegisterVM.Username" class="form-control" />
-                                                <span class="text-danger" asp-validation-for="RegisterVM.Username"></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label asp-for="RegisterVM.Email">Email</label>
-                                                <input asp-for="RegisterVM.Email" class="form-control" />
-                                                <span class="text-danger" asp-validation-for="RegisterVM.Email"></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label asp-for="RegisterVM.Password">Parol</label>
-                                                <input asp-for="RegisterVM.Password" class="form-control" />
-                                                <span class="text-danger" asp-validation-for="RegisterVM.Password"></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label asp-for="RegisterVM.CheckPassword">Tekrar Parol</label>
-                                                <input asp-for="RegisterVM.CheckPassword" class="form-control" />
-                                                <span class="text-danger" asp-validation-for="RegisterVM.CheckPassword"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-success">Qeydiyyatdan Keç</button>
-                                </form>
-                                <div class="reg-forgot">
-                                    <button type="button">Parolu unutmusan?</button>
-                                    <button type="button" class="switch-log" onclick="SwitchToLog()">
-                                        Daxil ol
-                                    </button>
-                                </div>
-                                <div class="login-soc">
-                                    <a href=""> <i class="fab fa-facebook-f"></i></a>
-                                    <a href=""> <i class="fab fa-google"></i></a>
-                                    <a href=""> <i class="fab fa-vk"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- *-*-*-*-*-*-*-*-*      Login Modal End      *-*-*-*-*-*-*-*-* -->
-        <!-- ---------------------------------------------------------- -->
-        <!-- *-*-*-*-*-*-*-*-*      Selected Start      *-*-*-*-*-*-*-*-* -->
-        @RenderSection("SelectHolder1", required: false)
-        <!-- ---------------------------------------------------------- -->
-        @RenderSection("SelectHolder2", required: false)
+    <partial name="_PartialComponents" />
 
-        <!-- *-*-*-*-*-*-*-*-*      Selected End      *-*-*-*-*-*-*-*-* -->
-        <!-- ---------------------------------------------------------- -->
-        <!-- *-*-*-*-*-*-*-*-*      PreLoader Start      *-*-*-*-*-*-*-*-* -->
-        <div class="overlay">
-            <div class="preloader">
-                <div class="diamond">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <div class="movement">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-            <div id="Pre-JrC">Accessible Library by JrC</div>
-        </div>
-        <!-- *-*-*-*-*-*-*-*-*      PreLoader End      *-*-*-*-*-*-*-*-* -->
-        <!-- ---------------------------------------------------------- -->
-        <!-- *-*-*-*-*-*-*-*-*  Mobile Navigation On Button Start      *-*-*-*-*-*-*-*-* -->
-        <div id="nav-mobile-1">
-            <div class="nav-close-btn d-flex justify-content-end">
-                <a class="close-btn" id="Nav-close-btn"><i class="fas fa-times-circle"></i></a>
-            </div>
-            <div class="languages-bar d-flex align-items-center justify-content-center">
-                <div class="lang d-flex" id="aze-lang2">
-                    <img width="20" height="20" src="~/src/img/logo/azerbaijan.png" alt="" /> <span>AZE</span>
-                </div>
-                <div class="lang d-flex" id="eng-lang2">
-                    <img width="20" height="20" src="~/src/img/logo/united-kingdom.png" alt="" />
-                    <span>ENG</span>
-                </div>
-                <div class="lang d-flex" id="rus-lang2">
-                    <img width="20" height="20" src="~/src/img/logo/russia.png" alt="" /> <span>RUS</span>
-                </div>
-            </div>
-            <div class="login d-flex justify-content-around align-items-center">
-                <a data-toggle="modal" data-target="#Login-Reg">
-                    <div class="nav-link2">Giriş</div>
-                </a>
-                <a data-toggle="modal" data-target="#Login-Reg">
-                    <div class="nav-link2">Qeydiyyat</div>
-                </a>
-            </div>
-            <div class="navigation">
-                <a asp-controller="Home" asp-action="Index">
-                    <div class="nav-link2">Əsas Səhifə</div>
-                </a>
-                <a asp-controller="Books" asp-action="Index">
-                    <div class="nav-link2">Kitablar</div>
-                </a>
-                <a asp-controller="Books" asp-action="Filter">
-                    <div class="nav-link2">Ətraflı Axtar</div>
-                </a>
-                <a asp-controller="About" asp-action="Index">
-                    <div class="nav-link2">Haqqımızda</div>
-                </a>
-                <a asp-controller="Contact" asp-action="Index">
-                    <div class="nav-link2">Bizimlə Əlaqə</div>
-                </a>
-            </div>
-            <div class="nav-text">
-                <div class="text">
-                    Kitab almaq istəyirsiniz? Artıq köhnə kitabınızı satıb yenisini ala bilərsiniz!!!
-                </div>
-            </div>
-            <div class="icons-soc mt-3">
-                <ul class="menu">
-                    <li>
-                        <a href="#0">
-                            <span>FaceBook</span>
-                            <span>
-                                <i class="fab fa-facebook-square" aria-hidden="true"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#0">
-                            <span>Twitter</span>
-                            <span>
-                                <i class="fab fa-twitter-square" aria-hidden="true"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#0">
-                            <span>Instagram</span>
-                            <span>
-                                <i class="fab fa-instagram-square" aria-hidden="true"></i>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- *-*-*-*-*-*-*-*-*  Mobile Navigation On Button End      *-*-*-*-*-*-*-*-* -->
-        <!-- ---------------------------------------------------------- -->
-        <!-- *-*-*-*-*-*-*-*-*  Mobile Navigation On Scrool Start      *-*-*-*-*-*-*-*-* -->
-        <div id="nav-mobile-2">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 add-book">
-                        <a href="" class="add-book-btn" data-toggle="modal" data-target="#Login-Reg">
-                            ELAN YERLƏŞDİR !
-                        </a>
-                    </div>
-                    <div class="col-lg-12 menu">
-                        <div class="icons-menu">
-                            <div class="small-menu">
-                                <a href="">
-                                    <i class="fas fa-home"></i>
-                                </a>
-                                <div class="word">Əsas Səhifə</div>
-                            </div>
-                            <div class="small-menu">
-                                <a href="">
-                                    <i class="fas fa-bookmark"></i>
-                                </a>
-                                <div class="word">Seçilmişlər</div>
-                            </div>
-                            <div class="small-menu">
-                                <a href="">
-                                    <i class="fas fa-envelope"></i>
-                                </a>
-                                <div class="word">Mesajlar</div>
-                            </div>
-                            <div class="small-menu">
-                                <a href="">
-                                    <i class="fas fa-user"></i>
-                                </a>
-                                <div class="word">Şəxsi Hesab</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- *-*-*-*-*-*-*-*-*  Mobile Navigation On Scrool End      *-*-*-*-*-*-*-*-* -->
-        <!-- ---------------------------------------------------------- -->
-        <!-- *-*-*-*-*-*-*-*-*  Mobile Category On Button Start      *-*-*-*-*-*-*-*-* -->
-        <div id="cat-mobile">
-            <div class="cat-close-btn d-flex justify-content-end">
-                <a class="close-btn" id="Cat-close-btn"><i class="fas fa-times-circle"></i></a>
-            </div>
-            <div class="mob-categories">
-                <a data-child="child-cat-mobile-1" class="open-child-cat">
-                    <div class="mob-category">
-                        <img src="~/src/img/categories/roman.png" alt="" />
-                        <div class="text">Əsər və Roman</div>
-                    </div>
-                </a>
-                <a class="open-child-cat">
-                    <div class="mob-category">
-                        <img src="~/src/img/categories/studying.png" alt="" />
-                        <div class="text">Dərslik</div>
-                    </div>
-                </a>
-                <a class="open-child-cat">
-                    <div class="mob-category">
-                        <img src="~/src/img/categories/science.png" alt="" />
-                        <div class="text">Elmi</div>
-                    </div>
-                </a>
-                <a class="open-child-cat">
-                    <div class="mob-category">
-                        <img src="~/src/img/categories/biography.png" alt="" />
-                        <div class="text">Həyat Hekayəsi</div>
-                    </div>
-                </a>
-                <a class="open-child-cat">
-                    <div class="mob-category">
-                        <img src="~/src/img/categories/search.png" alt="" />
-                        <div class="text">Bilgi və Araşdırma</div>
-                    </div>
-                </a>
-                <a class="open-child-cat">
-                    <div class="mob-category">
-                        <img src="~/src/img/categories/lit.png" alt="" />
-                        <div class="text">Ədəbiyyat Şeir</div>
-                    </div>
-                </a>
-                <a class="open-child-cat">
-                    <div class="mob-category">
-                        <img src="~/src/img/categories/childBook.png" alt="" />
-                        <div class="text">Uşaq Kitabları</div>
-                    </div>
-                </a>
-                <a class="open-child-cat">
-                    <div class="mob-category">
-                        <img src="~/src/img/categories/journey.png" alt="" />
-                        <div class="text">Dunya Səyahəti</div>
-                    </div>
-                </a>
-                <a>
-                    <div class="mob-category">
-                        <img src="~/src/img/categories/other.png" alt="" />
-                        <div class="text">Digər</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <!-- *-*-*-*-*-*-*-*-*  Mobile Category On Button End      *-*-*-*-*-*-*-*-* -->
-        <!-- ---------------------------------------------------------- -->
-        <!-- *-*-*-*-*-*-*-*-*  Mobile Category On Button Start      *-*-*-*-*-*-*-*-* -->
-        <div id="child-cat-mobile">
-            <div class="child-cat-close-btn d-flex justify-content-end">
-                <a class="close-btn" id="Child-cat-close-btn"><i class="fas fa-arrow-left"></i></a>
-            </div>
-            <div class="mob-categories">
-                <a href="">
-                    <div class="mob-category">
-                        <div class="text">Bütün Elanlar (1000)</div>
-                    </div>
-                </a>
-                <a>
-                    <div class="mob-category">
-                        <div class="text">Fantastika (300)</div>
-                    </div>
-                </a>
-                <a>
-                    <div class="mob-category">
-                        <div class="text">Xəyali Dunya (200)</div>
-                    </div>
-                </a>
-                <a>
-                    <div class="mob-category">
-                        <div class="text">Qorxu (100)</div>
-                    </div>
-                </a>
-                <a>
-                    <div class="mob-category">
-                        <div class="text">Bütün Elanlar (400)</div>
-                    </div>
-                </a>
-                <a>
-                    <div class="mob-category">
-                        <div class="text">Digər (100)</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <!-- *-*-*-*-*-*-*-*-*  Mobile Category On Button End      *-*-*-*-*-*-*-*-* -->
-        <!-- ---------------------------------------------------------- -->
+    <!-- ---------------------------------------------------------- -->
+    <!-- *-*-*-*-*-*-*-*-*      Selected Start      *-*-*-*-*-*-*-*-* -->
+    @RenderSection("SelectHolder1", required: false)
+    <!-- ---------------------------------------------------------- -->
+    @RenderSection("SelectHolder2", required: false)
 
-
-    </div>
+    <!-- *-*-*-*-*-*-*-*-*      Selected End      *-*-*-*-*-*-*-*-* -->
+    <!-- ---------------------------------------------------------- -->
     <!-- *-*-*-*-*-*-*-*-*      Components End      *-*-*-*-*-*-*-*-* -->
 
+    @if (User.Identity.IsAuthenticated)
+    {
+        <script>
+            var userAuthorized = true;
+        </script>
 
+    }
+    else
+    {
+        <script>
+            var userAuthorized = false;
+        </script>
+
+    }
     <script src="~/src/js/jquery/jquery.js"></script>
     <script src="~/src/js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="~/src/js/bootstrap/bootstrap.min.js"></script>
     <script src="~/src/js/mobile.js"></script>
     <script src="~/src/js/main.js"></script>
+    <script src="~/src/js/backend.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
 </body>

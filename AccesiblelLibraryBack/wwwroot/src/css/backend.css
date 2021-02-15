@@ -48,7 +48,7 @@
 }
 
 /*Verify page*/
-#Register .email-approve {
+#SmallPage .email-approve {
     margin: 50px 0px;
     font-weight: 500;
     font-size: 16px;
@@ -56,7 +56,7 @@
 }
 
 @media only screen and (max-width: 992px) {
-    #Register .email-approve {
+    #SmallPage .email-approve {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -65,67 +65,67 @@
 }
 
 @media only screen and (max-width: 768px) {
-    #Register .email-approve .approve {
+    #SmallPage .email-approve .approve {
         padding: 20px
     }
 
-        #Register .email-approve .approve .approve-body {
+        #SmallPage .email-approve .approve .approve-body {
             width: 85% !important
         }
 }
 
 @media only screen and (max-width: 576px) {
-    #Register .email-approve .approve-img img {
+    #SmallPage .email-approve .approve-img img {
         height: 250px !important
     }
 
-    #Register .email-approve .approve {
+    #SmallPage .email-approve .approve {
         padding: 10px
     }
 
-        #Register .email-approve .approve .approve-body {
+        #SmallPage .email-approve .approve .approve-body {
             width: 100% !important
         }
 }
 
 @media only screen and (max-width: 350px) {
-    #Register .email-approve .approve-img img {
+    #SmallPage .email-approve .approve-img img {
         height: 220px !important
     }
 
-    #Register .email-approve .approve {
+    #SmallPage .email-approve .approve {
         padding: 5px
     }
 }
 
-#Register .email-approve .approve-img img {
+#SmallPage .email-approve .approve-img img {
     height: 300px
 }
 
-#Register .email-approve .approve {
+#SmallPage .email-approve .approve {
     padding: 50px
 }
 
-    #Register .email-approve .approve .approve-head {
+    #SmallPage .email-approve .approve .approve-head {
         font-weight: 700;
         margin-top: 10px
     }
 
-    #Register .email-approve .approve .approve-body {
+    #SmallPage .email-approve .approve .approve-body {
         text-align: center;
         margin: 10px 0px;
         width: 70%
     }
 
-        #Register .email-approve .approve .approve-body span {
+        #SmallPage .email-approve .approve .approve-body span {
             color: #861703
         }
 
-    #Register .email-approve .approve .approve-footer {
+    #SmallPage .email-approve .approve .approve-footer {
         margin-top: 20px
     }
 
-        #Register .email-approve .approve .approve-footer a {
+        #SmallPage .email-approve .approve .approve-footer a {
             cursor: pointer;
             margin: 0px;
             border: none;
@@ -139,7 +139,7 @@
             overflow: hidden
         }
 
-            #Register .email-approve .approve .approve-footer a::after {
+            #SmallPage .email-approve .approve .approve-footer a::after {
                 content: "";
                 position: absolute;
                 bottom: 2px;
@@ -151,7 +151,7 @@
                 border-style: solid
             }
 
-            #Register .email-approve .approve .approve-footer a::before {
+            #SmallPage .email-approve .approve .approve-footer a::before {
                 content: "";
                 position: absolute;
                 top: 2px;

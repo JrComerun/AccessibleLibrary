@@ -1,4 +1,4 @@
-﻿@model RegisterVM
+﻿@model LayoutVM
 
 @{
     ViewData["Title"] = "Register";
@@ -13,54 +13,54 @@
                     <div class="row">
                         <div class="col-6 mob-col-12">
                             <div class="form-group">
-                                <label asp-for="Name">Ad</label>
-                                <input asp-for="Name" class="form-control" />
-                                <span class="text-danger" asp-validation-for="Name"></span>
+                                <label asp-for="RegisterVM.Name">Ad</label>
+                                <input asp-for="RegisterVM.Name" class="form-control" />
+                                <span class="text-danger" asp-validation-for="RegisterVM.Name"></span>
                             </div>
                         </div>
                         <div class="col-6 mob-col-12">
                             <div class="form-group">
-                                <label asp-for="Surname">Soyad</label>
-                                <input asp-for="Surname" class="form-control" />
-                                <span class="text-danger" asp-validation-for="Surname"></span>
+                                <label asp-for="RegisterVM.Surname">Soyad</label>
+                                <input asp-for="RegisterVM.Surname" class="form-control" />
+                                <span class="text-danger" asp-validation-for="RegisterVM.Surname"></span>
                             </div>
                         </div>
                         <div class="col-6 mob-col-12">
                             <div class="form-group">
-                                <label asp-for="Username">İstifadəçi Adı</label>
-                                <input asp-for="Username" class="form-control" />
-                                <span class="text-danger" asp-validation-for="Username"></span>
+                                <label asp-for="RegisterVM.Username">İstifadəçi Adı</label>
+                                <input asp-for="RegisterVM.Username" class="form-control" />
+                                <span class="text-danger" asp-validation-for="RegisterVM.Username"></span>
                             </div>
                         </div>
                         <div class="col-6 mob-col-12">
                             <div class="form-group">
-                                <label asp-for="Email">Email</label>
-                                <input asp-for="Email" class="form-control" />
-                                <span class="text-danger" asp-validation-for="Email"></span>
+                                <label asp-for="RegisterVM.Email">Email</label>
+                                <input asp-for="RegisterVM.Email" class="form-control" />
+                                <span class="text-danger" asp-validation-for="RegisterVM.Email"></span>
                             </div>
                         </div>
                         <div class="col-6 mob-col-12">
                             <div class="form-group">
-                                <label asp-for="Password">Parol</label>
-                                <input asp-for="Password" class="form-control" />
-                                <span class="text-danger" asp-validation-for="Password"></span>
+                                <label asp-for="RegisterVM.Password">Parol</label>
+                                <input asp-for="RegisterVM.Password" class="form-control" />
+                                <span class="text-danger" asp-validation-for="RegisterVM.Password"></span>
                             </div>
                         </div>
                         <div class="col-6 mob-col-12">
                             <div class="form-group">
-                                <label asp-for="CheckPassword">Tekrar Parol</label>
-                                <input asp-for="CheckPassword" class="form-control" />
-                                <span class="text-danger" asp-validation-for="CheckPassword"></span>
+                                <label asp-for="RegisterVM.CheckPassword">Tekrar Parol</label>
+                                <input asp-for="RegisterVM.CheckPassword" class="form-control" />
+                                <span class="text-danger" asp-validation-for="RegisterVM.CheckPassword"></span>
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-success">Qeydiyyatdan Keç</button>
+                    <button type="submit" class="btn btn-success mt-5">Qeydiyyatdan Keç</button>
                 </form>
                 <div class="reg-forgot">
-                    <button type="button">Parolu unutmusan?</button>
-                    <button type="button" class="switch-log" onclick="SwitchToLog()">
+                    <a class="pr-3">Parolu unutmusan?</a>
+                    <a asp-controller="Account" asp-action="Login">
                         Daxil ol
-                    </button>
+                    </a>
                 </div>
                 <div class="login-soc">
                     <a href=""> <i class="fab fa-facebook-f"></i></a>
