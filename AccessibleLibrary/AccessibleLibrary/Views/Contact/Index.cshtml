@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<section class="contact-us">
+    <div class="container">
+        <h2 class="section-title">Bizimlə Əlaqə</h2>
+        <hr class="divider" />
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="contact-icon">
+                        <img class="img-fluid"
+                             src="~/src/img/layout/contact.jpg"
+                             alt="" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 form-item form-group d-flex align-items-center">
+                <form method="post">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <div class="col-12 form-item form-group">
+                            <label>Ad :</label>
+                            <input id="Name-contact" type="text" placeholder="Ad" />
+                            <span id="ConNameError" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 form-item form-group">
+                            <label>Email :</label>
+                            <input id="Email-contact" type="email" placeholder="Email" />
+                            <span id="ConEmailError" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-12 form-item form-group">
+                            <label>Başlıq :</label>
+                            <input id="Subject-contact" type="text" placeholder="Başlıq" />
+                            <span id="ConSubjectError" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 form-item form-group">
+                            <label>Mesaj yaz :</label>
+                            <textarea id="Message-contact" class="message-place" placeholder="Burada yaz..."></textarea>
+                            <span id="ConMessageError" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 form-item">
+                            <span id="Form-contact" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 select-btn-holder">
+                            <button id="buttonCon" type="button" class="select-btn">Göndər</button>
+                        </div>
+                    }
+                    else
+                    {
+
+                        <div class="col-12 form-item form-group">
+                            <label>Başlıq :</label>
+                            <input id="Subject-contact" type="text" placeholder="Başlıq" />
+                            <span id="ConSubjectError" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 form-item form-group">
+                            <label>Mesaj yaz :</label>
+                            <textarea id="Message-contact" class="message-place" placeholder="Burada yaz..."></textarea>
+                            <span id="ConMessageError" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 form-item">
+                            <span id="Form-contact" class="text-danger"></span>
+                        </div>
+                        <div class="col-4 select-btn-holder">
+                            <button id="buttonCon" type="button" class="select-btn">Göndər</button>
+                        </div>
+                    }
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Css{
+    <link rel="stylesheet" href="~/src/css/secondary.css" />
+}

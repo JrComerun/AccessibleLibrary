@@ -1,0 +1,96 @@
+﻿@model BooksVM
+@{
+    ViewData["Title"] = "Books";
+    int catCount = 0;
+}
+
+<!-- *-*-*-*-*-*-*-*-*      Categories Start      *-*-*-*-*-*-*-*-* -->
+<section id="Categories">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="categories  ">
+
+                    @foreach (Category cat in Model.Categories.Where(c => c.IsMain == true))
+                    {
+                        <div class="col-4 category">
+                            <div class="main-category">
+                                <img src="~/src/img/categories/@cat.Image" alt="" />
+                                <div class="text">@cat.Name</div>
+                            </div>
+
+                            <div class="childCategories">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <a href="">
+                                            @if (cat.Children != null)
+                                            {
+                                                @foreach (Category c in cat.Children)
+                                                {
+                                                    catCount += @c.BookCategories.Count();
+                                                }
+                                            }
+                                            <div class="all">Bütün Elanlar (@catCount)</div>
+                                        </a>
+                                    </div>
+                                    @if (cat.Children != null)
+                                    {
+                                        @foreach (Category c in cat.Children)
+                                        {
+                                            <div class="col-6">
+                                                <a href="">
+                                                    <div class="child">@c.Name (@c.BookCategories.Count())</div>
+                                                    @*@{
+                                                        catCount += @c.BookCategories.Count();
+                                                    }*@
+                                                </a>
+                                            </div>
+
+                                        }
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- *-*-*-*-*-*-*-*-*      Categories End      *-*-*-*-*-*-*-*-* -->
+<!-- ---------------------------------------------------------- -->
+<!-- *-*-*-*-*-*-*-*-*      Last Books Start      *-*-*-*-*-*-*-*-* -->
+<section id="Books">
+    <div class="container pad-top80">
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center align-items-center">
+                <div class="section-head">
+                    <h1>Kitablar</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            @await Component.InvokeAsync("Books")
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center my-5 loadMore">
+                <a href="">Dahasına Bax</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- *-*-*-*-*-*-*-*-*      Last Books End      *-*-*-*-*-*-*-*-* -->
+<!-- ---------------------------------------------------------- -->
+
+@section Css{
+    <link rel="stylesheet" href="~/src/css/secondary.css" />
+}
+@section SelectHolder1{
+    <partial name="_SelectHolder1" />
+}
+@section SelectHolder2{
+    <partial name="_SelectHolder2" />
+}

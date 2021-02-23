@@ -1,0 +1,590 @@
+﻿@model ProfileVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- *-*-*-*-*-*-*-*-*      Profile Start      *-*-*-*-*-*-*-*-* -->
+<section id="Profile">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 profile">
+                <div class="profile-img">
+                    <img src="~/src/img/users/@Model.User.Image" alt="" />
+                </div>
+                <div class="profile-content">
+                    <div class="profile-name">@Model.User.UserName</div>
+                    <div class="profile-date">
+                        Əlçatan Kitabxanada-da @Model.User.CreateTime.ToString("d")
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-link "
+                           id="nav-active-tab"
+                           data-toggle="tab"
+                           href="#nav-active"
+                           role="tab"
+                           aria-controls="nav-home"
+                           aria-selected="true">Aktiv Elanlar</a>
+                        <a class="nav-link"
+                           id="nav-deactive-tab"
+                           data-toggle="tab"
+                           href="#nav-deactive"
+                           role="tab"
+                           aria-controls="nav-deactive"
+                           aria-selected="false">Deaktiv Elanlar</a>
+                        @if (ViewBag.User == "User")
+                        {
+                            <a class='nav-link @((ViewBag.Active=="Bookmark")?"active":"")'
+                               id="nav-selected-tab"
+                               data-toggle="tab"
+                               href="#nav-selected"
+                               role="tab"
+                               aria-controls="nav-selected"
+                               aria-selected="false">Seçilmiş Elanlar</a>
+                            <a class="nav-link @((ViewBag.Active=="Messages")?"active":"")"
+                               id="nav-message-tab"
+                               data-toggle="tab"
+                               href="#nav-message"
+                               role="tab"
+                               aria-controls="nav-message"
+                               aria-selected="false">Mesajlar</a>
+                            <a class="nav-link @((ViewBag.Active=="Profile")?"active":"")"
+                               id="nav-profile-tab"
+                               data-toggle="tab"
+                               href="#nav-profile"
+                               role="tab"
+                               aria-controls="nav-profile"
+                               aria-selected="false">Hesab Ayarları</a>
+                        }
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade " id="nav-active" role="tabpanel" aria-labelledby="nav-active-tab">
+                        @if (Model.ActiveBooks.Count() == 0)
+                        {
+                            <div class="row">
+                                <div class="col-12 d-flex justify-content-center my-5 flex-column align-items-center">
+                                    <a class="search" href=""><i class="fab fa-searchengin"></i></a>
+                                    <h3>Aktiv Elan Yoxdur</h3>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="row">
+                                @foreach (Book b in Model.ActiveBooks)
+                                {
+                                    <!-- ---------------------     Book    --------------------- -->
+                                    <div class="col-lg-3 col-6 d-flex align-items-center book-desk">
+                                        <div class="book">
+                                            <div class="book-img">
+                                                @foreach (BookImage img in b.BookImages.Where(i => i.Parent == null))
+                                                {
+                                                    <img src="~/src/img/books/@img.Image" alt="" />
+                                                }
+                                                <div class="book-price">@(b.Price)azn</div>
+                                            </div>
+                                            <div class="book-content">
+                                                <div class="book-content-head">
+                                                    <a href="#">
+                                                        <i class="fab fa-whatsapp"></i>
+                                                    </a>
+                                                    <a href="#">
+                                                        <i class="far fa-envelope"></i>
+                                                    </a>
+                                                    @{
+                                                        if (User.Identity.IsAuthenticated)
+                                                        {
+                                                            if (b.AppUserBooks.Any(ab => ab.AppUserId == ViewBag.UserId && ab.BookId == b.Id))
+                                                            {
+                                                                <a class="bookmark-a">
+                                                                    <i class="fas fa-bookmark"></i>
+                                                                </a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a class="bookmark-a">
+                                                                    <i class="far fa-bookmark"></i>
+                                                                </a>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            <a style="cursor:pointer" data-toggle="modal" data-target="#Login-Reg" onclick="SwitchToLog()">
+                                                                <i class="far fa-bookmark"></i>
+                                                            </a>
+                                                        }
+
+                                                    }
+                                                    <input type="hidden" value="@b.Id" />
+                                                </div>
+                                                <div class="book-content-body">
+                                                    <a asp-controller="Books" asp-action="Detail" asp-route-id="@b.Id">
+                                                        <div class="book-name">@b.Name</div>
+                                                    </a>
+                                                    <div class="book-author">Müəllif : @b.Auhtor</div>
+                                                    <div class="book-lang book-author">Dil : @b.BookLanguage.Name</div>
+                                                </div>
+                                                <div class="book-content-footer">
+                                                    <div class="book-watch">
+                                                        <a asp-controller="Books" asp-action="Detail" asp-route-id="@b.Id"> Ətraflı bax </a>
+                                                    </div>
+                                                    <a asp-controller="Profile" asp-action="Index" asp-route-username="@b.AppUser.UserName">
+                                                        <div class="book-saler-img">
+                                                            <img src="~/src/img/users/@b.AppUser.Image" alt="" />
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- ---------------------------------------------------------- -->
+                                }
+                            </div>
+                        }
+                    </div>
+                    <div class="tab-pane fade" id="nav-deactive" role="tabpanel" aria-labelledby="nav-deactive-tab">
+                        @if (Model.DeActiveBooks.Count() == 0)
+                        {
+                            <div class="row">
+                                <div class="col-12 d-flex justify-content-center my-5 flex-column align-items-center">
+                                    <a class="search" href=""><i class="fab fa-searchengin"></i></a>
+                                    <h3>Deaktiv Elan Yoxdur</h3>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="row">
+                                @foreach (Book b in Model.DeActiveBooks)
+                                {
+                                    <!-- ---------------------     Book    --------------------- -->
+                                    <div class="col-lg-3 col-6 d-flex align-items-center book-desk">
+                                        <div class="book">
+                                            <div class="book-img">
+                                                @foreach (BookImage img in b.BookImages.Where(i => i.Parent == null))
+                                                {
+                                                    <img src="~/src/img/books/@img.Image" alt="" />
+                                                }
+                                                <div class="book-price">@(b.Price)azn</div>
+                                            </div>
+                                            <div class="book-content">
+                                                <div class="book-content-head">
+                                                    <a href="#">
+                                                        <i class="fab fa-whatsapp"></i>
+                                                    </a>
+                                                    <a href="#">
+                                                        <i class="far fa-envelope"></i>
+                                                    </a>
+                                                    @{
+                                                        if (User.Identity.IsAuthenticated)
+                                                        {
+                                                            if (b.AppUserBooks.Any(ab => ab.AppUserId == ViewBag.UserId && ab.BookId == b.Id))
+                                                            {
+                                                                <a class="bookmark-a">
+                                                                    <i class="fas fa-bookmark"></i>
+                                                                </a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a class="bookmark-a">
+                                                                    <i class="far fa-bookmark"></i>
+                                                                </a>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            <a style="cursor:pointer" data-toggle="modal" data-target="#Login-Reg" onclick="SwitchToLog()">
+                                                                <i class="far fa-bookmark"></i>
+                                                            </a>
+                                                        }
+
+                                                    }
+                                                    <input type="hidden" value="@b.Id" />
+                                                </div>
+                                                <div class="book-content-body">
+                                                    <a asp-controller="Books" asp-action="Detail" asp-route-id="@b.Id">
+                                                        <div class="book-name">@b.Name</div>
+                                                    </a>
+                                                    <div class="book-author">Müəllif : @b.Auhtor</div>
+                                                    <div class="book-lang book-author">Dil : @b.BookLanguage.Name</div>
+                                                </div>
+                                                <div class="book-content-footer">
+                                                    <div class="book-watch">
+                                                        <a asp-controller="Books" asp-action="Detail" asp-route-id="@b.Id"> Ətraflı bax </a>
+                                                    </div>
+                                                    <a asp-controller="Profile" asp-action="Index" asp-route-username="@b.AppUser.UserName">
+                                                        <div class="book-saler-img">
+                                                            <img src="~/src/img/users/@b.AppUser.Image" alt="" />
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- ---------------------------------------------------------- -->
+                                }
+                            </div>
+                        }
+                    </div>
+                    @if (ViewBag.User == "User")
+                    {
+                        if (Model.BookMark.Count() == 0)
+                        {
+                            <div class="tab-pane fade @((ViewBag.Active=="Bookmark")?"active show":"")"
+                                 id="nav-selected"
+                                 role="tabpanel"
+                                 aria-labelledby="nav-selected-tab">
+                                <div class="row">
+                                    <div class="col-12 d-flex justify-content-center my-5 flex-column align-items-center">
+                                        <a class="search" href=""><i class="fab fa-searchengin"></i></a>
+                                        <h3>Seçilmiş Elan Yoxdur</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+
+                            <div class="tab-pane fade @((ViewBag.Active=="Bookmark")?"active show":"")"
+                                 id="nav-selected"
+                                 role="tabpanel"
+                                 aria-labelledby="nav-selected-tab">
+                                <div class="row">
+                                    @foreach (AppUserBook app in Model.BookMark)
+                                    {
+                                        <!-- ---------------------     Book    --------------------- -->
+                                        <div class="col-lg-3 col-6 d-flex align-items-center book-desk">
+                                            <div class="book">
+                                                <div class="book-img">
+                                                    @foreach (BookImage img in app.Book.BookImages.Where(i => i.Parent == null))
+                                                    {
+                                                        <img src="~/src/img/books/@img.Image" alt="" />
+                                                    }
+                                                    <div class="book-price">@(app.Book.Price)azn</div>
+                                                </div>
+                                                <div class="book-content">
+                                                    <div class="book-content-head">
+                                                        <a href="#">
+                                                            <i class="fab fa-whatsapp"></i>
+                                                        </a>
+                                                        <a href="#">
+                                                            <i class="far fa-envelope"></i>
+                                                        </a>
+                                                        @{
+                                                            if (User.Identity.IsAuthenticated)
+                                                            {
+                                                                if (app.Book.AppUserBooks.Any(ab => ab.AppUserId == ViewBag.UserId && ab.BookId == app.Book.Id))
+                                                                {
+                                                                    <a class="bookmark-a">
+                                                                        <i class="fas fa-bookmark"></i>
+                                                                    </a>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <a class="bookmark-a">
+                                                                        <i class="far fa-bookmark"></i>
+                                                                    </a>
+                                                                }
+                                                            }
+                                                            else
+                                                            {
+                                                                <a style="cursor:pointer" data-toggle="modal" data-target="#Login-Reg" onclick="SwitchToLog()">
+                                                                    <i class="far fa-bookmark"></i>
+                                                                </a>
+                                                            }
+
+                                                        }
+                                                        <input type="hidden" value="@app.Book.Id" />
+                                                    </div>
+                                                    <div class="book-content-body">
+                                                        <a asp-controller="Books" asp-action="Detail" asp-route-id="@app.Book.Id">
+                                                            <div class="book-name">@app.Book.Name</div>
+                                                        </a>
+                                                        <div class="book-author">Müəllif : @app.Book.Auhtor</div>
+                                                        <div class="book-lang book-author">Dil : @app.Book.BookLanguage.Name</div>
+                                                    </div>
+                                                    <div class="book-content-footer">
+                                                        <div class="book-watch">
+                                                            <a asp-controller="Books" asp-action="Detail" asp-route-id="@app.Book.Id"> Ətraflı bax </a>
+                                                        </div>
+                                                        <a asp-controller="Profile" asp-action="Index" asp-route-username="@app.Book.AppUser.UserName">
+                                                            <div class="book-saler-img">
+                                                                <img src="~/src/img/users/@app.Book.AppUser.Image" alt="" />
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- ---------------------------------------------------------- -->
+                                    }
+                                </div>
+                            </div>
+
+                        }
+
+
+                        <!-- message -->
+                        <div class="tab-pane fade @((ViewBag.Active=="Messages")?"active show":"")"
+                             id="nav-message"
+                             role="tabpanel"
+                             aria-labelledby="nav-message-tab">
+                            <div class="messages">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="user">
+                                            <div class="user-img">
+                                                <img src="~/src/img/logo/jrc.png" alt="" />
+                                            </div>
+                                            <div class="user-name">
+                                                <div class="profile-name">Jr Comerun</div>
+                                            </div>
+                                        </div>
+                                        <div class="nav flex-column nav-pills"
+                                             id="v-pills-tab"
+                                             role="tablist"
+                                             aria-orientation="vertical">
+                                            <a class="nav-link"
+                                               data-toggle="pill"
+                                               href="#elgun-magsudzade">
+                                                <div class="message-profile d-flex align-items-center">
+                                                    <div class="profile-img">
+                                                        <img src="~/src/img/thanks/elgun-magsudzade.jfif"
+                                                             alt="" />
+                                                    </div>
+                                                    <div class="message-content">
+                                                        <div class="profile-name">Elgun Magsudzade</div>
+                                                        <div class="last-message">Kamran Dahidi !</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a class="nav-link"
+                                               data-toggle="pill"
+                                               href="#barack-obama">
+                                                <div class="message-profile d-flex align-items-center">
+                                                    <div class="profile-img">
+                                                        <img src="~/src/img/logo/user.png" alt="" />
+                                                    </div>
+                                                    <div class="message-content">
+                                                        <div class="profile-name">Barack Obama</div>
+                                                        <div class="last-message">Kamran Dahidi !</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="tab-content" id="v-pills-tabContent">
+                                            <div class="tab-pane fade" id="elgun-magsudzade">
+                                                <div class="chat">
+                                                    <div class="chat-top d-flex align-items-center">
+                                                        <div class="profile-img">
+                                                            <img src="~/src/img/thanks/elgun-magsudzade.jfif"
+                                                                 alt="" />
+                                                        </div>
+                                                        <div class="profile-name">
+                                                            <div class="profile-name">
+                                                                Elgun Magsudzade
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="chat-message">
+                                                        <div class="user-message">
+                                                            <div class="user-img">
+                                                                <img src="~/src/img/thanks/elgun-magsudzade.jfif"
+                                                                     alt="" />
+                                                            </div>
+                                                            <div class="message">Yaxwi eliyirem !</div>
+                                                        </div>
+                                                        <div class="to-user-message">
+                                                            <div class="message">
+                                                                Lorem ipsum dolor sit amet, consectetur
+                                                                adipisicing elit. Ea, illo nisi ad,
+                                                                quibusdam, ipsum magnam quidem libero
+                                                                debitis mollitia ullam molestiae
+                                                                necessitatibus eligendi in. Sint deleniti
+                                                                delectus sapiente est quos!
+                                                            </div>
+                                                            <div class="user-img">
+                                                                <img src="~/src/img/logo/jrc.png" alt="" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="user-message">
+                                                            <div class="user-img">
+                                                                <img src="~/src/img/thanks/elgun-magsudzade.jfif"
+                                                                     alt="" />
+                                                            </div>
+                                                            <div class="message">
+                                                                Lorem ipsum dolor sit amet consectetur
+                                                                adipisicing elit. Maxime sapiente iste earum
+                                                                velit reprehenderit laborum architecto quo
+                                                                dolores, voluptas, harum ipsum dolore minus
+                                                                perferendis nostrum totam ipsa
+                                                                exercitationem error animi!
+                                                            </div>
+                                                        </div>
+                                                        <div class="to-user-message">
+                                                            <div class="message">
+                                                                Lorem ipsum dolor sit amet, consectetur
+                                                                adipisicing elit. Ea, illo nisi ad,
+                                                                quibusdam, ipsum magnam quidem libero
+                                                                debitis mollitia ullam molestiae
+                                                                necessitatibus eligendi in. Sint deleniti
+                                                                delectus sapiente est quos!
+                                                            </div>
+                                                            <div class="user-img">
+                                                                <img src="~/src/img/logo/jrc.png" alt="" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="to-user-message">
+                                                            <div class="message">
+                                                                Lorem ipsum dolor sit amet, consectetur
+                                                                adipisicing elit. Ea, illo nisi ad,
+                                                                quibusdam, ipsum magnam quidem libero
+                                                                debitis mollitia ullam molestiae
+                                                                necessitatibus eligendi in. Sint deleniti
+                                                                delectus sapiente est quos!
+                                                            </div>
+                                                            <div class="user-img">
+                                                                <img src="~/src/img/logo/jrc.png" alt="" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="user-message">
+                                                            <div class="user-img">
+                                                                <img src="~/src/img/thanks/elgun-magsudzade.jfif"
+                                                                     alt="" />
+                                                            </div>
+                                                            <div class="message">Yaxwi eliyirem !</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="chat-bottom">
+                                                    <input type="text" />
+                                                    <a>
+                                                        <i class="fas fa-location-arrow"
+                                                           style="transform: rotate(45deg)"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="barack-obama">
+                                                <div class="chat">
+                                                    <div class="chat-top d-flex align-items-center">
+                                                        <div class="profile-img">
+                                                            <img src="~/src/img/logo/user.png" alt="" />
+                                                        </div>
+                                                        <div class="profile-name">
+                                                            <div class="profile-name">Barack Obama</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="chat-message"></div>
+                                                </div>
+                                                <div class="chat-bottom">
+                                                    <input type="text" />
+                                                    <a>
+                                                        <i class="fas fa-location-arrow"
+                                                           style="transform: rotate(45deg)"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Profile Settings-->
+                        <div class="tab-pane fade @((ViewBag.Active=="Profile")?"active show":"") " id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <div class="row">
+                                <div class="col-md-3 col-4">
+                                    <div class="nav flex-column nav-pills settings-tab">
+                                        <a class="nav-link active" data-toggle="pill" href="#settings-1">Şəkli dəyişin</a>
+                                        <a class="nav-link" data-toggle="pill" href="#settings-2">Profil məlumatlarını dəyişin</a>
+                                        <a class="nav-link" data-toggle="pill" href="#settings-3">Şifrəni dəyişin</a>
+                                        <a class="nav-link" data-toggle="pill" href="#settings-4">Profilinizi silin</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-9 col-8">
+                                    <div class="tab-content settings-content">
+                                        <div class="tab-pane fade show active" id="settings-1">
+                                            <form>
+                                                <div class="col-12 text-center">
+                                                    <div style="display: inline-block" class="profile-img-holder form-item">
+                                                        <div class="profile-settings-image">
+                                                            <img class="img-fluid" src="~/src/img/logo/jrc.png" alt="" />
+                                                        </div>
+                                                        <label class="change-img-input-btn m-0" for="change-img">
+                                                            <div class="profile-icon">
+                                                                <i class="far fa-images"></i>
+                                                            </div>
+                                                        </label>
+                                                        <input type="file" id="change-img" class="image-select d-none" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 select-btn-holder mt-3 text-center">
+                                                    <button type="submit" class="select-btn">Təsdiqlə</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade" id="settings-2">
+                                            <form class="settings-form">
+                                                <div class="col-md-8 col-lg-6 form-item form-group">
+                                                    <label>Ad :</label>
+                                                    <input type="text" placeholder="Ad" />
+                                                </div>
+                                                <div class="col-md-8 col-lg-6 form-item form-group">
+                                                    <label>Soyad :</label>
+                                                    <input type="text" placeholder="Soyad" />
+                                                </div>
+                                                <div class="col-md-8 col-lg-6 form-item form-group">
+                                                    <label>İstifadəçi adı :</label>
+                                                    <input type="text" placeholder="İstifadəçi adı" />
+                                                </div>
+                                                <div class="col-md-8 col-lg-6 select-btn-holder">
+                                                    <button type="submit" class="select-btn">Təsdiqlə</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade" id="settings-3">
+                                            <form class="settings-form">
+                                                <div class="col-md-8 col-lg-6 form-item form-group">
+                                                    <label>Köhnə şifrə :</label>
+                                                    <input type="password" placeholder="Köhnə şifrə" />
+                                                </div>
+                                                <div class="col-md-8 col-lg-6 form-item form-group">
+                                                    <label>Yeni şifrə :</label>
+                                                    <input type="password" placeholder="Yeni şifrə" />
+                                                </div>
+                                                <div class="col-md-8 col-lg-6 form-item form-group">
+                                                    <label>Təkrar yeni şifrə :</label>
+                                                    <input type="password" placeholder="Təkrar yeni şifrə" />
+                                                </div>
+                                                <div class="col-md-8 col-lg-6 select-btn-holder">
+                                                    <button type="submit" class="select-btn">Təsdiqlə</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade" id="settings-4">
+                                            <div class="row">
+                                                <div class="col-12 text-center">
+                                                    <button type="submit" class="select-btn">"Əlçatan kitabxana`dakı hesabımı sil"</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- *-*-*-*-*-*-*-*-*      Profile End      *-*-*-*-*-*-*-*-* -->
+
+@section Css{
+    <link rel="stylesheet" href="~/src/css/secondary.css" />
+}

@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20210219045350_CreateTables.cs" />
+    <Compile Remove="Migrations\20210219045350_CreateTables.Designer.cs" />
+    <Compile Remove="Migrations\20210219045649_CreateContact.cs" />
+    <Compile Remove="Migrations\20210219045649_CreateContact.Designer.cs" />
+    <Compile Remove="Migrations\20210219045751_CreateContact.cs" />
+    <Compile Remove="Migrations\20210219045751_CreateContact.Designer.cs" />
+    <Compile Remove="Migrations\20210219050055_CreateContact.cs" />
+    <Compile Remove="Migrations\20210219050055_CreateContact.Designer.cs" />
+    <Compile Remove="Migrations\20210219050401_CreateContact.cs" />
+    <Compile Remove="Migrations\20210219050401_CreateContact.Designer.cs" />
+    <Compile Remove="Migrations\20210219050527_CreateContact.cs" />
+    <Compile Remove="Migrations\20210219050527_CreateContact.Designer.cs" />
+    <Compile Remove="Migrations\20210219050710_CreateContact.cs" />
+    <Compile Remove="Migrations\20210219050710_CreateContact.Designer.cs" />
+    <Compile Remove="Migrations\20210219053809_CreateTables.cs" />
+    <Compile Remove="Migrations\20210219053809_CreateTables.Designer.cs" />
+    <Compile Remove="Migrations\20210219170712_ChangeAllTablesVirtual.cs" />
+    <Compile Remove="Migrations\20210219170712_ChangeAllTablesVirtual.Designer.cs" />
+    <Compile Remove="Migrations\20210219171200_CreateManyTables.cs" />
+    <Compile Remove="Migrations\20210219171200_CreateManyTables.Designer.cs" />
+    <Compile Remove="Migrations\20210219172512_AddIsMainForBookImageTable.cs" />
+    <Compile Remove="Migrations\20210219172512_AddIsMainForBookImageTable.Designer.cs" />
+    <Compile Remove="Migrations\20210220114527_CreateTables.cs" />
+    <Compile Remove="Migrations\20210220114527_CreateTables.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+
+</Project>

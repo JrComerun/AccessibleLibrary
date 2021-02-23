@@ -1,0 +1,124 @@
+﻿@model Book
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="addbook">
+    <div class="container">
+        <h2 class="anouncement-title">Kitab haqqında</h2>
+        <hr class="divider" />
+        <form>
+            <div class="row">
+                <div class="col-md-6 form-item form-group">
+                    <label>Kitabın adı :</label>
+                    <input type="text" placeholder="Ad" />
+                </div>
+                <div class="col-md-6 form-item form-group">
+                    <label>Kitabın müəllifi :</label>
+                    <input type="text" placeholder="Müəllif" />
+                </div>
+                <div class="col-md-6 form-item form-group">
+                    <label>Kitabın qiyməti (Azn) :</label>
+                    <input type="number" min="0" placeholder="Qiymət" />
+                </div>
+                <div class="col-md-6 form-item">
+                    <div class="select-form">
+                        <label for="">Kitabın yazıldığı dil : :</label>
+                        <select class="sel-category">
+                            <option selected>Bütun Dillər</option>
+                            @foreach (BookLanguage lang in ViewBag.Languages)
+                            {
+                                <option value="@lang.Id">@lang.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 form-item " >
+                    <div class="select-form">
+                        <label for="">Kateqori seç :</label>
+                        <select class="sel-category" Name="MainCatId" id="MainCatId">
+                            @foreach (Category cat in ViewBag.MainCat)
+                            {
+                                <option value="@cat.Id">@cat.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6 form-item d-none" id="ChilCatCol">
+                    <div class="select-form">
+                        <label for="">Alt Kateqori seç :</label>
+
+                        <select class="sel-child-category" Name="ChildCatId" Id="ChildCatId">
+                            <option selected>Bütun Elanlar</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 form-item">
+                    <div class="col-12 p-0 d-flex align-items-center">
+                        <label class="image-select-btn select-btn" for="image-select">Şəkil seç</label>
+                        <span class="ml-3">Maks(4)</span>
+                        <input type="file" class="image-select" id="image-select" accept="image/*" />
+                    </div>
+                    <div class="col-md-6">
+                        <div class="selected-images"></div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <hr class="divider" />
+                    <h5>Əlaqə məlumatları</h5>
+                </div>
+                @*<div class="col-md-6 form-item form-group">
+                    <label>Adınız :</label>
+                    <input type="text" placeholder="Ad" />
+                </div>
+                <div class="col-md-6 form-item form-group">
+                    <label>Email :</label>
+                    <input type="text" placeholder="Email" />
+                </div>*@
+                <div class="col-md-6 form-item form-group">
+                    <label>Əlaqə nömrəsi :</label>
+                    <input type="tel" placeholder="Mobil nömrə" />
+                </div>
+                <div class="col-md-6 form-item">
+                    <div class="select-form">
+                        <label for="">Şəhər seç :</label>
+                        <select class="sel-child-category">
+                            @foreach (BookCity city in ViewBag.Cities)
+                            {
+                                <option value="@city.Id">@city.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="select-btn">Yerləşdir</button>
+        </form>
+    </div>
+</section>
+@section Scripts{
+   <script>
+
+       $(document).ready(function () {
+           $(document).on("change", "#MainCatId", function () {
+               $("#ChildCatId").empty()
+               let mainCtgId = $(this).val();
+               $.ajax({
+                   url: "/AddBook/LoadChildCategory?MainCatId=" + mainCtgId,
+                   type: "Get",
+                   success: function (res) {
+                       if (res !== null) {
+                           $("#ChildCatId").append(res)
+                           $("#ChilCatCol").removeClass("d-none");
+                       }
+                       
+                   }
+               })
+           })
+       })
+   </script>
+}
+@section Css{
+    <link rel="stylesheet" href="~/src/css/secondary.css" />
+}

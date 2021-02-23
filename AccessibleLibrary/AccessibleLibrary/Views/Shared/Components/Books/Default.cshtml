@@ -1,0 +1,73 @@
+﻿@model List<Book>
+@{
+    Layout = null;
+}
+
+@foreach (Book b in Model)
+{
+    <!-- ---------------------     Book    --------------------- -->
+    <div class="col-lg-3 col-6 d-flex align-items-center book-desk">
+        <div class="book">
+            <div class="book-img">
+                @foreach (BookImage img in b.BookImages.Where(i=> i.IsMain == true))
+                {
+                        <img src="~/src/img/books/@img.Image" alt="" />
+                }
+                <div class="book-price">@(b.Price)azn</div>
+            </div>
+            <div class="book-content">
+                <div class="book-content-head">
+                    <a href="#">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#">
+                        <i class="far fa-envelope"></i>
+                    </a>
+                    @{
+                        if (User.Identity.IsAuthenticated)
+                        {
+                            if (b.AppUserBooks.Any(ab => ab.AppUserId == ViewBag.UserId && ab.BookId == b.Id))
+                            {
+                                <a class="bookmark-a">
+                                    <i class="fas fa-bookmark"></i>
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="bookmark-a">
+                                    <i class="far fa-bookmark"></i>
+                                </a>
+                            }
+                        }
+                        else
+                        {
+                            <a style="cursor:pointer" data-toggle="modal" data-target="#Login-Reg" onclick="SwitchToLog()">
+                                <i class="far fa-bookmark"></i>
+                            </a>
+                        }
+
+                    }
+                    <input type="hidden" value="@b.Id" />
+                </div>
+                <div class="book-content-body">
+                    <a asp-controller="Books" asp-action="Detail" asp-route-id="@b.Id">
+                        <div class="book-name">@b.Name</div>
+                    </a>
+                    <div class="book-author">Müəllif : @b.Auhtor</div>
+                    <div class="book-lang book-author">Dil : @b.BookLanguage.Name</div>
+                </div>
+                <div class="book-content-footer">
+                    <div class="book-watch">
+                        <a asp-controller="Books" asp-action="Detail" asp-route-id="@b.Id"> Ətraflı bax </a>
+                    </div>
+                    <a asp-controller="Profile" asp-action="Index" asp-route-username="@b.AppUser.UserName">
+                        <div class="book-saler-img">
+                            <img src="~/src/img/users/@b.AppUser.Image" alt="" />
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ---------------------------------------------------------- -->
+}
