@@ -1,0 +1,95 @@
+﻿@model LayoutVM
+<footer style="background-image: url('@Url.Content($"~/src/img/layout/{Model.Layout.Footer}")')">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-3 partners py-3">
+                <h4 class="pb-3">Əlaqəli saytlar</h4>
+                @foreach (RelationSites r in Model.RelationSites)
+                {
+                    <a href="@r.Link" target="_blank">
+                        <div class="pb-3">
+                            <img style="border-radius: 10px; margin-right: 5px; object-fit: cover"
+                                 width="40"
+                                 height="40"
+                                 src="~/src/img/logo/@r.Image"
+                                 alt="" />
+                            @r.Name
+                        </div>
+                    </a>
+                }
+
+
+            </div>
+            <div class="col-lg-3 col-md-6 py-3" id="thanks-col">
+                <div class="thanks-foot d-flex flex-column align-items-start justify-content-center">
+                    <h4 class="text-center">Təşəkkürlər!</h4>
+                    @foreach (Thanks t in Model.Thanks.Where(t => t.IsSpecial == false))
+                    {
+                        <div><img src="~/src/img/thanks/@t.Image" alt="" /> @t.FullName</div>
+                    }
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 py-3" id="spec-thanks-col">
+                <div class="thanks-foot spec-thanks d-flex flex-column align-items-start justify-content-center">
+                    <h4 class="text-center">Xüsusi Təşəkkürlər!</h4>
+                    @foreach (Thanks t in Model.Thanks.Where(t => t.IsSpecial == true))
+                    {
+                        <div><img src="~/src/img/thanks/@t.Image" alt="" /> @t.FullName</div>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 py-3" id="contact-col">
+                <div class="contact d-flex flex-column align-items-start justify-content-center">
+                    <h4>Əlaqə</h4>
+                    <div class="icons">
+                        <ul class="menu">
+                            <li>
+                                <a href="@Model.Layout.Facebook">
+                                    <span>facebook</span>
+                                    <span>
+                                        <i class="fab fa-facebook-square" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Model.Layout.Twitter">
+                                    <span>twitter</span>
+                                    <span>
+                                        <i class="fab fa-twitter-square" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Model.Layout.Instagram">
+                                    <span>instagram</span>
+                                    <span>
+                                        <i class="fab fa-instagram-square" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mobile text-center d-flex">
+                        <span>Tel: </span> <span>+(994) 506804400</span>
+                    </div>
+                    <div class="mobile text-center d-flex">
+                        <span>Email: </span> <span>Knjc621@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-6" id="jrc-col">
+                <div class="footer-logo d-flex justify-content-center align-items-center">
+                    <div class="foot-logo pr-3">
+                        <a asp-controller="Home" asp-action="Index">
+                            <img src="~/src/img/logo/@Model.Layout.Logo" alt="" />
+                        </a>
+                    </div>
+                    <div class="by-jrc">
+                        @@2021 Accessible Library by <a href="">P4000</a> and <a href="">JrC</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

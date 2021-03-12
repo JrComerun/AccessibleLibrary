@@ -5,22 +5,22 @@
 @if (User.Identity.IsAuthenticated)
 {
     <div class="select-holder">
-        <a asp-controller="Profile" asp-action="Index" asp-route-username="@User.Identity.Name" asp-route-active="Bookmark" class="selected">
+        <a  class="selected">
             <i class="fas fa-bookmark"></i>
         </a>
         <div class="selected-box">
-            <a href="">Seçdiyin kitablara bax</a>
+            <a asp-controller="Profile" asp-action="Index" asp-route-username="@User.Identity.Name" asp-route-active="Bookmark">Seçdiyin kitablara bax</a>
         </div>
     </div>
 }
 else
 {
     <div class="select-holder">
-        <a data-toggle="modal" data-target="#Login-Reg" onclick="SwitchToLog()" class="selected">
+        <a  class="selected">
             <i class="fas fa-bookmark"></i>
         </a>
         <div class="selected-box">
-            <a href="">Seçdiyin kitablara bax</a>
+            <a data-toggle="modal" data-target="#Login-Reg" onclick="SwitchToLog()">Seçdiyin kitablara bax</a>
         </div>
     </div>
 }

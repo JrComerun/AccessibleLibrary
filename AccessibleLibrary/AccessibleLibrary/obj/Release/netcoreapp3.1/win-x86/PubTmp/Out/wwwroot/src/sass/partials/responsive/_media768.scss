@@ -1,0 +1,43 @@
+@media only screen and (max-width: 767px) {
+  header {
+    .header-content {
+      .col-6 {
+        max-width: 100% !important;
+      }
+    }
+  }
+  footer {
+    min-height: 760px;
+    padding-top: 50px;
+
+    &::after {
+      min-height: 760px;
+    }
+    #contact-col {
+      order: 3;
+    }
+    #thanks-col {
+      order: 1;
+    }
+    #spec-thanks-col {
+      order: 2;
+      padding-left: 33px !important;
+    }
+    #jrc-col {
+      order: 4;
+    }
+    .col-lg-3 {
+      border-bottom: 1px dashed $light;
+      display: flex;
+      justify-content: center;
+    }
+    .footer-logo {
+      padding-bottom: 10px;
+      align-items: center !important;
+      img {
+        margin-top: 20px;
+        margin-left: 8px;
+      }
+    }
+  }
+}

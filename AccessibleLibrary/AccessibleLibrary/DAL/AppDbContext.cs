@@ -24,6 +24,11 @@ namespace AccessibleLibrary.DAL
         public DbSet<BookCategory> BookCategories { get; set; }
         public DbSet<AppUserBook> AppUserBooks { get; set; }
         public DbSet<ContactUs> ContactUs { get; set; }
+        public DbSet<SubScribe> SubScribes { get; set; }
+        public DbSet<BookSubScribe> BookSubScribes { get; set; }
+        public DbSet<Layout> Layout { get; set; }
+        public DbSet<RelationSites> RelationSites { get; set; }
+        public DbSet<Thanks> Thanks { get; set; }
 
 
     }

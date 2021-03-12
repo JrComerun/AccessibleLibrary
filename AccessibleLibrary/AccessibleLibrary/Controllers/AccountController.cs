@@ -68,10 +68,10 @@ namespace AccessibleLibrary.Controllers
                 var confirmationLink = Url.Action(nameof(VerifyEmail), "Account", new { token, email = newUser.Email }, Request.Scheme);
                 var mailto = newUser.Email;
                 var messageBody = $"<p>Emaili təsdiqləmək üçün <a href=\"{confirmationLink}\"> buraya daxil </a>  olun</p>" +
-                    $"</br><p>Qeydiyatı təsdiqləmə müdtəti 10 dəqiqədir</p>";
+                    $"</br><p>Qeydiyatı yalnız bir dəfə təsdiqləyə bilərsiz</p>";
                 var messageSubject = "Email Təsdiqləmə";
                 //***********     Send Message to Email     ***********
-                Helper.SendMessage(messageSubject, messageBody, mailto);
+                await Helper.SendMessage(messageSubject, messageBody, mailto);
                 await _usermanager.AddToRoleAsync(newUser, Roles.Member.ToString());
                 return RedirectToAction("EmailVerification", new { email = newUser.Email });
             }
@@ -209,7 +209,7 @@ namespace AccessibleLibrary.Controllers
                 }
 
                 string folder = Path.Combine("img", "user");
-                string fileName = await user.Photo.SaveImagesAsync(_env.WebRootPath, folder);
+                string fileName =  user.Photo.SaveImagesAsync(_env.WebRootPath, folder);
                 appUser.Image = fileName;
             }
 

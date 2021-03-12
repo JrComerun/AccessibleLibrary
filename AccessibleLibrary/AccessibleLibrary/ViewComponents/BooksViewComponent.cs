@@ -21,16 +21,40 @@ namespace AccessibleLibrary.ViewComponents
             _db = db;
             _usermanager = usermanager;
         }
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(string order, string view, bool isActive,  int? take)
         {
-            List<Book> Books = _db.Books.OrderByDescending(b => b.Id).Where(b => b.IsCreated == true && b.IsDeleted == false &&
-            b.IsActive == true).Take(8).Include(b => b.BookImages).Include(b => b.AppUser).Include(b => b.BookLanguage).Include(b => b.AppUserBooks).ToList();
+            if (take == null)
+            {
+                take = 4;
+            }
             if (User.Identity.IsAuthenticated)
             {
                 AppUser user = await _usermanager.FindByNameAsync(User.Identity.Name);
                 ViewBag.UserId = user.Id;
+
             }
-            return View(await Task.FromResult(Books));
+            if (view == "classic")
+            {
+                ViewBag.View = "book-desk";
+            }
+            else if (view == "3d")
+            {
+                ViewBag.View = "book-mob mob-book";
+            }
+            if (order == "Id")
+            {
+                List<Book> Books = _db.Books.OrderByDescending(b => b.Id).Where(b => b.IsCreated == true &&
+                b.IsDeleted == false && b.IsActive == isActive).Take((int)take).Include(b => b.BookImages).
+                Include(b => b.AppUser).Include(b => b.BookLanguage).Include(b => b.AppUserBooks).ToList();
+                return View(await Task.FromResult(Books));
+            }
+            else
+            {
+                List<Book> Books = _db.Books.OrderByDescending(b => b.ViewCount).Where(b => b.IsCreated == true && b.IsDeleted == false &&
+                b.IsActive == isActive).Take((int)take).Include(b => b.BookImages).Include(b => b.AppUser).Include(b => b.BookLanguage).Include(b => b.AppUserBooks).ToList();
+                return View(await Task.FromResult(Books));
+            }
+
         }
     }
 }

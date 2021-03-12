@@ -60,12 +60,19 @@ namespace AccessibleLibrary
             app.UseStaticFiles();
 
             app.UseRouting();
+            //app.UseCors(option =>
+            //option.WithOrigins("http://jrcomerun-001-site1.ftempurl.com/").AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod()
+            //);
             app.UseAuthentication();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    "areas",
+                    "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
+                    );
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

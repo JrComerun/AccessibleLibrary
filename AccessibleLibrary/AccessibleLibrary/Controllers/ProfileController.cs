@@ -25,6 +25,7 @@ namespace AccessibleLibrary.Controllers
         }
         public async Task<IActionResult> Index(string username , string active)
         {
+            
             if (username == null) return View("Error");
             AppUser userProfile = await _usermanager.FindByNameAsync(username);
             if (userProfile == null) return View("Error");
@@ -48,7 +49,7 @@ namespace AccessibleLibrary.Controllers
                 Include(b => b.BookLanguage).Include(b => b.AppUserBooks).ToList(),
                 BookMark= _db.AppUserBooks.Where(b=>b.AppUser.UserName==User.Identity.Name).ToList(),
             };
-            ViewBag.Active = "Bookmark";
+            ViewBag.Active = active;
             return View(profile);
         }
         [HttpPost]

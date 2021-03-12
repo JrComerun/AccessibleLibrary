@@ -9,7 +9,7 @@ namespace AccessibleLibrary.Models
     public class Category
     {
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Bu xana boş ola bilməz"), StringLength(50, ErrorMessage = "Maxsimum 50 hərfdən ibarət olmalıdı")]
         public string Name { get; set; }
         public string Image { get; set; }
         public bool IsMain { get; set; }

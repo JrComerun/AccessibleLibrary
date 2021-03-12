@@ -13,5 +13,9 @@ namespace AccessibleLibrary.ViewModels
         public LoginVM LoginVM { get; set; }
         public RegisterVM RegisterVM { get; set; }
         public AppUser AppUser { get; set; }
+        public Layout Layout { get; set; }
+        public List<RelationSites> RelationSites { get; set; }
+        public List<Thanks> Thanks { get; set; }
+        public SubScribe SubScribe { get; set; }
     }
 }

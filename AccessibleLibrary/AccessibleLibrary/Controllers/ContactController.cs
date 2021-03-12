@@ -3,6 +3,7 @@ using AccessibleLibrary.Extensions;
 using AccessibleLibrary.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,8 +48,8 @@ namespace AccessibleLibrary.Controllers
                     };
                     await _db.ContactUs.AddAsync(contactUs);
                     await _db.SaveChangesAsync();
-                    string bodyMes = $" Email : { user.Email} < br> From : {user.Name} <br> Message : {Message} ";
-                    Helper.SendMessage(Subject, bodyMes, "knjc621@gmail.com");
+                    string bodyMes = $" Email : { user.Email} < /br> From : {user.Name} </br> Message : {Message} ";
+                    await Helper.SendMessage(Subject, bodyMes, "knjc621@gmail.com");
                     return Content("Mesajınız uğurla göndərildi gün ərzində sizə cavab veriləcək !");
 
                 }
@@ -65,8 +66,8 @@ namespace AccessibleLibrary.Controllers
                         };
                         await _db.ContactUs.AddAsync(contactUs);
                         await _db.SaveChangesAsync();
-                        string bodyMes = $" Email : {Email} <br> From : {Name} <br> Message : {Message} ";
-                        Helper.SendMessage(Subject, bodyMes, "knjc621@gmail.com");
+                        string bodyMes = $" Email : {Email} </br> From : {Name} </br> Message : {Message} ";
+                        await Helper.SendMessage(Subject, bodyMes, "knjc621@gmail.com");
                         return Content("Mesajınız uğurla göndərildi gün ərzində sizə cavab veriləcək !");
                     }
 
@@ -81,35 +82,38 @@ namespace AccessibleLibrary.Controllers
             }
         }
 
-        //public async Task<IActionResult> AddSubscribe()
-        //{
-        //    //bool IsExist = _db.SubScribes.Any(s => s.Email.ToLower().Trim() == Email.ToLower().Trim());
-        //    //if (!User.Identity.IsAuthenticated)
-        //    //{
+        public async Task<IActionResult> AddSubscribe()
+        {
+            
+           
+            if (User.Identity.IsAuthenticated)
+            {
+                AppUser user = await _usermanager.FindByNameAsync(User.Identity.Name);
+                bool IsExist = _db.SubScribes.Any(s => s.Email.ToLower().Trim() == user.Email.ToLower().Trim());
+                if (!IsExist)
+                {
+                    SubScribe subScribe = new SubScribe
+                    {
+                        Email = user.Email,
+                    };
+                    await _db.SubScribes.AddAsync(subScribe);
+                    await _db.SaveChangesAsync();
+                    return RedirectToAction("Index", "Home");
+                }
 
-        //    //    if (!IsExist)
-        //    //    {
-        //    //        SubScribe subScribe = new SubScribe
-        //    //        {
-        //    //            Email = Email,
-        //    //        };
-        //    //        await _db.SubScribes.AddAsync(subScribe);
-        //    //        await _db.SaveChangesAsync();
-        //    //        return Content("You are subcribe successfull !!!");
-        //    //    }
+                else
+                {
+                    SubScribe subScribe =await  _db.SubScribes.FirstOrDefaultAsync(s => s.Email == user.Email);
+                    _db.SubScribes.Remove(subScribe);
+                    await _db.SaveChangesAsync();
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return View("Error");
+            }
 
-        //    //    else
-        //    //    {
-        //    //      return View("Index", "Home");
-        //    //    }
-
-
-        //    //}
-        //    //else
-        //    //{
-        //    //    return View("Index","Home");
-        //    //}
-
-        //}
+        }
     }
 }

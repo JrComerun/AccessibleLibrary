@@ -320,7 +320,6 @@ C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Deb
 C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
 C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Debug\netcoreapp3.1\Razor\Views\Profile\Index.cshtml.g.cs
-C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Book3d\Default.cshtml.g.cs
 C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Books\Default.cshtml.g.cs
 C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\LoginReg\Default.cshtml.g.cs
 C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
@@ -339,3 +338,17 @@ C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Deb
 C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Debug\netcoreapp3.1\AccessibleLibrary.pdb
 C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Debug\netcoreapp3.1\AccessibleLibrary.genruntimeconfig.cache
 C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ChildCategoriesPartial.cshtml.g.cs
+C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Debug\netcoreapp3.1\Razor\Areas\JrCAdmin\Views\Shared\_AdminLayout.cshtml.g.cs
+C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Debug\netcoreapp3.1\Razor\Areas\JrCAdmin\Views\_ViewImports.cshtml.g.cs
+C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Debug\netcoreapp3.1\Razor\Areas\JrCAdmin\Views\_ViewStart.cshtml.g.cs
+C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Debug\netcoreapp3.1\Razor\Areas\JrCAdmin\Views\Dashboard\Index.cshtml.g.cs
+C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Debug\netcoreapp3.1\Razor\Areas\JrCAdmin\Views\UnCreated\Index.cshtml.g.cs
+C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
+C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
+C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Debug\netcoreapp3.1\Razor\Views\AddBook\WaitBookCreate.cshtml.g.cs
+C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Debug\netcoreapp3.1\Razor\Areas\JrCAdmin\Views\UnCreated\Delete.cshtml.g.cs

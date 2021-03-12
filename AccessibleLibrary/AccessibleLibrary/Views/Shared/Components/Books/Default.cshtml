@@ -1,12 +1,13 @@
 ﻿@model List<Book>
 @{
     Layout = null;
+    string whatsapp= "https://wa.me/994";
 }
 
 @foreach (Book b in Model)
 {
     <!-- ---------------------     Book    --------------------- -->
-    <div class="col-lg-3 col-6 d-flex align-items-center book-desk">
+    <div class="col-lg-3 col-6 d-flex align-items-center @ViewBag.View">
         <div class="book">
             <div class="book-img">
                 @foreach (BookImage img in b.BookImages.Where(i=> i.IsMain == true))
@@ -17,11 +18,8 @@
             </div>
             <div class="book-content">
                 <div class="book-content-head">
-                    <a href="#">
+                    <a href="@whatsapp@b.Phone.ToString()">
                         <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="#">
-                        <i class="far fa-envelope"></i>
                     </a>
                     @{
                         if (User.Identity.IsAuthenticated)

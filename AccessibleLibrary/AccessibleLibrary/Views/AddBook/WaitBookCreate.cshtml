@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Wait";
+}
+
+<section id="SmallPage">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class=" col-md-12 d-flex  justify-content-center">
+                <div class="email-approve d-flex  justify-content-center align-items-center">
+                    <div class="approve-img">
+                        <img class="img-fluid"
+                             src="~/src/img/components/wait.jpg"
+                             alt="" />
+                    </div>
+                    <div class="approve d-flex align-items-center flex-column">
+                        <div class="approve-head">
+                            <h3>Təsdiqləmə</h3>
+                        </div>
+                        <div class="approve-body">
+                            Elanınız bir neçə dəqiqə ərzində təsdiqlənib sizə xəbər veriləcək 
+                            Əlçatan kitabxana hər zaman xitmətinizdə
+                        </div>
+                        <div class="approve-footer">
+                            <a asp-controller="Home" asp-action="Index">
+                                Ana Səhifə
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Css{
+    <link rel="stylesheet" href="~/src/css/secondary.css" />
+}
+

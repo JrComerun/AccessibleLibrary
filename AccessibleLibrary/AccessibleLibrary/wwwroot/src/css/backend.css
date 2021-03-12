@@ -363,3 +363,6 @@
 #Categories .col-12 .categories .childCategories .col-12 .all {
     margin-right: 15px;
 }
+@media only screen and (max-width: 1200px) #nav-mobile-1 .login {
+    margin-top: 95px;
+}

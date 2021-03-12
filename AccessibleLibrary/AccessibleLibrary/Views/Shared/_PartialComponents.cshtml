@@ -29,7 +29,7 @@
         <div class="nav-close-btn d-flex justify-content-end">
             <a class="close-btn" id="Nav-close-btn"><i class="fas fa-times-circle"></i></a>
         </div>
-        <div class="languages-bar d-flex align-items-center justify-content-center">
+        @*<div class="languages-bar d-flex align-items-center justify-content-center">
             <div class="lang d-flex" id="aze-lang2">
                 <img width="20" height="20" src="~/src/img/logo/azerbaijan.png" alt="" /> <span>AZE</span>
             </div>
@@ -40,7 +40,7 @@
             <div class="lang d-flex" id="rus-lang2">
                 <img width="20" height="20" src="~/src/img/logo/russia.png" alt="" /> <span>RUS</span>
             </div>
-        </div>
+        </div>*@
         @if (!User.Identity.IsAuthenticated)
         {
             <div class="login d-flex justify-content-around align-items-center">
@@ -55,7 +55,7 @@
         else
         {
             <div class="login d-flex justify-content-around align-items-center">
-                <a data-toggle="modal" data-target="#Login-Reg">
+                <a>
                     <div class="nav-link2">@User.Identity.Name</div>
                 </a>
                 <a asp-controller="Account" asp-action="Logout">
@@ -141,7 +141,9 @@
                             <a asp-controller="Home" asp-action="Index">
                                 <i class="fas fa-home"></i>
                             </a>
-                            <div class="word">Əsas Səhifə</div>
+                            <a asp-controller="Home" asp-action="Index">
+                                <div class="word">Əsas Səhifə</div>
+                            </a>
                         </div>
                         @if (!User.Identity.IsAuthenticated)
                         {
@@ -149,19 +151,25 @@
                                 <a data-toggle="modal" data-target="#Login-Reg" onclick="SwitchToLog()">
                                     <i class="fas fa-bookmark"></i>
                                 </a>
-                                <div class="word">Seçilmişlər</div>
+                                <a data-toggle="modal" data-target="#Login-Reg" onclick="SwitchToLog()">
+                                    <div class="word">Seçilmişlər</div>
+                                </a>
                             </div>
                             <div class="small-menu">
                                 <a data-toggle="modal" data-target="#Login-Reg" onclick="SwitchToLog()">
                                     <i class="fas fa-envelope"></i>
                                 </a>
-                                <div class="word">Mesajlar</div>
+                                <a data-toggle="modal" data-target="#Login-Reg" onclick="SwitchToLog()">
+                                    <div class="word">Mesajlar</div>
+                                </a>
                             </div>
                             <div class="small-menu">
                                 <a data-toggle="modal" data-target="#Login-Reg" onclick="SwitchToLog()">
                                     <i class="fas fa-user"></i>
                                 </a>
-                                <div class="word">Şəxsi Hesab</div>
+                                <a data-toggle="modal" data-target="#Login-Reg" onclick="SwitchToLog()">
+                                    <div class="word">Şəxsi Hesab</div>
+                                </a>
                             </div>
                         }
                         else
@@ -170,19 +178,27 @@
                                 <a asp-controller="Profile" asp-action="Index" asp-route-username="@User.Identity.Name" asp-route-active="Bookmark">
                                     <i class="fas fa-bookmark"></i>
                                 </a>
-                                <div class="word">Seçilmişlər</div>
+                                <a asp-controller="Profile" asp-action="Index" asp-route-username="@User.Identity.Name" asp-route-active="Bookmark">
+                                    <div class="word">Seçilmişlər</div>
+                                </a>
                             </div>
                             <div class="small-menu">
                                 <a asp-controller="Profile" asp-action="Index" asp-route-username="@User.Identity.Name" asp-route-active="Messages">
                                     <i class="fas fa-envelope"></i>
                                 </a>
-                                <div class="word">Mesajlar</div>
+                                <a asp-controller="Profile" asp-action="Index" asp-route-username="@User.Identity.Name" asp-route-active="Messages">
+                                    <div class="word">Mesajlar</div>
+                                </a>
+
                             </div>
                             <div class="small-menu">
                                 <a asp-controller="Profile" asp-action="Index" asp-route-username="@User.Identity.Name" asp-route-active="Profile">
                                     <i class="fas fa-user"></i>
                                 </a>
-                                <div class="word">Şəxsi Hesab</div>
+                                <a asp-controller="Profile" asp-action="Index" asp-route-username="@User.Identity.Name" asp-route-active="Profile">
+                                    <div class="word">Şəxsi Hesab</div>
+                                </a>
+
                             </div>
                         }
 

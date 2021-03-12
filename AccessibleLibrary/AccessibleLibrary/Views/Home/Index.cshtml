@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            @await Component.InvokeAsync("Book3d")
+            @await Component.InvokeAsync("Books", new { take = 4, isActive = true, order="ViewCount",view="3d" });
         </div>
     </div>
 </section>
@@ -31,184 +31,11 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            @await Component.InvokeAsync("Books")
+            @await Component.InvokeAsync("Books", new { take = 8, isActive = true, order = "Id", view = "classic" });
         </div>
     </div>
 </section>
 <!-- *-*-*-*-*-*-*-*-*      Last Books End      *-*-*-*-*-*-*-*-* -->
-<!-- ---------------------------------------------------------- -->
-<!-- *-*-*-*-*-*-*-*-*      Education Books Start      *-*-*-*-*-*-*-*-* -->
-<section id="eduBooks">
-    <div class="container pad-top80">
-        <div class="row">
-            <div class="col-lg-12 d-flex justify-content-center align-items-center">
-                <div class="section-head">
-                    <h1>Dərslik</h1>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <!-- ---------------------     Book    --------------------- -->
-            <div class="col-lg-3 col-6 d-flex align-items-center book-desk">
-                <div class="book">
-                    <div class="book-img">
-                        <img src="~/src/img/books/book-2-1.jpg" alt="" />
-                        <div class="book-price">5azn</div>
-                    </div>
-                    <div class="book-content">
-                        <div class="book-content-head">
-                            <a href="#">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="">
-                                <i class="far fa-bookmark"></i>
-                            </a>
-                        </div>
-                        <div class="book-content-body">
-                            <a href="">
-                                <div class="book-name">Toefl Grammer</div>
-                            </a>
-                            <div class="book-author">Müəllif : Jr Comerun</div>
-                            <div class="book-lang book-author">Dil : Azərbaycan</div>
-                        </div>
-                        <div class="book-content-footer">
-                            <div class="book-watch">
-                                <a href="index.html"> Ətraflı bax </a>
-                            </div>
-                            <a href="index.html">
-                                <div class="book-saler-img">
-                                    <img src="~/src/img/thanks/Kamran_Jabiyev.jpg" alt="" />
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ---------------------------------------------------------- -->
-            <!-- ---------------------     Book    --------------------- -->
-            <div class="col-lg-3 col-6 d-flex align-items-center book-desk">
-                <div class="book">
-                    <div class="book-img">
-                        <img src="~/src/img/books/book-1-1.jpg" alt="" />
-                        <div class="book-price">5azn</div>
-                    </div>
-                    <div class="book-content">
-                        <div class="book-content-head">
-                            <a href="#">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="">
-                                <i class="far fa-bookmark"></i>
-                            </a>
-                        </div>
-                        <div class="book-content-body">
-                            <a href="">
-                                <div class="book-name">Toefl Grammer</div>
-                            </a>
-                            <div class="book-author">Müəllif : Jr Comerun</div>
-                        </div>
-                        <div class="book-content-footer">
-                            <div class="book-watch">
-                                <a href="index.html"> Ətraflı bax </a>
-                            </div>
-                            <a href="index.html">
-                                <div class="book-saler-img">
-                                    <img src="~/src/img/thanks/Kamran_Jabiyev.jpg" alt="" />
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ---------------------------------------------------------- -->
-            <!-- ---------------------     Book    --------------------- -->
-            <div class="col-lg-3 col-6 d-flex align-items-center book-desk">
-                <div class="book">
-                    <div class="book-img">
-                        <img src="~/src/img/books/book-4-1.jpg" alt="" />
-                        <div class="book-price">5azn</div>
-                    </div>
-                    <div class="book-content">
-                        <div class="book-content-head">
-                            <a href="#">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="">
-                                <i class="far fa-bookmark"></i>
-                            </a>
-                        </div>
-                        <div class="book-content-body">
-                            <a href="">
-                                <div class="book-name">Toefl Grammer</div>
-                            </a>
-                            <div class="book-author">Müəllif : Jr Comerun</div>
-                        </div>
-                        <div class="book-content-footer">
-                            <div class="book-watch">
-                                <a href="index.html"> Ətraflı bax </a>
-                            </div>
-                            <a href="index.html">
-                                <div class="book-saler-img">
-                                    <img src="~/src/img/thanks/Kamran_Jabiyev.jpg" alt="" />
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ---------------------------------------------------------- -->
-            <!-- ---------------------     Book    --------------------- -->
-            <div class="col-lg-3 col-6 d-flex align-items-center book-desk">
-                <div class="book">
-                    <div class="book-img">
-                        <img src="~/src/img/books/book-3-1.jpg" alt="" />
-                        <div class="book-price">5azn</div>
-                    </div>
-                    <div class="book-content">
-                        <div class="book-content-head">
-                            <a href="#">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="">
-                                <i class="far fa-bookmark"></i>
-                            </a>
-                        </div>
-                        <div class="book-content-body">
-                            <a href="">
-                                <div class="book-name">Toefl Grammer</div>
-                            </a>
-                            <div class="book-author">Müəllif : Jr Comerun</div>
-                        </div>
-                        <div class="book-content-footer">
-                            <div class="book-watch">
-                                <a href="index.html"> Ətraflı bax </a>
-                            </div>
-                            <a href="index.html">
-                                <div class="book-saler-img">
-                                    <img src="~/src/img/thanks/Kamran_Jabiyev.jpg" alt="" />
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ---------------------------------------------------------- -->
-        </div>
-    </div>
-</section>
-<!-- *-*-*-*-*-*-*-*-*      Education Books End      *-*-*-*-*-*-*-*-* -->
 <!-- ---------------------------------------------------------- -->
 
 @section SelectHolder1{

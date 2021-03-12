@@ -2,33 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>cbb8b6bc-4c45-4225-912c-f27ef5417936</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20210219045350_CreateTables.cs" />
-    <Compile Remove="Migrations\20210219045350_CreateTables.Designer.cs" />
-    <Compile Remove="Migrations\20210219045649_CreateContact.cs" />
-    <Compile Remove="Migrations\20210219045649_CreateContact.Designer.cs" />
-    <Compile Remove="Migrations\20210219045751_CreateContact.cs" />
-    <Compile Remove="Migrations\20210219045751_CreateContact.Designer.cs" />
-    <Compile Remove="Migrations\20210219050055_CreateContact.cs" />
-    <Compile Remove="Migrations\20210219050055_CreateContact.Designer.cs" />
-    <Compile Remove="Migrations\20210219050401_CreateContact.cs" />
-    <Compile Remove="Migrations\20210219050401_CreateContact.Designer.cs" />
-    <Compile Remove="Migrations\20210219050527_CreateContact.cs" />
-    <Compile Remove="Migrations\20210219050527_CreateContact.Designer.cs" />
-    <Compile Remove="Migrations\20210219050710_CreateContact.cs" />
-    <Compile Remove="Migrations\20210219050710_CreateContact.Designer.cs" />
-    <Compile Remove="Migrations\20210219053809_CreateTables.cs" />
-    <Compile Remove="Migrations\20210219053809_CreateTables.Designer.cs" />
-    <Compile Remove="Migrations\20210219170712_ChangeAllTablesVirtual.cs" />
-    <Compile Remove="Migrations\20210219170712_ChangeAllTablesVirtual.Designer.cs" />
-    <Compile Remove="Migrations\20210219171200_CreateManyTables.cs" />
-    <Compile Remove="Migrations\20210219171200_CreateManyTables.Designer.cs" />
-    <Compile Remove="Migrations\20210219172512_AddIsMainForBookImageTable.cs" />
-    <Compile Remove="Migrations\20210219172512_AddIsMainForBookImageTable.Designer.cs" />
-    <Compile Remove="Migrations\20210220114527_CreateTables.cs" />
-    <Compile Remove="Migrations\20210220114527_CreateTables.Designer.cs" />
+    <Compile Remove="Migrations\20210311202748_LayoutAnFootersTable.cs" />
+    <Compile Remove="Migrations\20210311202748_LayoutAnFootersTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,6 +22,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\JrCAdmin\Data\" />
+    <Folder Include="Areas\JrCAdmin\Models\" />
   </ItemGroup>
 
 </Project>

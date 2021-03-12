@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,15 +20,19 @@ namespace AccessibleLibrary.Extensions
         //{
         //    return photo.Length / 1024 <= kb;
         //}
-        public async static Task<string> SaveImagesAsync(this IFormFile photo, string root, string folder)
+        public static string SaveImagesAsync(this IFormFile photo, string root, string folder)
         {
             string fileName = Guid.NewGuid().ToString() + photo.FileName;
             string path = Path.Combine(root, folder, fileName);
-            using (FileStream fileStream = new FileStream(path, FileMode.Create))
+            Image image = Image.FromStream(photo.OpenReadStream(), true, true);
+            var newImage = new Bitmap(312, 416);
+            using (var g = Graphics.FromImage(newImage))
             {
-                await photo.CopyToAsync(fileStream);
-            };
+                g.DrawImage(image, 0, 0, 312, 416);
+            }
+            newImage.Save(path);
             return fileName;
         }
+
     }
 }

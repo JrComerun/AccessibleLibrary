@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,7 +10,7 @@ namespace AccessibleLibrary.Extensions
 {
     public static class Helper
     {
-        public static void SendMessage(string messageSubject, string messageBody , string mailTo)
+        public static async Task SendMessage(string messageSubject, string messageBody , string mailTo)
         {
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
             client.UseDefaultCredentials = false;
@@ -23,7 +24,9 @@ namespace AccessibleLibrary.Extensions
             message.Body = messageBody;
             message.BodyEncoding = System.Text.Encoding.UTF8;
             message.IsBodyHtml = true;
-            client.Send(message);
+            await client.SendMailAsync(message);
         }
+
+       
     }
 }
