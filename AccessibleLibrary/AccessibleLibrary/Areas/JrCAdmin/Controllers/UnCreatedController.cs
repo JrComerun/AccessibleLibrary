@@ -30,16 +30,21 @@ namespace AccessibleLibrary.Areas.JrCAdmin.Controllers
 
             return View(books);
         }
+      
         public async Task<IActionResult> TrueCreated(int? id)
         {
             if (id == null) return RedirectToAction(nameof(Index));
-            Book book = await _db.Books.Include(b=>b.BookDetail).FirstOrDefaultAsync(b=>b.Id==id);
+            Book book = await _db.Books.FirstOrDefaultAsync(b=>b.Id==id);
+            BookDetail detail = await _db.BookDetails.FirstOrDefaultAsync(b=>b.BookId==id);
             if (book == null) return RedirectToAction(nameof(Index));
-            book.BookDetail.IsCreated = true;
+            if (detail == null) return RedirectToAction(nameof(Index));
             book.IsCreated = true;
+            detail.IsCreated = true;
+             _db.Books.Update(book);
+             _db.BookDetails.Update(detail);
             await _db.SaveChangesAsync();
             //*************************************************
-            //*****************send Subscrribe****************
+            //*****************Send Subscrribes****************
 
             List<SubScribe> subScribes = await _db.SubScribes.ToListAsync();
             foreach (SubScribe s in subScribes)
@@ -50,23 +55,31 @@ namespace AccessibleLibrary.Areas.JrCAdmin.Controllers
                 await _db.BookSubScribes.AddAsync(bookSubScribe);
                 await _db.SaveChangesAsync();
             }
-            string url = "https://localhost:44366/Book/Detail/" + $"{book.Id}";
-            string subject = "Yeni Kitab ";
-            string message = $"<a href='{url}'> Kitab elavə olundu bu kitaba girib baxa bilərsiniz</a>";
+            string url = "http://jrcomerun14-001-site1.btempurl.com/Books/Detail/" + $"{book.Id}";
+            string subject1 = "Yeni Kitab ";
+            string message1 = $"<a href='{url}'> Yeni Kitab elavə olundu bu kitaba girib baxa bilərsiniz</a>";
             List<BookSubScribe> bookSubScribes = _db.BookSubScribes.Where(s => s.BookId == book.Id).ToList();
             foreach (BookSubScribe s in bookSubScribes)
             {
-                await Helper.SendMessage(s.SubScribe.Email, subject, message);
+                await Helper.SendMessage(s.SubScribe.Email, subject1, message1);
             }
+            //**********************************************************
+            //***************for Created book to User
+            string subject2 = "Kitab Dəyışdirildi";
+            string message2 = $"<a href='{url}'> Kitab elavə olundu bu kitaba girib baxa bilərsiniz</a>";
+            string mailto = book.Email;
+            await Helper.SendMessage(subject2, message2, mailto);
             return RedirectToAction("Index");
         }
-        #region Delete Event
+
+        #region Delete Book
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return RedirectToAction(nameof(Index));
             Book book = await _db.Books.Include(b => b.BookImages).Include(b => b.AppUser).Include(b => b.BookLanguage).
-                Include(b => b.BookDetail).ThenInclude(b => b.BookCity).FirstOrDefaultAsync(b => b.Id == id);
+                Include(b => b.BookDetail).ThenInclude(b => b.BookCity).Include(c => c.BookCategories).ThenInclude(c=>c.Category).ThenInclude(c=>c.Parent).FirstOrDefaultAsync(b => b.Id == id);
             if (book == null) return RedirectToAction(nameof(Index));
+           
             return View(book);
         }
         [HttpPost]
@@ -87,10 +100,15 @@ namespace AccessibleLibrary.Areas.JrCAdmin.Controllers
                     System.IO.File.Delete(path);
 
                 }
+                _db.BookImages.Remove(image);
             }
             _db.BookDetails.Remove(book.BookDetail);
             _db.Books.Remove(book);  
             await _db.SaveChangesAsync();
+            string subject2 = "Elan Yerləşdirmə";
+            string message2 = $"Kitab elavə olunmadı";
+            string mailto = book.Email;
+            await Helper.SendMessage(subject2, message2, mailto);
             return RedirectToAction(nameof(Index));
         }
         #endregion

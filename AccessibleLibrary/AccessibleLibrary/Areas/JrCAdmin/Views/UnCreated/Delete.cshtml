@@ -7,7 +7,7 @@
     <div class="col-md-8 grid-margin stretch-card bg-dark text-light">
         <div class="card d-flex flex-row flex-wrap bg-dark">
 
-            <div class="col-12 card-body  d-flex justify-content-center" >
+            <div class="col-12 card-body  d-flex justify-content-center">
                 @foreach (BookImage img in Model.BookImages.Where(b => b.IsMain == true))
                 {
                     <img src="~/src/img/books/@img.Image" style="height: 150px !important;width: 200px !important; object-fit:cover;" />
@@ -25,6 +25,26 @@
             <div class="col-6 card-body ">
                 <h5 style="font-weight:600 !important">Qiyməti : <span style="font-weight:200 !important"> @Model.Price </span></h5>
             </div>
+
+            @foreach (BookCategory bc in Model.BookCategories)
+            {
+                @if (bc.Category.IsMain)
+                {
+                    <div class="col-6 card-body ">
+                        <h5 style="font-weight:600 !important">Kateqori : <span style="font-weight:200 !important"> @bc.Category.Name </span></h5>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-6 card-body ">
+                        <h5 style="font-weight:600 !important">Kateqori : <span style="font-weight:200 !important"> @bc.Category.Parent.Name </span></h5>
+                    </div>
+                    <div class="col-6 card-body ">
+                        <h5 style="font-weight:600 !important">Alt Kateqori : <span style="font-weight:200 !important"> @bc.Category.Name </span></h5>
+                    </div>
+                }
+            }
+
             <div class="col-6 card-body ">
                 <h5 style="font-weight:600 !important">Email : <span style="font-weight:200 !important"> @Model.Email </span></h5>
             </div>
@@ -43,7 +63,7 @@
         </div>
     </div>
     <div class="d-flex my-2 justify-content-center">
-        <a asp-action="TrueCreated" class="btn btn-success  " style="cursor:pointer;">Elanı Təsdiqlə</a>
+        <a asp-action="TrueCreated" asp-route-id="@Model.Id" class="btn btn-success  " style="cursor:pointer;">Elanı Təsdiqlə</a>
         <form method="post">
             <button type="submit" class="btn btn-secondary  " style="cursor:pointer; margin: 0 30px">Elanı Sil</button>
         </form>

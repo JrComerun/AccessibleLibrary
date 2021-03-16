@@ -29,6 +29,7 @@ namespace AccessibleLibrary.DAL
         public DbSet<Layout> Layout { get; set; }
         public DbSet<RelationSites> RelationSites { get; set; }
         public DbSet<Thanks> Thanks { get; set; }
+        public DbSet<BookUpdate> BookUpdates { get; set; }
 
 
     }

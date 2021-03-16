@@ -11,25 +11,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="AccessibleLibrary.deps.json">
-      <publishTime>02/23/2021 09:24:32</publishTime>
+      <publishTime>03/13/2021 01:58:43</publishTime>
     </File>
     <File Include="AccessibleLibrary.dll">
-      <publishTime>02/23/2021 09:24:26</publishTime>
+      <publishTime>03/13/2021 01:58:33</publishTime>
     </File>
     <File Include="AccessibleLibrary.exe">
-      <publishTime>02/23/2021 09:24:26</publishTime>
+      <publishTime>03/13/2021 01:58:33</publishTime>
     </File>
     <File Include="AccessibleLibrary.pdb">
-      <publishTime>02/23/2021 09:24:26</publishTime>
+      <publishTime>03/13/2021 01:58:33</publishTime>
     </File>
     <File Include="AccessibleLibrary.runtimeconfig.json">
-      <publishTime>02/23/2021 08:37:45</publishTime>
+      <publishTime>03/13/2021 01:18:26</publishTime>
     </File>
     <File Include="AccessibleLibrary.Views.dll">
-      <publishTime>02/23/2021 09:24:31</publishTime>
+      <publishTime>03/13/2021 01:58:41</publishTime>
     </File>
     <File Include="AccessibleLibrary.Views.pdb">
-      <publishTime>02/23/2021 09:24:31</publishTime>
+      <publishTime>03/13/2021 01:58:41</publishTime>
     </File>
     <File Include="appsettings.Development.json">
       <publishTime>02/17/2021 09:12:23</publishTime>
@@ -158,7 +158,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/12/2019 17:08:34</publishTime>
     </File>
     <File Include="Microsoft.Data.SqlClient.dll">
-      <publishTime>05/15/2020 23:07:26</publishTime>
+      <publishTime>05/15/2020 23:07:32</publishTime>
     </File>
     <File Include="Microsoft.EntityFrameworkCore.Abstractions.dll">
       <publishTime>11/17/2020 22:57:46</publishTime>
@@ -250,6 +250,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll">
       <publishTime>02/09/2021 21:11:52</publishTime>
     </File>
+    <File Include="Microsoft.Win32.SystemEvents.dll">
+      <publishTime>10/19/2020 18:40:26</publishTime>
+    </File>
     <File Include="Newtonsoft.Json.dll">
       <publishTime>01/15/2021 04:43:34</publishTime>
     </File>
@@ -292,6 +295,39 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="ru/Microsoft.CodeAnalysis.Workspaces.resources.dll">
       <publishTime>09/12/2019 17:08:36</publishTime>
     </File>
+    <File Include="runtimes/unix/lib/netcoreapp2.0/System.Runtime.Caching.dll">
+      <publishTime>05/15/2018 13:29:40</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/netcoreapp2.1/Microsoft.Data.SqlClient.dll">
+      <publishTime>05/15/2020 23:07:24</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll">
+      <publishTime>01/23/2021 03:40:24</publishTime>
+    </File>
+    <File Include="runtimes/win-arm64/native/sni.dll">
+      <publishTime>01/15/2021 04:43:36</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/sni.dll">
+      <publishTime>01/15/2021 04:43:36</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/sni.dll">
+      <publishTime>01/15/2021 04:43:38</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp2.0/System.Runtime.Caching.dll">
+      <publishTime>05/15/2018 13:29:40</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp2.1/Microsoft.Data.SqlClient.dll">
+      <publishTime>05/15/2020 23:07:26</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll">
+      <publishTime>10/19/2020 18:52:12</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll">
+      <publishTime>01/23/2021 03:41:26</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll">
+      <publishTime>05/15/2018 13:29:44</publishTime>
+    </File>
     <File Include="sni.dll">
       <publishTime>01/15/2021 04:43:38</publishTime>
     </File>
@@ -319,6 +355,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="System.Diagnostics.DiagnosticSource.dll">
       <publishTime>04/14/2020 22:48:06</publishTime>
     </File>
+    <File Include="System.Drawing.Common.dll">
+      <publishTime>01/23/2021 03:40:38</publishTime>
+    </File>
     <File Include="System.IdentityModel.Tokens.Jwt.dll">
       <publishTime>06/24/2019 19:49:50</publishTime>
     </File>
@@ -341,10 +380,298 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/12/2019 17:08:36</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>02/23/2021 09:24:33</publishTime>
+      <publishTime>03/13/2021 01:58:44</publishTime>
+    </File>
+    <File Include="wwwroot/admin/css/maps/style.css.map">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/css/secondary.css">
+      <publishTime>02/09/2021 09:08:15</publishTime>
+    </File>
+    <File Include="wwwroot/admin/css/secondary.css.map">
+      <publishTime>02/09/2021 09:08:15</publishTime>
+    </File>
+    <File Include="wwwroot/admin/css/style.css">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/.DS_Store">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/.DS_Store">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Black.eot">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Black.ttf">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Black.woff">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Black.woff2">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Bold.eot">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Bold.ttf">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Bold.woff">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Bold.woff2">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Light.eot">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Light.ttf">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Light.woff">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Light.woff2">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Medium.eot">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Medium.ttf">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Medium.woff">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Medium.woff2">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Regular.eot">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Regular.ttf">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Regular.woff">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/fonts/Roboto/Roboto-Regular.woff2">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/.DS_Store">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/a.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/admin.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/admin2.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/admin3.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/auth/.DS_Store">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/auth/lockscreen-bg.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/auth/login-bg.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/auth/register-bg.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/b.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/.DS_Store">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face1.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face10.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face11.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face12.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face13.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face14.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face15.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face16.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face17.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face18.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face19.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face2.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face20.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face21.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face22.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face23.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face24.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face25.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face26.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face27.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face3.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face4.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face5.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face6.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face7.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face8.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/faces/face9.jpg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/favicon.png">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/jrc1.png">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/logo-mini.svg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/images/logo.svg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/js/.DS_Store">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/js/chart.js">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/js/Chart.min.js">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/js/dashboard.js">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/js/data-table.js">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/js/dataTables.bootstrap4.js">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/js/documentation.js">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/js/file-upload.js">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/js/hoverable-collapse.js">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/js/jquery.dataTables.js">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/js/off-canvas.js">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/js/tabs.js">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/js/template.js">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/vendors/.DS_Store">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/vendors/base/bootstrap.min.js.map">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/vendors/base/vendor.bundle.base.css">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/vendors/base/vendor.bundle.base.js">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/vendors/chart.js/Chart.min.js">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/vendors/datatables.net/jquery.dataTables.js">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/vendors/mdi/css/materialdesignicons.min.css">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/vendors/mdi/css/materialdesignicons.min.css.map">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/vendors/mdi/fonts/materialdesignicons-webfont.eot">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/vendors/mdi/fonts/materialdesignicons-webfont.svg">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/vendors/mdi/fonts/materialdesignicons-webfont.ttf">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/vendors/mdi/fonts/materialdesignicons-webfont.woff">
+      <publishTime>01/15/2021 07:26:10</publishTime>
+    </File>
+    <File Include="wwwroot/admin/vendors/mdi/fonts/materialdesignicons-webfont.woff2">
+      <publishTime>01/15/2021 07:26:10</publishTime>
     </File>
     <File Include="wwwroot/src/css/backend.css">
-      <publishTime>02/16/2021 09:11:53</publishTime>
+      <publishTime>03/12/2021 21:40:42</publishTime>
     </File>
     <File Include="wwwroot/src/css/bootsrap/bootstrap-grid.css">
       <publishTime>02/09/2021 09:08:15</publishTime>
@@ -365,13 +692,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/09/2021 09:08:15</publishTime>
     </File>
     <File Include="wwwroot/src/css/secondary.css">
-      <publishTime>02/09/2021 09:08:15</publishTime>
+      <publishTime>03/12/2021 21:57:11</publishTime>
     </File>
     <File Include="wwwroot/src/css/secondary.css.map">
       <publishTime>02/09/2021 09:08:15</publishTime>
     </File>
     <File Include="wwwroot/src/css/style.css">
-      <publishTime>02/19/2021 08:44:12</publishTime>
+      <publishTime>03/12/2021 06:03:45</publishTime>
     </File>
     <File Include="wwwroot/src/css/style.css.map">
       <publishTime>02/09/2021 09:08:15</publishTime>
@@ -443,37 +770,70 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/09/2021 09:08:16</publishTime>
     </File>
     <File Include="wwwroot/src/img/books/book-1-1.jpg">
-      <publishTime>02/09/2021 09:08:16</publishTime>
+      <publishTime>03/08/2021 17:06:35</publishTime>
+    </File>
+    <File Include="wwwroot/src/img/books/book-1-2.jpg">
+      <publishTime>03/08/2021 17:07:55</publishTime>
     </File>
     <File Include="wwwroot/src/img/books/book-10-1.jpg">
-      <publishTime>02/09/2021 09:08:16</publishTime>
+      <publishTime>02/09/2021 09:08:15</publishTime>
+    </File>
+    <File Include="wwwroot/src/img/books/book-10-2.jpg">
+      <publishTime>03/08/2021 17:07:03</publishTime>
     </File>
     <File Include="wwwroot/src/img/books/book-11-1.jpg">
-      <publishTime>02/09/2021 09:08:16</publishTime>
+      <publishTime>02/09/2021 09:08:15</publishTime>
+    </File>
+    <File Include="wwwroot/src/img/books/book-11-2.jpg">
+      <publishTime>03/08/2021 17:07:29</publishTime>
+    </File>
+    <File Include="wwwroot/src/img/books/book-11-3.jpg">
+      <publishTime>03/08/2021 17:07:41</publishTime>
     </File>
     <File Include="wwwroot/src/img/books/book-2-1.jpg">
-      <publishTime>02/09/2021 09:08:16</publishTime>
+      <publishTime>03/08/2021 17:08:08</publishTime>
+    </File>
+    <File Include="wwwroot/src/img/books/book-2-2.jpg">
+      <publishTime>03/08/2021 17:08:22</publishTime>
     </File>
     <File Include="wwwroot/src/img/books/book-3-1.jpg">
-      <publishTime>02/09/2021 09:08:16</publishTime>
+      <publishTime>03/08/2021 17:08:46</publishTime>
     </File>
     <File Include="wwwroot/src/img/books/book-4-1.jpg">
-      <publishTime>02/09/2021 09:08:16</publishTime>
+      <publishTime>03/08/2021 17:09:07</publishTime>
     </File>
     <File Include="wwwroot/src/img/books/book-5-1.jpg">
-      <publishTime>02/09/2021 09:08:16</publishTime>
+      <publishTime>03/08/2021 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/src/img/books/book-5-2.jpg">
+      <publishTime>02/09/2021 09:08:15</publishTime>
     </File>
     <File Include="wwwroot/src/img/books/book-6-1.jpg">
-      <publishTime>02/09/2021 09:08:16</publishTime>
+      <publishTime>02/09/2021 09:08:15</publishTime>
+    </File>
+    <File Include="wwwroot/src/img/books/book-6-2.jpg">
+      <publishTime>03/08/2021 17:11:24</publishTime>
     </File>
     <File Include="wwwroot/src/img/books/book-7-1.jpg">
-      <publishTime>02/09/2021 09:08:16</publishTime>
+      <publishTime>02/09/2021 09:08:15</publishTime>
+    </File>
+    <File Include="wwwroot/src/img/books/book-7-2.jpg">
+      <publishTime>03/08/2021 17:11:41</publishTime>
     </File>
     <File Include="wwwroot/src/img/books/book-8-1.jpg">
-      <publishTime>02/09/2021 09:08:16</publishTime>
+      <publishTime>02/09/2021 09:08:15</publishTime>
+    </File>
+    <File Include="wwwroot/src/img/books/book-8-2.jpg">
+      <publishTime>03/08/2021 17:12:06</publishTime>
     </File>
     <File Include="wwwroot/src/img/books/book-9-1.jpg">
       <publishTime>02/09/2021 09:08:16</publishTime>
+    </File>
+    <File Include="wwwroot/src/img/books/book-9-2.jpg">
+      <publishTime>03/08/2021 17:12:40</publishTime>
+    </File>
+    <File Include="wwwroot/src/img/books/book-9-3.jpg">
+      <publishTime>03/08/2021 17:12:30</publishTime>
     </File>
     <File Include="wwwroot/src/img/categories/biography.png">
       <publishTime>02/09/2021 09:08:16</publishTime>
@@ -516,6 +876,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="wwwroot/src/img/components/shape3.png">
       <publishTime>02/09/2021 09:08:16</publishTime>
+    </File>
+    <File Include="wwwroot/src/img/components/wait.jpg">
+      <publishTime>03/11/2021 15:09:13</publishTime>
     </File>
     <File Include="wwwroot/src/img/layout/404.png">
       <publishTime>02/09/2021 10:39:07</publishTime>
@@ -596,7 +959,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/09/2021 09:08:16</publishTime>
     </File>
     <File Include="wwwroot/src/js/backend.js">
-      <publishTime>02/19/2021 08:40:54</publishTime>
+      <publishTime>03/13/2021 00:51:56</publishTime>
     </File>
     <File Include="wwwroot/src/js/bootstrap/bootstrap.bundle.min.js">
       <publishTime>02/09/2021 09:08:16</publishTime>

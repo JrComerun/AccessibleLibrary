@@ -1,0 +1,53 @@
+﻿@model Book
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="row d-flex flex-column align-items-center">
+    <div class="col-md-8 grid-margin stretch-card bg-dark text-light">
+        <div class="card d-flex flex-row flex-wrap bg-dark">
+
+            <div class="col-12 card-body  d-flex justify-content-center">
+                @foreach (BookImage img in Model.BookImages.Where(b => b.IsMain == true))
+                {
+                    <img src="~/src/img/books/@img.Image" style="height: 150px !important;width: 200px !important; object-fit:cover;" />
+                }
+            </div>
+            <div class="col-6 card-body ">
+                <h5 style="font-weight:600 !important"> Adı : <span style="font-weight:200 !important"> @Model.Name </span></h5>
+            </div>
+            <div class="col-6 card-body">
+                <h5 style="font-weight:600 !important">Müəllifi : <span style="font-weight:200 !important"> @Model.Auhtor </span></h5>
+            </div>
+            <div class="col-6 card-body ">
+                <h5 style="font-weight:600 !important">Dili : <span style="font-weight:200 !important"> @Model.BookLanguage.Name </span></h5>
+            </div>
+            <div class="col-6 card-body ">
+                <h5 style="font-weight:600 !important">Qiyməti : <span style="font-weight:200 !important"> @Model.Price </span></h5>
+            </div>
+            <div class="col-6 card-body ">
+                <h5 style="font-weight:600 !important">Email : <span style="font-weight:200 !important"> @Model.Email </span></h5>
+            </div>
+            <div class="col-6 card-body">
+                <h5 style="font-weight:600 !important">Əlaqə Nömrəsi : <span style="font-weight:200 !important"> @Model.Phone </span></h5>
+            </div>
+            <div class="col-6 card-body">
+                <h5 style="font-weight:600 !important">Əlaqədar Şəxs : <span style="font-weight:200 !important"> @Model.SalerName </span></h5>
+            </div>
+            <div class="col-6 card-body">
+                <h5 style="font-weight:600 !important">Şəhər : <span style="font-weight:200 !important"> @Model.BookDetail.BookCity.Name </span></h5>
+            </div>
+            <div class="col-6 card-body">
+                <h5 style="font-weight:600 !important">Yaranma Vaxtı : <span style="font-weight:200 !important"> @Model.BookDetail.CreateTime.ToString("d") </span></h5>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex my-2 justify-content-center">
+        <form method="post">
+            <button type="submit" class="btn btn-success  " style="cursor:pointer; margin: 0 30px">Elanı Sil</button>
+        </form>
+        <a asp-action="Index"  class="btn btn-secondary  " style="cursor:pointer;">Geri dön</a>
+        
+    </div>
+</div>
+

@@ -28,19 +28,28 @@ namespace AccessibleLibrary.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-            ViewBag.Name = user.Name;
-            ViewBag.Email = user.Email;
-            await GetBookRelationTablesAsync();
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+                ViewBag.Name = user.Name;
+                ViewBag.Email = user.Email;
+                await GetBookRelationTablesAsync();
+                return View();
+            }
+            else
+            {
+                return View("Error");
+            }
+            
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Index(Book book, int? MainCatId, List<int?> ChildCatId, int? LanguageId, int? CityId)
+        public async Task<IActionResult> Index(Book book, int? MainCatId, int? ChildCatId, int? LanguageId, int? CityId)
         {
-            await GetBookRelationTablesAsync();
+            
             if (User.Identity.IsAuthenticated)
             {
+                await GetBookRelationTablesAsync();
                 AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
                 ViewBag.Name = user.Name;
                 ViewBag.Email = user.Email;
@@ -66,8 +75,6 @@ namespace AccessibleLibrary.Controllers
 
                 };
                 images.Add(image);
-
-
                 book.BookImages = images;
 
                 book.AppUserId = user.Id;
@@ -75,6 +82,7 @@ namespace AccessibleLibrary.Controllers
                 book.IsActive = true;
                 book.IsCreated = false;
                 book.IsDeleted = false;
+                book.IsUpdate = false;
                 book.BookLanguageId = (int)LanguageId;
                 if (book.Photos != null)
                 {
@@ -96,30 +104,24 @@ namespace AccessibleLibrary.Controllers
                     }
 
                 }
-                List<BookCategory> bookCategories = new List<BookCategory>();
-                if (MainCatId != null)
+                await _db.Books.AddAsync(book);
+                await _db.SaveChangesAsync();
+                BookCategory bookCategories = new BookCategory();
+                
+                if (ChildCatId != 0)
                 {
-                    if (await _db.Categories.Where(c => c.IsMain == false && c.ParentId == MainCatId).ToListAsync() != null)
-                    {
-                        foreach (BookCategory bc in bookCategories)
-                        {
-                            bc.BookId = book.Id;
-                            foreach (int ct in ChildCatId)
-                            {
-                                bc.CategoryId = ct;
-                            }
-                            await _db.BookCategories.AddAsync(bc);
 
-                        }
-                    }
-                    else
-                    {
-                        foreach (BookCategory bc in bookCategories)
-                        {
-                            bc.BookId = book.Id;
-                            bc.CategoryId = (int)MainCatId;
-                        }
-                    }
+                    bookCategories.BookId = book.Id;
+                    bookCategories.CategoryId = (int)ChildCatId;
+                    await _db.BookCategories.AddAsync(bookCategories);
+
+                }
+                else
+                {
+
+                    bookCategories.BookId = book.Id;
+                    bookCategories.CategoryId = (int)MainCatId;
+                    await _db.BookCategories.AddAsync(bookCategories);
                 }
 
                 BookDetail bookDetail = new BookDetail();
@@ -136,7 +138,7 @@ namespace AccessibleLibrary.Controllers
                 book.BookImages = images;
                 await _db.SaveChangesAsync();
                 string subject = "Yeni Kitab";
-                string message = "Boş Boş fırlanma Get kitaba bax sonra təsdiqlə a bala ";
+                string message = "Boş Boş fırlanma Get kitaba bax sonra təsdiqlə ";
                 string mailto = "kamranfn@code.edu.az";
                 await Helper.SendMessage(subject,message, mailto);
             }
@@ -173,9 +175,17 @@ namespace AccessibleLibrary.Controllers
             ViewBag.Languages = await _db.BookLanguages.ToListAsync();
             ViewBag.Cities = await _db.BookCities.ToListAsync();
         }
-        public IActionResult WaitBookCreate(int? MainCatId)
+        public IActionResult WaitBookCreate()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                return View();
+
+            }
+            else
+            {
+                return View("Error");
+            }
         }
     }
 }

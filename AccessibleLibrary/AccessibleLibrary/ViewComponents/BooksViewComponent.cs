@@ -43,15 +43,15 @@ namespace AccessibleLibrary.ViewComponents
             }
             if (order == "Id")
             {
-                List<Book> Books = _db.Books.OrderByDescending(b => b.Id).Where(b => b.IsCreated == true &&
+                List<Book> Books = await _db.Books.OrderByDescending(b => b.Id).Where(b => b.IsCreated == true &&
                 b.IsDeleted == false && b.IsActive == isActive).Take((int)take).Include(b => b.BookImages).
-                Include(b => b.AppUser).Include(b => b.BookLanguage).Include(b => b.AppUserBooks).ToList();
+                Include(b => b.AppUser).Include(b => b.BookLanguage).Include(b => b.AppUserBooks).ToListAsync();
                 return View(await Task.FromResult(Books));
             }
             else
             {
-                List<Book> Books = _db.Books.OrderByDescending(b => b.ViewCount).Where(b => b.IsCreated == true && b.IsDeleted == false &&
-                b.IsActive == isActive).Take((int)take).Include(b => b.BookImages).Include(b => b.AppUser).Include(b => b.BookLanguage).Include(b => b.AppUserBooks).ToList();
+                List<Book> Books = await _db.Books.OrderByDescending(b => b.ViewCount).Where(b => b.IsCreated == true && b.IsDeleted == false &&
+                b.IsActive == isActive).Take((int)take).Include(b => b.BookImages).Include(b => b.AppUser).Include(b => b.BookLanguage).Include(b => b.AppUserBooks).ToListAsync();
                 return View(await Task.FromResult(Books));
             }
 

@@ -39,7 +39,10 @@ namespace AccessibleLibrary.Models
 
         [NotMapped]
         public IFormFile Photo { get; set; }
+        
         [NotMapped]
         public IFormFile[] Photos { get; set; }
+        public bool IsUpdate { get; set; }
+
     }
 }

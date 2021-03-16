@@ -22,14 +22,19 @@ namespace AccessibleLibrary.ViewComponents
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            AppUser user = await _usermanager.FindByNameAsync(User.Identity.Name);
-            bool IsExist = _db.SubScribes.Any(s => s.Email.ToLower().Trim() == user.Email.ToLower().Trim());
+            if (User.Identity.IsAuthenticated)
+            {
+                AppUser user = await _usermanager.FindByNameAsync(User.Identity.Name);
+                bool IsExist = _db.SubScribes.Any(s => s.Email.ToLower().Trim() == user.Email.ToLower().Trim());
+                ViewBag.IsSubScribe = IsExist;
+
+            }
+
             LayoutVM layoutVM = new LayoutVM
             {
                 Layout = await _db.Layout.FirstOrDefaultAsync(),
                 SubScribe = await _db.SubScribes.FirstOrDefaultAsync(),
             };
-            ViewBag.IsSubScribe = IsExist;
             return View(await Task.FromResult(layoutVM));
         }
     }

@@ -9,9 +9,12 @@ bookmark.forEach((b) => {
             if (b.nextElementSibling.value == b2.nextElementSibling.value) {
                 if (b2.children[0].classList.contains("far")) {
                     b2.children[0].classList.replace("far", "fas")
+                    b2.children[0].style.color = "#861703";
+                    
                 }
                 else {
                     b2.children[0].classList.replace("fas", "far")
+                    b2.children[0].style.color = "gray";
                 }
             }
         })
@@ -126,6 +129,48 @@ $(document).on('click', `#buttonCon`, function () {
         //}
 
 
+        //*********************************************
+        //***************Global search*****************
+        //*********************************************
 
+        //$(document).on("click", "#global-search", function () {
+        //    let globalSearchInput = $("#form1").val()
+           
+        //    $.ajax({
+        //        url: "/Books/Filter/",
+        //        type: "Get",
+        //        data: {
+        //            "Key": globalSearchInput ,
+        //        },
+        //        success: function (res) {
+        //            if (res != null) {
+        //                $("#lessfilterbooks").css("display", "none")
+        //                $("#filterbooks").append(res)
+        //            }
+        //        }
+        //    })
+        //})
+
+
+
+        //*********************************************
+        //***************  Profile  *****************
+        //*********************************************
+
+        $(document).on("click", "#change-profimg", function () {
+            console.log("sff")
+            let changeImg = $("#change-img").val()
+            $.ajax({
+                url: "/Profile/ChangeProfileImage/",
+                type: "Post",
+                data: {
+                    "Photo": changeImg ,
+                },
+                success: function (res) {
+                    $("#img-error").append(res)
+
+                }
+            })
+        })
     }
 })

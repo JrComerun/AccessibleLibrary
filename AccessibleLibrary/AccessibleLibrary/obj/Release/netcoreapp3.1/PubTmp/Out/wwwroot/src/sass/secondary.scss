@@ -1,0 +1,14 @@
+@import "partials/variables";
+header {
+  background: none !important;
+  height: max-content;
+  background-color: $dark !important;
+  &::after {
+    z-index: -1;
+    height: max-content;
+  }
+}
+
+.pad-top80 {
+  padding-top: 50px !important;
+}

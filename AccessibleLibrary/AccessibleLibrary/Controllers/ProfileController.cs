@@ -1,12 +1,15 @@
 ﻿using AccessibleLibrary.DAL;
+using AccessibleLibrary.Extensions;
 using AccessibleLibrary.Models;
 using AccessibleLibrary.ViewModels;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -41,13 +44,13 @@ namespace AccessibleLibrary.Controllers
             ProfileVM profile = new ProfileVM()
             {
                 User = userProfile,
-                ActiveBooks = _db.Books.OrderByDescending(b => b.Id).Where(b => b.IsCreated == true && b.IsDeleted == false &&
+                ActiveBooks =await _db.Books.OrderByDescending(b => b.Id).Where(b => b.IsCreated == true && b.IsDeleted == false &&
                 b.IsActive == true && b.AppUser.UserName.ToLower().Trim() == username.ToLower().Trim()).Include(b => b.BookImages).
-                Include(b=>b.BookLanguage).Include(b=>b.AppUserBooks).ToList(),
-                DeActiveBooks = _db.Books.OrderByDescending(b => b.Id).Where(b => b.IsCreated == true && b.IsDeleted == false &&
+                Include(b=>b.BookLanguage).Include(b=>b.AppUserBooks).ToListAsync(),
+                DeActiveBooks = await _db.Books.OrderByDescending(b => b.Id).Where(b => b.IsCreated == true && b.IsDeleted == false &&
                 b.IsActive == false && b.AppUser.UserName.ToLower().Trim() == username.ToLower().Trim()).Include(b => b.BookImages).
-                Include(b => b.BookLanguage).Include(b => b.AppUserBooks).ToList(),
-                BookMark= _db.AppUserBooks.Where(b=>b.AppUser.UserName==User.Identity.Name).ToList(),
+                Include(b => b.BookLanguage).Include(b => b.AppUserBooks).ToListAsync(),
+                BookMark=await _db.AppUserBooks.Where(b=>b.AppUser.UserName==User.Identity.Name).ToListAsync(),
             };
             ViewBag.Active = active;
             return View(profile);
@@ -77,6 +80,20 @@ namespace AccessibleLibrary.Controllers
                 await _db.SaveChangesAsync();
             }
 
+        }
+
+        public async Task<IActionResult> ChangeProfileImage(IFormFile Photo)
+        {
+            if (Photo == null) return Content("Şəkil boşdur");
+
+            AppUser user = await _usermanager.FindByNameAsync(User.Identity.Name);
+            if(user== null) return Content("Belə bir istifadəçi yoxdur");
+            if(Photo.IsImage()) return Content("Bu Şəkil deyil");
+            string folder = Path.Combine("src", "img", "users");
+            string filename =  Photo.SaveImagesAsync(_env.WebRootPath, folder);
+            user.Image = filename;
+            await _usermanager.UpdateAsync(user);
+            return Content("Şəkil dəyişdirildi");
         }
     }
 }

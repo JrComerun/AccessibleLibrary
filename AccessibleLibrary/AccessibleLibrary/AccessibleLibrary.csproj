@@ -8,6 +8,14 @@
   <ItemGroup>
     <Compile Remove="Migrations\20210311202748_LayoutAnFootersTable.cs" />
     <Compile Remove="Migrations\20210311202748_LayoutAnFootersTable.Designer.cs" />
+    <Compile Remove="Migrations\20210312154249_ChangeBookUpdateTable.cs" />
+    <Compile Remove="Migrations\20210312154249_ChangeBookUpdateTable.Designer.cs" />
+    <Compile Remove="Migrations\20210312154557_ChangeBookUpdateTable.cs" />
+    <Compile Remove="Migrations\20210312154557_ChangeBookUpdateTable.Designer.cs" />
+    <Compile Remove="Migrations\20210312160609_ChangeBookUpdateTable.cs" />
+    <Compile Remove="Migrations\20210312160609_ChangeBookUpdateTable.Designer.cs" />
+    <Compile Remove="Migrations\20210313001820_ChangeBookUpdateTable.cs" />
+    <Compile Remove="Migrations\20210313001820_ChangeBookUpdateTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

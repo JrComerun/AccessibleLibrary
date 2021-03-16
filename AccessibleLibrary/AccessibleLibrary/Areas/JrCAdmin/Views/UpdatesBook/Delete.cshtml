@@ -1,0 +1,114 @@
+﻿@model UpdateBookVM
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="row d-flex justify-content-center  ">
+    <div class="col-md-6 grid-margin stretch-card bg-dark text-light">
+        <div class="card  bg-dark">
+
+            <div class="col-12 card-body ">
+                <h5 style="font-weight:600 !important"> Adı : <span style="font-weight:200 !important"> @Model.Book.Name </span></h5>
+            </div>
+            <div class="col-12 card-body">
+                <h5 style="font-weight:600 !important">Müəllifi : <span style="font-weight:200 !important"> @Model.Book.Auhtor </span></h5>
+            </div>
+            <div class="col-12 card-body ">
+                <h5 style="font-weight:600 !important">Dili : <span style="font-weight:200 !important"> @Model.Book.BookLanguage.Name </span></h5>
+            </div>
+            <div class="col-12 card-body ">
+                <h5 style="font-weight:600 !important">Qiyməti : <span style="font-weight:200 !important"> @Model.Book.Price </span></h5>
+            </div>
+            @foreach (BookCategory bc in Model.Book.BookCategories)
+            {
+                @if (bc.Category.IsMain)
+                {
+                    <div class="col-6 card-body ">
+                        <h5 style="font-weight:600 !important">Kateqori : <span style="font-weight:200 !important"> @bc.Category.Name </span></h5>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-6 card-body ">
+                        <h5 style="font-weight:600 !important">Kateqori : <span style="font-weight:200 !important"> @bc.Category.Parent.Name </span></h5>
+                    </div>
+                    <div class="col-6 card-body ">
+                        <h5 style="font-weight:600 !important">Alt Kateqori : <span style="font-weight:200 !important"> @bc.Category.Name </span></h5>
+                    </div>
+                }
+            }
+            <div class="col-12 card-body ">
+                <h5 style="font-weight:600 !important">Email : <span style="font-weight:200 !important"> @Model.Book.Email </span></h5>
+            </div>
+            <div class="col-12 card-body">
+                <h5 style="font-weight:600 !important">Əlaqə Nömrəsi : <span style="font-weight:200 !important"> @Model.Book.Phone </span></h5>
+            </div>
+            <div class="col-12 card-body">
+                <h5 style="font-weight:600 !important">Əlaqədar Şəxs : <span style="font-weight:200 !important"> @Model.Book.SalerName </span></h5>
+            </div>
+            <div class="col-12 card-body">
+                <h5 style="font-weight:600 !important">Şəhər : <span style="font-weight:200 !important"> @Model.Book.BookDetail.BookCity.Name </span></h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 grid-margin stretch-card bg-dark text-light">
+        <div class="card  bg-dark">
+
+
+            <div class="col-12 card-body ">
+                <h5 style="font-weight:600 !important"> Adı : <span style="font-weight:200 !important"> @Model.BookUpdate.Name </span></h5>
+            </div>
+            <div class="col-12 card-body">
+                <h5 style="font-weight:600 !important">Müəllifi : <span style="font-weight:200 !important"> @Model.BookUpdate.Author </span></h5>
+            </div>
+            <div class="col-12 card-body ">
+                <h5 style="font-weight:600 !important">Dili : <span style="font-weight:200 !important"> @ViewBag.Lang </span></h5>
+            </div>
+            <div class="col-12 card-body ">
+                <h5 style="font-weight:600 !important">Qiyməti : <span style="font-weight:200 !important"> @Model.BookUpdate.Price </span></h5>
+            </div>
+            @if (ViewBag.Child != null)
+            {
+                <div class="col-12 card-body ">
+                    <h5 style="font-weight:600 !important">Kateqori : <span style="font-weight:200 !important"> @ViewBag.Main</span></h5>
+                </div>
+
+                <div class="col-12 card-body ">
+                    <h5 style="font-weight:600 !important">Alt Kateqori: <span style="font-weight:200 !important"> @ViewBag.Child</span></h5>
+                </div>
+            }
+            else
+            {
+                <div class="col-12 card-body ">
+                    <h5 style="font-weight:600 !important">Kateqori : <span style="font-weight:200 !important"> @ViewBag.Main</span></h5>
+                </div>
+            }
+
+
+            <div class="col-12 card-body ">
+                <h5 style="font-weight:600 !important">Email : <span style="font-weight:200 !important"> @Model.BookUpdate.Email </span></h5>
+            </div>
+            <div class="col-12 card-body">
+                <h5 style="font-weight:600 !important">Əlaqə Nömrəsi : <span style="font-weight:200 !important"> @Model.BookUpdate.Phone </span></h5>
+            </div>
+            <div class="col-12 card-body">
+                <h5 style="font-weight:600 !important">Əlaqədar Şəxs : <span style="font-weight:200 !important"> @Model.BookUpdate.SalerName </span></h5>
+            </div>
+            <div class="col-12 card-body">
+                <h5 style="font-weight:600 !important">Şəhər : <span style="font-weight:200 !important"> @ViewBag.City </span></h5>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="d-flex my-2 justify-content-center">
+        <a asp-action="TrueUpdated" asp-route-id="@Model.Book.Id" class="btn btn-success  " style="cursor:pointer;">Dəyişməni Təsdiqlə</a>
+        <form method="post">
+            <button type="submit" class="btn btn-secondary  " style="cursor:pointer; margin: 0 30px">Dəyişməni Sil</button>
+        </form>
+
+    </div>
+</div>
+
+

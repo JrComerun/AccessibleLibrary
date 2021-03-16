@@ -151,7 +151,7 @@
                             <span class="nav-profile-name">@User.Identity.Name</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                            <a class="dropdown-item" asp-area="Default" asp-controller="Profile" asp-action="Index" asp-route-username="@User.Identity.Name">
+                            <a class="dropdown-item" asp-area="Default" asp-controller="Home" asp-action="Index" asp-route-username="@User.Identity.Name">
                                 <i class="mdi mdi-settings text-primary"></i>
                                 Home
                             </a>
@@ -193,9 +193,10 @@
                         </a>
                         <div class="collapse" id="ui-basic" style="">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item">  <a class="nav-link" asp-area="JrCAdmin" asp-controller="MyBooks" asp-action="Index"> Mənim Elanlarım </a></li>
-                                <li class="nav-item"><a class="nav-link" asp-area="JrCAdmin" asp-controller="Created" asp-action="Index">Satışda olan kitablar </a></li>
-                                <li class="nav-item">  <a class="nav-link" asp-area="JrCAdmin" asp-controller="UnCreated" asp-action="Index">Təsdiqlənməmiş  kitablar </a></li>
+                                <li class="nav-item"><a class="nav-link" asp-area="JrCAdmin" asp-controller="Created" asp-action="Index">Satışda olan Kitablar </a></li>
+                                <li class="nav-item">  <a class="nav-link" asp-area="JrCAdmin" asp-controller="UnCreated" asp-action="Index">Təsdiqlənməmiş  Kitablar </a></li>
+                                <li class="nav-item">  <a class="nav-link" asp-area="JrCAdmin" asp-controller="UpdatesBook" asp-action="Index"> Yenilənən Kitablar </a></li>
+
                             </ul>
                         </div>
                     </li>

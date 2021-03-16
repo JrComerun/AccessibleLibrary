@@ -1,0 +1,178 @@
+﻿@model Book
+@{
+    ViewData["Title"] = "Update";
+}
+<section class="addbook">
+    <div class="container">
+        <h2 class="anouncement-title">Kitab haqqında</h2>
+        <hr class="divider" />
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <form method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-6 form-item form-group">
+                    <label>Kitabın adı :</label>
+                    <input asp-for="@Model.Name" placeholder="Ad" />
+                    <span asp-validation-for="@Model.Name" class="text-danger ml-2"></span>
+                </div>
+                <div class="col-md-6 form-item form-group">
+                    <label>Kitabın müəllifi :</label>
+                    <input asp-for="@Model.Auhtor" placeholder="Müəllif" />
+                    <span asp-validation-for="@Model.Auhtor" class="text-danger ml-2"></span>
+                </div>
+                <div class="col-md-6 form-item form-group">
+                    <label>Kitabın qiyməti (Azn) :</label>
+                    <input asp-for="@Model.Price" placeholder="Qiymət" />
+                    <span asp-validation-for="@Model.Price" class="text-danger ml-2"></span>
+                </div>
+                <div class="col-md-6 form-item">
+                    <div class="select-form">
+                        <label>Kitabın yazıldığı dil : :</label>
+                        <select class="sel-category" Name="LanguageId">
+                            @foreach (BookLanguage lang in ViewBag.Languages)
+                            {
+                                if (Model.BookLanguageId == lang.Id)
+                                {
+                                    <option selected value="@lang.Id">@lang.Name</option>
+                                }
+                                else
+                                {
+                                    <option value="@lang.Id">@lang.Name</option>
+                                }
+
+                            }
+                        </select>
+                        <span Name="LanguageId" class="text-danger ml-2"></span>
+                    </div>
+                </div>
+                <div class="col-md-6 form-item ">
+                    <div class="select-form">
+                        <label>Kateqori seç :</label>
+                        <select class="sel-category" Name="MainCatId" id="MainCatId">
+                            @foreach (Category cat in ViewBag.MainCat)
+                            {
+                                foreach (BookCategory bc in Model.BookCategories)
+                                {
+                                    if (bc.CategoryId == cat.Id && bc.Category.IsMain == true)
+                                    {
+                                        <option selected value="@cat.Id">@cat.Name</option>
+                                    }
+                                    else if (bc.Category.ParentId == cat.Id)
+                                    {
+                                        <option selected value="@cat.Id">@cat.Name</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@cat.Id">@cat.Name</option>
+                                    }
+                                    
+                                }
+
+                            }
+                        </select>
+                        <span Name="MainCatId" class="text-danger ml-2"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 form-item " id="ChilCatCol">
+                    <div class="select-form">
+                        <label>Alt Kateqori seç :</label>
+
+                        <select class="sel-child-category" Name="ChildCatId" Id="ChildCatId">
+                            @foreach (Category cat in ViewBag.ChildCat)
+                            {
+                                foreach (BookCategory bc in Model.BookCategories)
+                                {
+                                    if (bc.CategoryId == cat.Id && bc.Category.IsMain == false)
+                                    {
+                                        <option selected value="@cat.Id">@cat.Name</option>
+                                    }
+                                    else if (bc.Category.ParentId == cat.ParentId)
+                                    {
+                                        <option value="@cat.Id">@cat.Name</option>
+
+                                    }
+                                    if (bc.Category.Children.Count() == 0)
+                                    {
+                                        <option value="0">Alt Kategorisi yoxdur</option>
+
+                                    }
+                                }
+                            }
+                        </select>
+                        <span Name="ChildCatId" class="text-danger ml-2"></span>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <hr class="divider" />
+                    <h5>Əlaqə məlumatları</h5>
+                </div>
+                <div class="col-md-6 form-item form-group">
+                    <label>Adınız :</label>
+                    <input asp-for="@Model.SalerName" placeholder="@ViewBag.Name" value="@ViewBag.Name" />
+                    <span asp-validation-for="@Model.SalerName"  class="text-danger ml-2"></span>
+                </div>
+                <div class="col-md-6 form-item form-group">
+                    <label>Email :</label>
+                    <input asp-for="@Model.Email" placeholder="@ViewBag.Email" value="@ViewBag.Email"/>
+                    <span asp-validation-for="@Model.Email"  class="text-danger ml-2"></span>
+                </div>
+                <div class="col-md-6 form-item form-group">
+                    <label>Əlaqə nömrəsi (+994) :</label>
+                    <input asp-for="@Model.Phone" placeholder="Mobil nömrə" />
+                    <span class="ml-2">Misal(5068404400)</span>
+                    <span asp-validation-for="@Model.Phone" class="text-danger ml-2"></span>
+                </div>
+                <div class="col-md-6 form-item">
+                    <div class="select-form">
+                        <label for="">Şəhər seç :</label>
+                        <select class="sel-child-category" Name="CityId">
+                            @foreach (BookCity city in ViewBag.Cities)
+                            {
+                                if (Model.BookDetail.BookCityId == city.Id)
+                                {
+                                    <option selected value="@city.Id">@city.Name</option>
+                                }
+                                else
+                                {
+                                    <option value="@city.Id">@city.Name</option>
+
+                                }
+                            }
+                        </select>
+                        <span Name="CityId" class="text-danger ml-2"></span>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="select-btn">Dəyişdir</button>
+        </form>
+    </div>
+</section>
+@section Scripts{
+    <script>
+
+        $(document).ready(function () {
+            $(document).on("change", "#MainCatId", function () {
+                $("#ChildCatId").empty()
+                $("#ChildCatId").prop("disabled", false);
+                let mainCtgId = $(this).val();
+                $.ajax({
+                    url: "/AddBook/LoadChildCategory?MainCatId=" + mainCtgId,
+                    type: "Get",
+                    success: function (res) {
+                        $("#ChildCatId").append(res)
+                        if ($("#ChildCatId").val() == 0) {
+                            $("#ChildCatId").prop("disabled", true)
+                        }
+
+
+                    }
+                })
+            })
+        })
+    </script>
+}
+@section Css{
+    <link rel="stylesheet" href="~/src/css/secondary.css" />
+}
+

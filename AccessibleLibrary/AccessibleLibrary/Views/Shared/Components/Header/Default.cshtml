@@ -38,12 +38,12 @@
                 </div>
                 <div class="col-lg-4 header-bar-center">
                     <div class="header-search">
-                        <form action="">
+                        <form asp-controller="Books" asp-action="Filter">
                             <div class="input-group">
                                 <div class="form-outline">
-                                    <input type="search" id="form1" class="form-control" />
+                                    <input type="search" id="form1" name="Key" class="form-control" />
                                 </div>
-                                <button type="button" class="btn btn-primary">
+                                <button type="submit" id="global-search" class="btn btn-primary">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>

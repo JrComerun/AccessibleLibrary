@@ -1,13 +1,14 @@
 ﻿@model Book
 @{
     ViewData["Title"] = "Detail";
+    string whatsapp = "https://wa.me/994";
 }
 
 <!-- *-*-*-*-*-*-*-*-*      Most Viewed Start      *-*-*-*-*-*-*-*-* -->
 <section id="Book-Detail">
     <div class="container pb-5">
         <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-8">
+            <div class="col-lg-8 ">
                 <div class="book">
                     <div class="book-images">
                         @foreach (BookImage img in Model.BookImages)
@@ -66,8 +67,19 @@
                         <div class="book-content-body">
                             <div class="book-author"><span>Muəllif : </span> @Model.Auhtor</div>
                             <div class="book-language"><span>Dil : </span> @Model.BookLanguage.Name</div>
-                            <div class="book-Category"><span>Kateqoriya : </span> Dərslik</div>
-                            <div class="book-Category"><span>Alt Kateqoriya : </span> Digər</div>
+                            @foreach (BookCategory bc in Model.BookCategories)
+                            {
+                                if (bc.Category.Parent != null)
+                                {
+                                    <div class="book-Category"><span>Kateqoriya : </span> @bc.Category.Parent.Name</div>
+                                    <div class="book-Category"><span>Alt Kateqoriya : </span> @bc.Category.Name</div>
+                                }
+                                else
+                                {
+                                    <div class="book-Category"><span>Kateqoriya : </span> @bc.Category.Name</div>
+                                }
+                            }
+
                         </div>
                         <div class="book-content-footer d-flex justify-content-between align-items-center">
                             <div class="location">@Model.BookDetail.BookCity.Name</div>
@@ -78,34 +90,23 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4">
-                <div class="book-contact">
-                    <div class="contact-head d-flex justify-content-center">
-                        <div class="book-price">5 Azn</div>
+            <div class="col-lg-4">
+                <div class="book-contact d-flex flex-column align-items-center">
+                    <div class="contact-head d-flex w-100 justify-content-center">
+                        <div class="book-price">@Model.Price Azn</div>
                     </div>
-                    <div class="contact-body d-flex justify-content-center align-items-center">
+                    <div class="contact-body d-flex w-100 justify-content-center align-items-center">
                         <div class="person-img">
                             <img src="~/src/img/users/@Model.AppUser.Image" alt="" />
                         </div>
                         <div class="person-name">@Model.AppUser.Name</div>
                     </div>
-                    <div class="contact-message">
-                        <form action=""
-                              class="d-flex justify-content-center align-items-center flex-column">
-                            <div class="form-group w-100">
-                                <textarea class="form-control"
-                                          id="exampleFormControlTextarea1"
-                                          rows="7"
-                                          placeholder="Mesaj ..."></textarea>
-                            </div>
-                            <div class="form-group">
-                                <button>Mesajı göndər</button>
-                            </div>
-                        </form>
-                    </div>
+
                     <div class="contact-footer ">
-                        <div class="whatsapp">
-                            <a href="" class="">
+
+
+                        <div class="whatsapp mb-3">
+                            <a href="@whatsapp@Model.Phone.ToString()" class="">
                                 <i class="fab fa-whatsapp"></i>
                                 <span> Whatsappdan yaz </span>
                             </a>
@@ -119,6 +120,13 @@
                             <span> @Model.Email  </span>
                         </div>
                     </div>
+                    @if (User.Identity.Name == Model.AppUser.UserName|| User.IsInRole("Admin"))
+                    {
+                        <div class="control d-flex flex-column">
+                            <a asp-controller="Books" asp-action="Update" asp-route-id="@Model.Id"> Düzəliş et</a>
+                            <a asp-controller="Books" asp-action="Delete" asp-route-id="@Model.Id">Elanı Sil</a>
+                        </div>
+                    }
                 </div>
             </div>
         </div>

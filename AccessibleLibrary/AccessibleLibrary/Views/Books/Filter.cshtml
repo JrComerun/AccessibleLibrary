@@ -1,48 +1,55 @@
-﻿
+﻿@model List<Book>
 @{
     ViewData["Title"] = "Filter";
+    string whatsapp = "https://wa.me/994";
 }
 <!-- *-*-*-*-*-*-*-*-*      Filter Start      *-*-*-*-*-*-*-*-* -->
 <section id="Filter">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 form-filter">
-                <form action="">
+                <form   method="post">
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="select-form">
                                 <label for="">Kateqori seç :</label>
-                                <select class="sel-category">
-                                    <option selected>Bütun Kateqorilər</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <select class="sel-category" Name="MainCatId" id="MainCatId">
+                                    <option value="0 " selected>Bütun Kateqorilər</option>
+
+                                    @foreach (Category cat in ViewBag.MainCat)
+                                    {
+                                        <option value="@cat.Id">@cat.Name</option>
+                                    }
                                 </select>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="select-form">
                                 <label for="">Alt Kateqori seç :</label>
-                                <select class="sel-child-category">
-                                    <option selected>Bütun Elanlar</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <select class="sel-child-category" Name="ChildCatId" Id="ChildCatId">
+                                    <option value="0" selected>Bütun Elanlar</option>
+
+                                    @foreach (Category cat in ViewBag.ChildCat)
+                                    {
+                                        <option value="@cat.Id">@cat.Name</option>
+                                    }
                                 </select>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        @*<div class="col-sm-4">
                             <div class="select-form">
                                 <label for="">Şəhər seç :</label>
-                                <select class="sel-village">
-                                    <option selected>Bütun Şəhərlər</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <select class="sel-child-category" Name="CityId">
+                                    <option value="0" selected>Bütun Şəhərlər</option>
+
+                                    @foreach (BookCity city in ViewBag.Cities)
+                                    {
+                                        <option value="@city.Id">@city.Name</option>
+                                    }
                                 </select>
                             </div>
-                        </div>
-                        <div class="col-sm-4">
+                        </div>*@
+                        @*<div class="col-sm-4">
                             <div class="cost">
                                 <div class="cost-lab">
                                     <label class="cost-label">Qiymət :</label>
@@ -54,7 +61,9 @@
                                                    min="0"
                                                    max="9999999999"
                                                    placeholder="Min"
-                                                   value="" />
+                                                   name="Min"
+                                                   id="Min"
+                                                   value="0"/>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 pr-0">
@@ -63,32 +72,36 @@
                                                    min="0"
                                                    max="9999999999"
                                                    placeholder="Maks"
-                                                   value="" />
+                                                   name="Max"
+                                                   id="Max"
+                                                   value="1000"/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-4">
+                        </div>*@
+                        @*<div class="col-sm-4">
                             <div class="select-form">
                                 <label for="">Dil seç :</label>
-                                <select class="sel-village">
-                                    <option selected>Bütun Dillər</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <select class="sel-category" Name="LanguageId" id="LanguageId">
+                                    <option value="0" selected>Bütun Dillər</option>
+
+                                    @foreach (BookLanguage lang in ViewBag.Languages)
+                                    {
+                                        <option value="@lang.Id">@lang.Name</option>
+                                    }
                                 </select>
                             </div>
-                        </div>
+                        </div>*@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="">Ətraflı Axtar :</label>
-                                <input type="text" placeholder="Mən Axtarıram" />
+                                <input type="text" name="Key" id="SearchKey" placeholder="Mən Axtarıram" />
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="search-btn">
-                                <button type="submit">Axtar</button>
+                                <button type="submit" id="filter-form">Axtar</button>
                             </div>
                         </div>
                     </div>
@@ -109,20 +122,118 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            @await Component.InvokeAsync("Books", new { take = 8, isActive = true, order = "Id", view = "classic" });
-        </div>
-        <div class="row">
-            <div class="col-12 d-flex justify-content-center my-5 loadMore">
-                <a href="">Dahasına Bax</a>
+        @if (Model.Count() ==0)
+        {
+            <div class="row justify-content-center" id="lessfilterbooks">
+
+                @await Component.InvokeAsync("Books", new { take = 8, isActive = true, order = "Id", view = "classic" });
+
             </div>
-        </div>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center my-5 loadMore">
+                    <a href="">Dahasına Bax</a>
+                </div>
+            </div>
+        }
+        else
+        {
+    <div class="row justify-content-center" id="filterbooks">
+        @foreach (Book b in Model)
+        {
+            <!-- ---------------------     Book    --------------------- -->
+            <div class="col-lg-3 col-6 d-flex align-items-center @ViewBag.View">
+                <div class="book">
+                    <div class="book-img">
+                        @foreach (BookImage img in b.BookImages.Where(i => i.IsMain == true))
+                        {
+                            <img src="~/src/img/books/@img.Image" alt="" />
+                        }
+                        <div class="book-price">@(b.Price)azn</div>
+                    </div>
+                    <div class="book-content">
+                        <div class="book-content-head">
+                            <a href="@whatsapp@b.Phone.ToString()">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            @{
+                                if (User.Identity.IsAuthenticated)
+                                {
+                                    if (b.AppUserBooks.Any(ab => ab.AppUserId == ViewBag.UserId && ab.BookId == b.Id))
+                                    {
+                                        <a class="bookmark-a">
+                                            <i style="color: #861703 !important" class="fas fa-bookmark"></i>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a class="bookmark-a">
+                                            <i class="far fa-bookmark"></i>
+                                        </a>
+                                    }
+                                }
+                                else
+                                {
+                                    <a style="cursor:pointer" data-toggle="modal" data-target="#Login-Reg" onclick="SwitchToLog()">
+                                        <i class="far fa-bookmark"></i>
+                                    </a>
+                                }
+
+                            }
+                            <input type="hidden" value="@b.Id" />
+                        </div>
+                        <div class="book-content-body">
+                            <a asp-controller="Books" asp-action="Detail" asp-route-id="@b.Id">
+                                <div class="book-name">@b.Name</div>
+                            </a>
+                            <div class="book-author">Müəllif : @b.Auhtor</div>
+                            <div class="book-lang book-author">Dil : @b.BookLanguage.Name</div>
+                        </div>
+                        <div class="book-content-footer">
+                            <div class="book-watch">
+                                <a asp-controller="Books" asp-action="Detail" asp-route-id="@b.Id"> Ətraflı bax </a>
+                            </div>
+                            <a asp-controller="Profile" asp-action="Index" asp-route-username="@b.AppUser.UserName">
+                                <div class="book-saler-img">
+                                    <img src="~/src/img/users/@b.AppUser.Image" alt="" />
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ---------------------------------------------------------- -->
+        }
+    </div>
+        }
+
     </div>
 </section>
 <!-- *-*-*-*-*-*-*-*-*      Last Books End      *-*-*-*-*-*-*-*-* -->
 <!-- ---------------------------------------------------------- -->
 
+@section Scripts{
+    <script>
 
+        $(document).ready(function () {
+            $(document).on("change", "#MainCatId", function () {
+                $("#ChildCatId").empty()
+                $("#ChildCatId").prop("disabled", false);
+                let mainCtgId = $(this).val();
+                $.ajax({
+                    url: "/Books/LoadChildCategory?MainCatId=" + mainCtgId,
+                    type: "Get",
+                    success: function (res) {
+                        $("#ChildCatId").append(res)
+                        if ($("#ChildCatId").val() == 0) {
+                            $("#ChildCatId").prop("disabled", true)
+                        }
+                    }
+                })
+            })
+           
+        })
+    </script>
+}
 @section Css{
     <link rel="stylesheet" href="~/src/css/secondary.css" />
 }

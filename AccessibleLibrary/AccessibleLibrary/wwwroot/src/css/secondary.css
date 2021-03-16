@@ -1,2 +1,132 @@
-header{background:none !important;height:-webkit-max-content;height:-moz-max-content;height:max-content;background-color:#110825 !important}header::after{z-index:-1;height:-webkit-max-content;height:-moz-max-content;height:max-content}.pad-top80{padding-top:50px !important}
+header {
+    background: none !important;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    background-color: #110825 !important
+}
+
+    header::after {
+        z-index: -1;
+        height: -webkit-max-content;
+        height: -moz-max-content;
+        height: max-content
+    }
+
+.pad-top80 {
+    padding-top: 50px !important
+}
 /*# sourceMappingURL=secondary.css.map */
+.book-contact .control {
+    text-align: center;
+    width: 70% !important
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 922px) {
+    .book-contact .control {
+        text-align: center;
+        width: 40% !important
+    }
+}
+
+.book-contact .control a {
+    text-align: center;
+    cursor: pointer;
+    margin: 0px;
+    border: none;
+    color: #dddada !important;
+    font-size: 16px;
+    padding: 5px 20px 5px 20px;
+    z-index: 5;
+    font-weight: 500;
+    background: #861703 !important;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+    .book-contact .control a::after {
+        content: "";
+        position: absolute;
+        bottom: 2px;
+        left: 2px;
+        border-color: transparent transparent transparent #dddada;
+        border-width: 18px 0 0 18px;
+        width: 0;
+        height: 0;
+        border-style: solid
+    }
+
+    .book-contact .control a::before {
+        content: "";
+        position: absolute;
+        top: 3px;
+        right: 2px;
+        border-color: transparent #dddada transparent transparent;
+        border-width: 0 18px 18px 0;
+        width: 0;
+        height: 0;
+        border-style: solid
+    }
+
+@media only screen and (max-width: 768px) {
+    #Profile .col-12 nav .nav a {
+        width: 50% !important;
+        text-align: center
+    }
+
+    #Profile .settings-tab .nav {
+        flex-direction: row !important;
+    }
+
+    #Profile .settings-tab .nav-link {
+        width: 50% !important;
+        text-align: center
+    }
+
+    #Profile .set {
+        flex-direction: column !important
+    }
+
+    #Profile .settings-tab {
+        flex-direction: row !important;
+    }
+}
+
+#SmallPage .approve-footer #delete-book button {
+    cursor: pointer;
+    margin: 0px;
+    border: none;
+    color: #dddada;
+    font-size: 16px;
+    padding: 3px 20px 3px 20px;
+    z-index: 5;
+    font-weight: 500;
+    background: #861703;
+    position: relative;
+    overflow: hidden;
+}
+
+#SmallPage .approve-footer #delete-book button::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    border-color: transparent transparent transparent #dddada;
+    border-width: 18px 0 0 18px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+#SmallPage .approve-footer #delete-book button::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: 2px;
+    border-color: transparent #dddada transparent transparent;
+    border-width: 0 18px 18px 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}

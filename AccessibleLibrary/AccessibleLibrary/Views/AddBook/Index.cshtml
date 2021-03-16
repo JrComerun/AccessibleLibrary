@@ -34,7 +34,7 @@
                                 <option value="@lang.Id">@lang.Name</option>
                             }
                         </select>
-                        <span Name="LanguageId" class="text-danger ml-2"></span>
+                        <span  class="text-danger ml-2"></span>
                     </div>
                 </div>
                 <div class="col-md-6 form-item ">
@@ -46,7 +46,7 @@
                                 <option value="@cat.Id">@cat.Name</option>
                             }
                         </select>
-                        <span Name="MainCatId" class="text-danger ml-2"></span>
+                        <span  class="text-danger ml-2"></span>
                     </div>
                 </div>
 
@@ -60,7 +60,7 @@
                                 <option value="@cat.Id">@cat.Name</option>
                             }
                         </select>
-                        <span Name="ChildCatId" class="text-danger ml-2"></span>
+                        <span  class="text-danger ml-2"></span>
                     </div>
                 </div>
                 <div class="col-md-6 form-item">
@@ -87,13 +87,13 @@
                 </div>
                 <div class="col-md-6 form-item form-group">
                     <label>Adınız :</label>
-                    <input asp-for="@Model.SalerName" placeholder="@ViewBag.Name" />
-                    <span asp-validation-for="@Model.SalerName" value="@ViewBag.Name" class="text-danger ml-2"></span>
+                    <input asp-for="@Model.SalerName" placeholder="@ViewBag.Name" value="@ViewBag.Name" />
+                    <span asp-validation-for="@Model.SalerName"  class="text-danger ml-2"></span>
                 </div>
                 <div class="col-md-6 form-item form-group">
                     <label>Email :</label>
-                    <input asp-for="@Model.Email" placeholder="@ViewBag.Email" />
-                    <span asp-validation-for="@Model.Email" value="@ViewBag.Email" class="text-danger ml-2"></span>
+                    <input asp-for="@Model.Email" placeholder="@ViewBag.Email" value="@ViewBag.Email" />
+                    <span asp-validation-for="@Model.Email"  class="text-danger ml-2"></span>
                 </div>
                 <div class="col-md-6 form-item form-group">
                     <label>Əlaqə nömrəsi (+994) :</label>

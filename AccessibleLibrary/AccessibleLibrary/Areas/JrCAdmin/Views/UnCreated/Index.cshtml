@@ -39,15 +39,12 @@
                                     @foreach (BookImage img in b.BookImages.Where(i=>i.IsMain==true))
                                     {
                                         <img src="~/src/img/books/@img.Image" class="img-fluid " style="width:80px !important;height:80px!important;object-fit: cover !important;" />
-                                    }
-
-                                                            </td>
+                                    }                 </td>
                                 <td style="text-transform:capitalize!important">@b.Name</td>
                                 <td>@b.BookDetail.CreateTime.ToString("D")</td>
                                 <td>@b.Price</td>
 
                                 <td class="d-flex flex-column align-items-end">
-                                    
                                         <a style="width:80px!important" asp-controller="UnCreated" asp-action="Delete" asp-route-id="@b.Id" class="btn btn-outline-success"><i class="mdi mdi-tooltip-edit"></i></a>
                                 </td>
                             </tr>
@@ -58,7 +55,7 @@
                 <div class="row justify-content-center mt-3">
                     <nav class="d-flex ">
                         <ul class="pagination">
-                            @*@for (int i = 1; i <= ViewBag.PageCount; i++)
+                            @for (int i = 1; i <= ViewBag.PageCount; i++)
                             {
                                 if (i == ViewBag.Page)
                                 {
@@ -68,7 +65,7 @@
                                 {
                                     <li class="page-item"><a class="page-link" asp-controller="Course" asp-action="Index" asp-route-page="@i">@i</a></li>
                                 }
-                            }*@
+                            }
 
                         </ul>
                     </nav>
