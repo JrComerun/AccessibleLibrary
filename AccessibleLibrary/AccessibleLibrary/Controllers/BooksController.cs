@@ -34,7 +34,7 @@ namespace AccessibleLibrary.Controllers
             return View(booksVM);
         }
         
-        public async Task<IActionResult> Filter(string Key)
+        public async Task<IActionResult> Filter()
         {
             await GetBookRelationTablesAsync();
             return View();
@@ -42,28 +42,38 @@ namespace AccessibleLibrary.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Filter(string Key,int? MainCatId=0, int? ChildCatId=0)
+        public async Task<IActionResult> Filter(string SearchKey, int? MainCatId=0, int? ChildCatId=0)
         {
-            List<Book> Books = await _db.Books.OrderByDescending(b => b.Id).Where(b => b.IsCreated == true &&
-                b.IsDeleted == false && b.IsActive == true&&( b.Name==Key)).Take(24).Include(b => b.BookImages).
-                Include(b => b.AppUser).Include(b => b.BookLanguage).Include(b => b.AppUserBooks).Include(c=>c.BookCategories).ThenInclude(c=>c.Category).ToListAsync();
-            await GetBookRelationTablesAsync();
-
-            if (MainCatId == 0)
+            List<Book> Books = new List<Book>();
+            if (SearchKey != null)
             {
-                return View( Books);
+                Books = await _db.Books.OrderByDescending(b => b.Id).Where(b => b.IsCreated == true &&
+               b.IsDeleted == false && b.IsActive == true && (b.Name == SearchKey)).Take(24).Include(b => b.BookImages).
+               Include(b => b.AppUser).Include(b => b.BookLanguage).Include(b => b.AppUserBooks).Include(c => c.BookCategories).ThenInclude(c => c.Category).ToListAsync();
             }
             else
             {
-                if(ChildCatId != 0)
+                Books = await _db.Books.OrderByDescending(b => b.Id).Where(b => b.IsCreated == true &&
+              b.IsDeleted == false && b.IsActive == true).Take(24).Include(b => b.BookImages).
+              Include(b => b.AppUser).Include(b => b.BookLanguage).Include(b => b.AppUserBooks).Include(c => c.BookCategories).ThenInclude(c => c.Category).ToListAsync();
+            }
+
+
+            if (MainCatId == 0)
+            {
+                return PartialView("_FilterBookPartial", Books);
+            }
+            else
+            {
+                if (ChildCatId == 0)
                 {
                     foreach (Book book in Books)
                     {
                         foreach (BookCategory bc in book.BookCategories)
                         {
-                            if (bc.CategoryId == MainCatId || bc.CategoryId == ChildCatId)
+                            if (bc.Category.ParentId == MainCatId || bc.CategoryId == MainCatId)
                             {
-                                return View( Books);
+                                return PartialView("_FilterBookPartial", Books);
                             }
                         }
                     }
@@ -74,23 +84,23 @@ namespace AccessibleLibrary.Controllers
                     {
                         foreach (BookCategory bc in book.BookCategories)
                         {
-                            if (bc.Category.ParentId == MainCatId || bc.CategoryId == MainCatId)
+                            if (bc.CategoryId == MainCatId || bc.CategoryId == ChildCatId)
                             {
-                                return View( Books);
+                                return PartialView("_ChildCategoriesPartial2", Books);
                             }
                         }
                     }
+
                 }
             }
-            return View( Books);
-
+            return PartialView("_ChildCategoriesPartial2", Books);
         }
         public async Task<IActionResult> Detail(int? id)
         {
             if (id == null) return View("Error");
 
             Book book = await _db.Books.
-                Where(b => b.IsCreated == true && b.IsDeleted == false && b.IsActive == true).Include(b => b.AppUser).Include(b => b.BookImages).Include(b => b.BookLanguage).
+                Where(b => b.IsCreated == true && b.IsDeleted == false ).Include(b => b.AppUser).Include(b => b.BookImages).Include(b => b.BookLanguage).
                 Include(b => b.BookCategories).ThenInclude(b=>b.Category).ThenInclude(b=>b.Parent).Include(b => b.AppUserBooks).Include(b => b.BookDetail).ThenInclude(b => b.BookCity).FirstOrDefaultAsync(b => b.Id == id);
             if (book == null) return View("Error");
             book.ViewCount++;
@@ -155,7 +165,11 @@ namespace AccessibleLibrary.Controllers
                 bookUpdate.Name = book.Name;
                 bookUpdate.Author = book.Auhtor;
                 bookUpdate.BookId = (int)id;
-                bookUpdate.ChildCatId = (int)ChildCatId;
+                if(ChildCatId!=null)
+                {
+                    bookUpdate.ChildCatId = (int)ChildCatId;
+
+                }
                 bookUpdate.CityId = (int)CityId;
                 bookUpdate.Email = book.Email;
                 bookUpdate.LanguageId = (int)LanguageId;
@@ -175,8 +189,9 @@ namespace AccessibleLibrary.Controllers
         }
 
         #region Delete Book
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id,bool active)
         {
+            ViewBag.Active = active;
             if (User.Identity.IsAuthenticated)
             {
                
@@ -200,9 +215,6 @@ namespace AccessibleLibrary.Controllers
                 return View("Error");
             }
             
-            
-
-            
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -215,19 +227,16 @@ namespace AccessibleLibrary.Controllers
             if (book == null) return RedirectToAction(nameof(Index));
             if (User.Identity.Name == book.AppUser.UserName || User.IsInRole("Admin"))
             {
-                foreach (BookImage image in book.BookImages)
+                if (book.IsActive)
                 {
-                    string folder = Path.Combine("src", "img", "books");
-                    string path = Path.Combine(folder, image.Image);
-                    if (System.IO.File.Exists(path))
-                    {
-                        System.IO.File.Delete(path);
+                    book.IsActive = false;
 
-                    }
-                    _db.BookImages.Remove(image);
                 }
-                _db.BookDetails.Remove(book.BookDetail);
-                _db.Books.Remove(book);
+                else
+                {
+                    book.IsActive = true;
+                }
+                _db.Books.Update(book);
                 await _db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }

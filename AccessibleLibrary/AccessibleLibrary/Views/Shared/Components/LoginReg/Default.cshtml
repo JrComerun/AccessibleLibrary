@@ -39,16 +39,17 @@
                             <button type="submit" class="btn btn-success">Daxil ol</button>
                         </form>
                         <div class="reg-forgot">
-                            <button type="button">Parolu unutmusan?</button>
+                            
+                            <a asp-controller="Account" asp-action="EmailForResetPassword">Parolu unutmusan?</a>
                             <button type="button" class="switch-reg" onclick="SwitchToReg()">
                                 Qeydiyyatdan Keç
                             </button>
                         </div>
-                        <div class="login-soc">
+                        @*<div class="login-soc">
                             <a href=""> <i class="fab fa-facebook-f"></i></a>
                             <a href=""> <i class="fab fa-google"></i></a>
                             <a href=""> <i class="fab fa-vk"></i></a>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
                 <div class="register-part-modal modal-content">

@@ -29,7 +29,7 @@ namespace AccessibleLibrary.Areas.JrCAdmin.Controllers
             b.IsCreated == true && b.IsActive == true).Count() / 8);
 
             ViewBag.Page = page;
-            List<Book> books = await _db.Books.Where(b => b.IsDeleted == false && b.IsCreated == true && b.IsActive == true).
+            List<Book> books = await _db.Books.Where(b => b.IsDeleted == false && b.IsCreated == true).
                 OrderByDescending(d => d.Id).Skip(((int)page - 1) * 8).Take(8).Include(b => b.BookImages).
                 Include(i => i.BookDetail).ToListAsync();
 

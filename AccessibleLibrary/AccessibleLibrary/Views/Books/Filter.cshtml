@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 form-filter">
-                <form   method="post">
+                <form >
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="select-form">
@@ -18,7 +18,7 @@
 
                                     @foreach (Category cat in ViewBag.MainCat)
                                     {
-                                        <option value="@cat.Id">@cat.Name</option>
+                                    <option value="@cat.Id">@cat.Name</option>
                                     }
                                 </select>
                             </div>
@@ -31,77 +31,77 @@
 
                                     @foreach (Category cat in ViewBag.ChildCat)
                                     {
-                                        <option value="@cat.Id">@cat.Name</option>
+                                    <option value="@cat.Id">@cat.Name</option>
                                     }
                                 </select>
                             </div>
                         </div>
-                        @*<div class="col-sm-4">
-                            <div class="select-form">
-                                <label for="">Şəhər seç :</label>
-                                <select class="sel-child-category" Name="CityId">
-                                    <option value="0" selected>Bütun Şəhərlər</option>
+                        <div class="col-sm-4">
+                                <div class="select-form">
+                                    <label for="">Şəhər seç :</label>
+                                    <select class="sel-child-category" Name="CityId">
+                                        <option value="0" selected>Bütun Şəhərlər</option>
 
-                                    @foreach (BookCity city in ViewBag.Cities)
-                                    {
-                                        <option value="@city.Id">@city.Name</option>
-                                    }
-                                </select>
-                            </div>
-                        </div>*@
-                        @*<div class="col-sm-4">
-                            <div class="cost">
-                                <div class="cost-lab">
-                                    <label class="cost-label">Qiymət :</label>
-                                </div>
-                                <div class="min-max">
-                                    <div class="col-lg-6 pl-0">
-                                        <div class="form-group">
-                                            <input type="number"
-                                                   min="0"
-                                                   max="9999999999"
-                                                   placeholder="Min"
-                                                   name="Min"
-                                                   id="Min"
-                                                   value="0"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 pr-0">
-                                        <div class="form-group">
-                                            <input type="number"
-                                                   min="0"
-                                                   max="9999999999"
-                                                   placeholder="Maks"
-                                                   name="Max"
-                                                   id="Max"
-                                                   value="1000"/>
-                                        </div>
-                                    </div>
+                                        @foreach (BookCity city in ViewBag.Cities)
+                                        {
+                                            <option value="@city.Id">@city.Name</option>
+                                        }
+                                    </select>
                                 </div>
                             </div>
-                        </div>*@
-                        @*<div class="col-sm-4">
-                            <div class="select-form">
-                                <label for="">Dil seç :</label>
-                                <select class="sel-category" Name="LanguageId" id="LanguageId">
-                                    <option value="0" selected>Bütun Dillər</option>
-
-                                    @foreach (BookLanguage lang in ViewBag.Languages)
-                                    {
-                                        <option value="@lang.Id">@lang.Name</option>
-                                    }
-                                </select>
+                        <div class="col-sm-4">
+                                <div class="cost">
+                                    <div class="cost-lab">
+                                        <label class="cost-label">Qiymət :</label>
+                                    </div>
+                                    <div class="min-max">
+                                        <div class="col-lg-6 pl-0">
+                                            <div class="form-group">
+                                                <input type="number"
+                                                       min="0"
+                                                       max="9999999999"
+                                                       placeholder="Min"
+                                                       name="Min"
+                                                       id="Min"
+                                                       value="0"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 pr-0">
+                                            <div class="form-group">
+                                                <input type="number"
+                                                       min="0"
+                                                       max="9999999999"
+                                                       placeholder="Maks"
+                                                       name="Max"
+                                                       id="Max"
+                                                       value="1000"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>*@
+                        <div class="col-sm-4">
+                                <div class="select-form">
+                                    <label for="">Dil seç :</label>
+                                    <select class="sel-category" Name="LanguageId" id="LanguageId">
+                                        <option value="0" selected>Bütun Dillər</option>
+
+                                        @foreach (BookLanguage lang in ViewBag.Languages)
+                                        {
+                                            <option value="@lang.Id">@lang.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="">Ətraflı Axtar :</label>
-                                <input type="text" name="Key" id="SearchKey" placeholder="Mən Axtarıram" />
+                                <input type="text" name="SearchKey" id="SearchKey" placeholder="Mən Axtarıram" />
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="search-btn">
-                                <button type="submit" id="filter-form">Axtar</button>
+                                <button type="button" id="filterForm">Axtar</button>
                             </div>
                         </div>
                     </div>
@@ -122,89 +122,19 @@
                 </div>
             </div>
         </div>
-        @if (Model.Count() ==0)
-        {
-            <div class="row justify-content-center" id="lessfilterbooks">
+        <div class="row justify-content-center" id="lessfilterbooks">
 
-                @await Component.InvokeAsync("Books", new { take = 8, isActive = true, order = "Id", view = "classic" });
+            @await Component.InvokeAsync("Books", new { take = 8, isActive = true, order = "Id", view = "classic" });
 
-            </div>
-            <div class="row">
+        </div>
+        @*<div class="row">
                 <div class="col-12 d-flex justify-content-center my-5 loadMore">
                     <a href="">Dahasına Bax</a>
                 </div>
-            </div>
-        }
-        else
-        {
-    <div class="row justify-content-center" id="filterbooks">
-        @foreach (Book b in Model)
-        {
-            <!-- ---------------------     Book    --------------------- -->
-            <div class="col-lg-3 col-6 d-flex align-items-center @ViewBag.View">
-                <div class="book">
-                    <div class="book-img">
-                        @foreach (BookImage img in b.BookImages.Where(i => i.IsMain == true))
-                        {
-                            <img src="~/src/img/books/@img.Image" alt="" />
-                        }
-                        <div class="book-price">@(b.Price)azn</div>
-                    </div>
-                    <div class="book-content">
-                        <div class="book-content-head">
-                            <a href="@whatsapp@b.Phone.ToString()">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            @{
-                                if (User.Identity.IsAuthenticated)
-                                {
-                                    if (b.AppUserBooks.Any(ab => ab.AppUserId == ViewBag.UserId && ab.BookId == b.Id))
-                                    {
-                                        <a class="bookmark-a">
-                                            <i style="color: #861703 !important" class="fas fa-bookmark"></i>
-                                        </a>
-                                    }
-                                    else
-                                    {
-                                        <a class="bookmark-a">
-                                            <i class="far fa-bookmark"></i>
-                                        </a>
-                                    }
-                                }
-                                else
-                                {
-                                    <a style="cursor:pointer" data-toggle="modal" data-target="#Login-Reg" onclick="SwitchToLog()">
-                                        <i class="far fa-bookmark"></i>
-                                    </a>
-                                }
+            </div>*@
+        <div class="row justify-content-center" id="filterbooks">
 
-                            }
-                            <input type="hidden" value="@b.Id" />
-                        </div>
-                        <div class="book-content-body">
-                            <a asp-controller="Books" asp-action="Detail" asp-route-id="@b.Id">
-                                <div class="book-name">@b.Name</div>
-                            </a>
-                            <div class="book-author">Müəllif : @b.Auhtor</div>
-                            <div class="book-lang book-author">Dil : @b.BookLanguage.Name</div>
-                        </div>
-                        <div class="book-content-footer">
-                            <div class="book-watch">
-                                <a asp-controller="Books" asp-action="Detail" asp-route-id="@b.Id"> Ətraflı bax </a>
-                            </div>
-                            <a asp-controller="Profile" asp-action="Index" asp-route-username="@b.AppUser.UserName">
-                                <div class="book-saler-img">
-                                    <img src="~/src/img/users/@b.AppUser.Image" alt="" />
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ---------------------------------------------------------- -->
-        }
-    </div>
-        }
+        </div>
 
     </div>
 </section>
@@ -230,7 +160,26 @@
                     }
                 })
             })
-           
+            $(document).on("click", "#filterForm", function () {
+                $("#lessfilterbooks").css("display", "flex")
+                $.ajax({
+                    url: "/Books/Filter/",
+                    type: "Post",
+                    data: {  "SearchKey": "sdsa" },
+                    success: function (res) {
+                        console.log("dsdffgdf")
+                        console.log(res)
+                        if (res != null) {
+                            $("#filterbooks").append(res)
+                            $("#lessfilterbooks").css("display", "none")
+
+                        }
+
+
+                    }
+                })
+            })
+
         })
     </script>
 }

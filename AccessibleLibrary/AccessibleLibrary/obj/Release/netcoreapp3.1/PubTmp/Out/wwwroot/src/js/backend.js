@@ -129,6 +129,34 @@ $(document).on('click', `#buttonCon`, function () {
         //}
 
 
+        //*********************************************
+        //***************Global search*****************
+        //*********************************************
 
+        //$(document).on("click", "#global-search", function () {
+        //    let globalSearchInput = $("#form1").val()
+           
+        //    $.ajax({
+        //        url: "/Books/Filter/",
+        //        type: "Get",
+        //        data: {
+        //            "Key": globalSearchInput ,
+        //        },
+        //        success: function (res) {
+        //            if (res != null) {
+        //                $("#lessfilterbooks").css("display", "none")
+        //                $("#filterbooks").append(res)
+        //            }
+        //        }
+        //    })
+        //})
+
+
+
+        //*********************************************
+        //***************  Profile  *****************
+        //*********************************************
+
+       
     }
 })

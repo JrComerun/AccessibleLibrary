@@ -26,9 +26,9 @@ namespace AccessibleLibrary.Controllers
             _usermanager = usermanager;
             _env = env;
         }
-        public async Task<IActionResult> Index(string username , string active)
+        public async Task<IActionResult> Index(string username, string active)
         {
-            
+
             if (username == null) return View("Error");
             AppUser userProfile = await _usermanager.FindByNameAsync(username);
             if (userProfile == null) return View("Error");
@@ -44,13 +44,13 @@ namespace AccessibleLibrary.Controllers
             ProfileVM profile = new ProfileVM()
             {
                 User = userProfile,
-                ActiveBooks =await _db.Books.OrderByDescending(b => b.Id).Where(b => b.IsCreated == true && b.IsDeleted == false &&
-                b.IsActive == true && b.AppUser.UserName.ToLower().Trim() == username.ToLower().Trim()).Include(b => b.BookImages).
-                Include(b=>b.BookLanguage).Include(b=>b.AppUserBooks).ToListAsync(),
+                ActiveBooks = await _db.Books.OrderByDescending(b => b.Id).Where(b => b.IsCreated == true && b.IsDeleted == false &&
+                 b.IsActive == true && b.AppUser.UserName.ToLower().Trim() == username.ToLower().Trim()).Include(b => b.BookImages).
+                Include(b => b.BookLanguage).Include(b => b.AppUserBooks).ToListAsync(),
                 DeActiveBooks = await _db.Books.OrderByDescending(b => b.Id).Where(b => b.IsCreated == true && b.IsDeleted == false &&
                 b.IsActive == false && b.AppUser.UserName.ToLower().Trim() == username.ToLower().Trim()).Include(b => b.BookImages).
                 Include(b => b.BookLanguage).Include(b => b.AppUserBooks).ToListAsync(),
-                BookMark=await _db.AppUserBooks.Where(b=>b.AppUser.UserName==User.Identity.Name).ToListAsync(),
+                BookMark = await _db.AppUserBooks.Where(b => b.AppUser.UserName == User.Identity.Name).ToListAsync(),
             };
             ViewBag.Active = active;
             return View(profile);
@@ -61,7 +61,7 @@ namespace AccessibleLibrary.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 AppUser user = await _usermanager.FindByNameAsync(User.Identity.Name);
-                Book book = await _db.Books.Include(b=>b.AppUserBooks).FirstOrDefaultAsync(b => b.Id == id);
+                Book book = await _db.Books.Include(b => b.AppUserBooks).FirstOrDefaultAsync(b => b.Id == id);
                 bool IsBookmark = book.AppUserBooks.Any(b => b.AppUserId == user.Id);
                 if (IsBookmark == false)
                 {
@@ -87,13 +87,29 @@ namespace AccessibleLibrary.Controllers
             if (Photo == null) return Content("Şəkil boşdur");
 
             AppUser user = await _usermanager.FindByNameAsync(User.Identity.Name);
-            if(user== null) return Content("Belə bir istifadəçi yoxdur");
-            if(Photo.IsImage()) return Content("Bu Şəkil deyil");
+            if (user == null) return Content("Belə bir istifadəçi yoxdur");
+            if (!Photo.IsImage()) return Content("Bu Şəkil deyil");
             string folder = Path.Combine("src", "img", "users");
-            string filename =  Photo.SaveImagesAsync(_env.WebRootPath, folder);
+            string filename = Photo.SaveProfileImageAsync(_env.WebRootPath, folder);
             user.Image = filename;
             await _usermanager.UpdateAsync(user);
             return Content("Şəkil dəyişdirildi");
+        }
+          
+        public async Task<IActionResult> ChangeProfileDetail(string SUsername,string SLastname ,string SFirstname)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                AppUser user = await _usermanager.FindByNameAsync(User.Identity.Name);
+                AppUser dbuser = await _usermanager.FindByNameAsync(SUsername);
+                if (dbuser != null) return Content("Bu İsdifadəçi adı artıq mövcuddur !");
+                user.Name = SFirstname;
+                user.Surname = SLastname;
+                user.UserName = SUsername;
+                await _usermanager.UpdateAsync(user);
+                return Content("Təbriklər Dəyişdirildi !");
+            }
+            return Content("OLMAZ !!!");
         }
     }
 }

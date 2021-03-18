@@ -76,7 +76,7 @@ namespace AccessibleLibrary.Controllers
                 return RedirectToAction("EmailVerification", new { email = newUser.Email });
             }
 
-           
+
             return RedirectToAction("Index", "Home");
         }
 
@@ -209,7 +209,7 @@ namespace AccessibleLibrary.Controllers
                 }
 
                 string folder = Path.Combine("img", "user");
-                string fileName =  user.Photo.SaveImagesAsync(_env.WebRootPath, folder);
+                string fileName = user.Photo.SaveImagesAsync(_env.WebRootPath, folder);
                 appUser.Image = fileName;
             }
 
@@ -226,6 +226,64 @@ namespace AccessibleLibrary.Controllers
             return RedirectToAction("Profile");
         }
 
+        public IActionResult EmailForResetPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EmailForResetPassword(EmailForResetPVM resetPVM)
+        {
+            if (resetPVM == null) return View();
+            AppUser user = await _usermanager.FindByEmailAsync(resetPVM.Email);
+            if (user == null) return View();
+            string url = "http://jrcomerun14-001-site1.btempurl.com/" + $"{user.Id}";
+            string subject = "Parol Dəyişmə";
+            string message = $"<a href='{url}'> Parolu Dəyişmək üçün buraya daxil olun'</a>";
+            await Helper.SendMessage(subject, message, user.Email);
+            return RedirectToAction("Login", "Account");
+        }
+
+        public async Task<IActionResult> ResetPassword(string id)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+               
+                return View("Error");
+            }
+            else
+            {
+                if (id == null) return View("Error");
+                AppUser user = await _usermanager.FindByIdAsync(id);
+                if (user == null) return View("Error");
+                return View();
+            }
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(string id, ResetPasswordVM reset)
+        {
+            if (id == null) return View("Error");
+            AppUser user = await _usermanager.FindByIdAsync(id);
+            if (user == null) return View("Error");
+           
+
+          
+            if (!ModelState.IsValid) return View(user);
+
+            IdentityResult identityResult = await _usermanager.ResetPasswordAsync(user, await _usermanager.GeneratePasswordResetTokenAsync(user), reset.Password);
+            if (!identityResult.Succeeded)
+            {
+                foreach (IdentityError error in identityResult.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+                return View(user);
+            }
+
+            return RedirectToAction("Login");
+        }
+
         #region CreateRole
         public async Task CreateRole()
         {
@@ -239,6 +297,11 @@ namespace AccessibleLibrary.Controllers
             };
         }
         #endregion
+        public IActionResult ResetPasswordVerification()
+        {
+           
+            return View();
 
+        }
     }
 }

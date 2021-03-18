@@ -229,7 +229,7 @@
                     {
                         if (Model.BookMark.Count() == 0)
                         {
-                            
+
                             <div class="tab-pane fade @((ViewBag.Active=="Bookmark")?"active show":"")"
                                  id="nav-selected"
                                  role="tabpanel"
@@ -278,7 +278,7 @@
                                                                 else
                                                                 {
                                                                     <a class="bookmark-a">
-                                                                        <i  class="far fa-bookmark"></i>
+                                                                        <i class="far fa-bookmark"></i>
                                                                     </a>
                                                                 }
                                                             }
@@ -504,7 +504,7 @@
                                                 <div class="col-12 text-center">
                                                     <div style="display: inline-block" class="profile-img-holder form-item">
                                                         <div class="profile-settings-image">
-                                                            <img class="img-fluid" src="~/src/img/users/@Model.User.Image" alt="" />
+                                                            <img style="object-fit:cover;" id="" class="img-fluid" src="~/src/img/users/@Model.User.Image" alt="" />
                                                         </div>
                                                         <label class="change-img-input-btn m-0" for="change-img">
                                                             <div class="profile-icon">
@@ -524,18 +524,22 @@
                                             <form class="settings-form">
                                                 <div class="col-md-8 col-lg-6 form-item form-group">
                                                     <label>Ad :</label>
-                                                    <input type="text" placeholder="Ad" />
+                                                    <input type="text" id="SFirstname" placeholder="@Model.User.Name" value="@Model.User.Name" />
+                                                    <span id="SFirstnameError" class="text-danger"> </span>
                                                 </div>
                                                 <div class="col-md-8 col-lg-6 form-item form-group">
                                                     <label>Soyad :</label>
-                                                    <input type="text" placeholder="Soyad" />
+                                                    <input type="text" id="SLastname" placeholder="@Model.User.Surname" value="@Model.User.Surname" />
+                                                    <span id="SLastnameError" class="text-danger"> </span>
                                                 </div>
                                                 <div class="col-md-8 col-lg-6 form-item form-group">
                                                     <label>İstifadəçi adı :</label>
-                                                    <input type="text" placeholder="İstifadəçi adı" />
+                                                    <input type="text" id="SUsername" placeholder="@Model.User.UserName" value="@Model.User.UserName" />
+                                                    <span id="SUsernameError" class="text-danger"> </span>
                                                 </div>
+                                                <div id="backError" class="text-danger"></div>
                                                 <div class="col-md-8 col-lg-6 select-btn-holder">
-                                                    <button type="submit" class="select-btn">Təsdiqlə</button>
+                                                    <button type="button" id="SProfile" class="select-btn">Təsdiqlə</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -576,7 +580,64 @@
     </div>
 </section>
 <!-- *-*-*-*-*-*-*-*-*      Profile End      *-*-*-*-*-*-*-*-* -->
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $(document).on("click", "#change-profimg", function () {
+                let changeImg = $("#change-img")[0].files[0];
+                var formData = new FormData();
+                formData.append("Photo", changeImg);
+                $.ajax({
+                    url: "/Profile/ChangeProfileImage/",
+                    type: "Post",
+                    data: formData,
+                    dataType: 'json',
+                    contentType: false,
+                    processData: false,
+                    success: function (res) {
+                        $("#img-error").append(res)
+                    }
+                })
+            })
+            let SFirstname;
+            let SLastname;
+            let SUsername;
+            $(document).on("click", "#SProfile", function () {
+                $("#SFirstnameError").text = "";
+                $("#SLastnameError").text = ""; 
+                $("#SUsernameError").text = "";
+                $("#backError").text = "";
+                SFirstname = $("#SFirstname").val()
+                SLastname = $("#SLastname").val()
+                SUsername = $("#SUsername").val()
 
+                if (SFirstname == "") {
+                    $("#SFirstnameError").text = "Bu xana boş ola bilməz"
+
+                }
+                if (SLastname == "") {
+                    $("#SLastnameError").text = "Bu xana boş ola bilməz"
+                }
+                if (SUsername == "") {
+                    $("#SUsernameError").text = "Bu xana boş ola bilməz"
+                }
+                $.ajax({
+                    url: "/Profile/ChangeProfileDetail/",
+                    type: "Post",
+                    data: {
+                        "SFirstname": SFirstname,
+                        "SLastname": SLastname,
+                        "SUsername": SUsername
+                    },
+                    success: function (res) {
+                        $("#backError").append(res)
+                    }
+                })
+            })
+
+        })
+    </script>
+}
 @section Css{
     <link rel="stylesheet" href="~/src/css/secondary.css" />
 }

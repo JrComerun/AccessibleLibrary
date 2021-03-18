@@ -120,11 +120,19 @@
                             <span> @Model.Email  </span>
                         </div>
                     </div>
-                    @if (User.Identity.Name == Model.AppUser.UserName|| User.IsInRole("Admin"))
+                    @if (User.Identity.Name == Model.AppUser.UserName || User.IsInRole("Admin"))
                     {
                         <div class="control d-flex flex-column">
                             <a asp-controller="Books" asp-action="Update" asp-route-id="@Model.Id"> Düzəliş et</a>
-                            <a asp-controller="Books" asp-action="Delete" asp-route-id="@Model.Id">Elanı Sil</a>
+                            @if (Model.IsActive)
+                            {
+                                <a asp-controller="Books" asp-action="Delete" asp-route-id="@Model.Id" asp-route-active="true">Elanı DeAktiv et</a>
+                            }
+                            else
+                            {
+                                <a asp-controller="Books" asp-action="Delete" asp-route-id="@Model.Id" asp-route-active="false">Elanı Aktiv et</a>
+                            }
+
                         </div>
                     }
                 </div>

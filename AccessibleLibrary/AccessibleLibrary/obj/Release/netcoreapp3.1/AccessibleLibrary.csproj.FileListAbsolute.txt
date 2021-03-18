@@ -188,3 +188,8 @@ C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Rel
 C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Release\netcoreapp3.1\Razor\Views\Books\WaitBookUpdate.cshtml.g.cs
 C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Release\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
 C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Release\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
+C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Release\netcoreapp3.1\Razor\Views\Account\EmailForResetPassword.cshtml.g.cs
+C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Release\netcoreapp3.1\Razor\Views\Account\ResetPassword.cshtml.g.cs
+C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Release\netcoreapp3.1\Razor\Views\Books\Delete.cshtml.g.cs
+C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Release\netcoreapp3.1\Razor\Views\Shared\_ChildCategoriesPartial2.cshtml.g.cs
+C:\Users\TOSHIBA\Desktop\developback\AccessibleLibrary\AccessibleLibrary\obj\Release\netcoreapp3.1\Razor\Views\Account\ResetPasswordVerification.cshtml.g.cs

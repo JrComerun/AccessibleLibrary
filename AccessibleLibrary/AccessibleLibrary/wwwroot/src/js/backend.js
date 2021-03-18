@@ -133,14 +133,14 @@ $(document).on('click', `#buttonCon`, function () {
         //***************Global search*****************
         //*********************************************
 
-        //$(document).on("click", "#global-search", function () {
+        //$(document).on("click", "#filter-form", function () {
         //    let globalSearchInput = $("#form1").val()
            
         //    $.ajax({
         //        url: "/Books/Filter/",
         //        type: "Get",
         //        data: {
-        //            "Key": globalSearchInput ,
+        //            "SearchKey": "" ,
         //        },
         //        success: function (res) {
         //            if (res != null) {
@@ -157,20 +157,7 @@ $(document).on('click', `#buttonCon`, function () {
         //***************  Profile  *****************
         //*********************************************
 
-        $(document).on("click", "#change-profimg", function () {
-            console.log("sff")
-            let changeImg = $("#change-img").val()
-            $.ajax({
-                url: "/Profile/ChangeProfileImage/",
-                type: "Post",
-                data: {
-                    "Photo": changeImg ,
-                },
-                success: function (res) {
-                    $("#img-error").append(res)
-
-                }
-            })
-        })
+       
+       
     }
 })

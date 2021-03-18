@@ -108,20 +108,20 @@ namespace AccessibleLibrary.Controllers
                 await _db.SaveChangesAsync();
                 BookCategory bookCategories = new BookCategory();
                 
-                if (ChildCatId != 0)
+                if (ChildCatId == 0|| ChildCatId==null)
                 {
-
                     bookCategories.BookId = book.Id;
-                    bookCategories.CategoryId = (int)ChildCatId;
+                    bookCategories.CategoryId = (int)MainCatId;
                     await _db.BookCategories.AddAsync(bookCategories);
+                    
 
                 }
                 else
                 {
-
                     bookCategories.BookId = book.Id;
-                    bookCategories.CategoryId = (int)MainCatId;
+                    bookCategories.CategoryId = (int)ChildCatId;
                     await _db.BookCategories.AddAsync(bookCategories);
+
                 }
 
                 BookDetail bookDetail = new BookDetail();

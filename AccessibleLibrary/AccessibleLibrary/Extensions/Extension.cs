@@ -33,6 +33,19 @@ namespace AccessibleLibrary.Extensions
             newImage.Save(path);
             return fileName;
         }
+        public static string SaveProfileImageAsync(this IFormFile photo, string root, string folder)
+        {
+            string fileName = Guid.NewGuid().ToString() + photo.FileName;
+            string path = Path.Combine(root, folder, fileName);
+            Image image = Image.FromStream(photo.OpenReadStream(), true, true);
+            var newImage = new Bitmap(200, 200);
+            using (var g = Graphics.FromImage(newImage))
+            {
+                g.DrawImage(image, 0, 0, 200, 200);
+            }
+            newImage.Save(path);
+            return fileName;
+        }
 
     }
 }
